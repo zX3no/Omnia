@@ -75,6 +75,6 @@ I'm going to pass on this language.
 ### JavaScript
 
 I would say JavaScript syntax is about as complicated as Rust. 
-Install Node and setting up dependencies was easy.
+Installing Node and setting up dependencies was easy.
 
 It's okay.
