@@ -188,3 +188,12 @@ We still need to convert the string in a proper type. We do this with the parse 
 ```rust
   let mut t = s.parse::<i32>().unwrap();
 ```
+
+### Go
+
+This language is somehow more complicated than rust.
+The functions are super weird, `ReadString` reads up to a certain character and includes it. So your always going to have `\r\n` in your input.
+Worse than that, there's no pop function. Not epic.
+I can't believe how bad the documentation is and how shit the api is.
+I see why V exists now, yikes...
+I do like the way it auto imports modules I would like that for rust since it's such an import heavy language.
