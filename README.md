@@ -3,7 +3,7 @@ I really want to get to the bottom of the language war.
 Why are there so many languages? 
 Which ones are good or bad?
 
-To determine this I will create the same project multiple times in different langauges.
+To determine this I will create the same project multiple times in different languages.
 
 The program must be simple and have a GUI.
 
@@ -50,6 +50,22 @@ A timer seems like a good fit.
 |----------|-----|
 |          |     |
 
+**Tooling**
+
+| Language | Pos |
+|----------|-----|
+|          |     |
+
+**Ergonomics**
+
+*How easy the language is to write.*
+
+Lua is at the bottom, followed by Python.
+
+| Language | Pos |
+|----------|-----|
+|          |     |
+
 **Scalability**
 
 *How easy it is to expand the complexity of the application.*
@@ -58,9 +74,13 @@ A timer seems like a good fit.
 |----------|-----|
 |          |     |
 
-**Performance**
+**Compile Times**
 
 *How fast the language complies. Real performance is not relevant since most compiled languages are about the same speed.*
+
+| Language | Pos |
+|----------|-----|
+|          |     |
 
 ### Python
 Python is simple as long as you don't require any dependencies.
@@ -104,6 +124,67 @@ I'm going to pass on this language.
 ### JavaScript
 
 I would say JavaScript syntax is about as complicated as Rust. 
+I had to use prompt-sync to get the users input.
 Installing Node and setting up dependencies was easy.
 
 It's okay.
+
+### C
+Fairly simple to write. The input function is a poorly designed. 
+You pass your variable in by reference, rather than the function returning your inputted value. 
+There is no cross-platform sleep function for some reason?
+
+Compiling with C is annoying. I used `gcc timer.c -o timer.exe;timer.exe` to build and run.
+V does this better since you don't need to specify the executable name.
+
+### V 
+
+Tooling is not very good so there was no language server. Maybe mines just broken?
+The code is really nice to write and libraries are clean and easy to use.
+It took me a bit to find the documentation for everything.
+
+https://modules.vlang.io/
+
+Compiling isn't as nice as rust, however it's better than C.
+`v timer.v;timer.exe`
+
+### Rust
+
+Like javascript I had to user a library to get the user input.
+The first one I tried text_io, did not seem to work correctly on windows. 
+This is pretty common for all aspects of software engineering (as we saw with lua). 
+I'll be honest Rust is my favorite language. However I can't ignore how dumb this over-site is.
+
+Rust loves verbosity, in a some of ways it's more low level than C.
+Usually rust has a good balance of low level and high level functions.
+There should be a read! macro like println!.
+
+Here is the low level code:
+```rust
+  use std::io::{stdin, stdout, Write};
+
+  let mut s = String::new();
+  print!("Please enter some text: ");
+  stdout().flush().unwrap();
+  stdin().read_line(&mut s).unwrap();
+
+  // remove \r\n
+  s.pop();
+  s.pop();
+
+  let mut t = s.parse::<i32>().unwrap();
+  println!("You entered the number: {}", t);
+```
+
+First of all we're reading the raw string, which isn't bad, I just don't want that.
+
+Notice how we need to remove '\r\n' from the end of the string.
+
+There is also stdout().flush(). 
+This is because stdout frequently line-buffered by default and needs to be flush for the output to be displayed immediately.
+This can be fixed by using `eprint! rather than print!` as it's flushed immediately. Keep in mind this goes to `stderr` rather than `stdout`.
+
+We still need to convert the string in a proper type. We do this with the parse function.
+```rust
+  let mut t = s.parse::<i32>().unwrap();
+```
