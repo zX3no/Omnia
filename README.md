@@ -74,13 +74,36 @@ Lua is at the bottom, followed by Python.
 |----------|-----|
 |          |     |
 
-**Compile Times**
+**Good compile times**
 
-*How fast the language complies. Real performance is not relevant since most compiled languages are about the same speed.*
 
-| Language | Pos |
-|----------|-----|
-|          |     |
+| Language | Good |
+|----------|------|
+| Nim      | No   |
+
+**Required Modifying Path**
+
+| Language | Needs work? |
+|----------|-------------|
+| Lua      | Yes         |
+| V        | Yes         |
+| Nim      | Yes         |
+| Python   | No*         |
+| Rust     | No          |
+| C        | No*         |
+
+**Good build command**
+
+| Language | Good? |
+|----------|-------|
+| Rust     | Yes   |
+
+**Good documentation**
+
+| Language | Good? |
+|----------|-------|
+| Rust     | Yes   |
+
 
 ### Python
 Python is simple as long as you don't require any dependencies.
@@ -88,6 +111,8 @@ Just run `python timer.py`.
 
 
 ### Lua
+
+Had to setup environment variable for it.
 I had to download both lua and luarocks. 
 Both required me to use a package manager.
 Lua's syntax is somehow worse than pythons. 
@@ -139,14 +164,12 @@ V does this better since you don't need to specify the executable name.
 
 ### V 
 
+Had to setup environment variable for it.
 Tooling is not very good so there was no language server. Maybe mines just broken?
 The code is really nice to write and libraries are clean and easy to use.
 It took me a bit to find the documentation for everything.
 
 https://modules.vlang.io/
-
-Compiling isn't as nice as rust, however it's better than C.
-`v timer.v;timer.exe`
 
 ### Rust
 
@@ -197,3 +220,11 @@ Worse than that, there's no pop function. Not epic.
 I can't believe how bad the documentation is and how shit the api is.
 I see why V exists now, yikes...
 I do like the way it auto imports modules I would like that for rust since it's such an import heavy language.
+
+
+### Nim
+Had to setup environment variable for it.
+Docs are okay.
+https://nim-lang.org/docs/lib.html
+
+Ergonomics are decent. It's like a complied version of python. But it compiles pretty slow so I don't see a good use for it.

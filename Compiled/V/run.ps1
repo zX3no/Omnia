@@ -1,2 +1,1 @@
-v timer.v
-./timer.exe
+v run .
