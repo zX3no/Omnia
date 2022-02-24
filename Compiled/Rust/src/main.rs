@@ -1,19 +1,12 @@
+use read_io::read;
 use std::{
-    io::{stdin, stdout, Write},
+    io::{stdout, Write},
     thread,
     time::Duration,
 };
 
 fn main() {
-    let mut s = String::new();
-    eprint!("Enter a number: ");
-    stdin().read_line(&mut s).expect("Could not flush stdout");
-
-    // remove \r\n
-    s.pop();
-    s.pop();
-
-    let mut t = s.parse::<i32>().unwrap();
+    let mut t: i32 = read!("Enter the time in seconds: ");
 
     while t != 0 {
         let mins = (t as f32 / 60.0).floor();
