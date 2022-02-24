@@ -42,68 +42,23 @@ A timer seems like a good fit.
 |----------|-----|
 |          |     |
 
-**Simplicity**
 
-*How easy the language was to use. This includes using the provided tooling.*
+| Language | Simplicity | Documentation? | Build Tools | Manual path modification | Compile Times |
+|----------|------------|----------------|-------------|--------------------------|---------------|
+| Python   | Good       |                |             | No*                      | -             |
+| Lua      | Bad        | Bad            |             | Yes                      | -             |
+| C        | Bad        | Meh            |             | No*                      | Okay          |
+| C++      | Bad        | Meh            |             | No*                      | Okay          |
+| Nim      | Good       | Meh            |             | Yes                      | Slow          |
+| Rust     | Okay       | Good           | Good        | No                       | Slow          |
+| Go       | Bad        | Bad            | Okay        | No                       | Fast          |
+| V        | Good       | Good           | Good        | Yes                      | Fast          |
 
-| Language | Pos |
-|----------|-----|
-|          |     |
+**depends on install method*
 
-**Tooling**
+TODO: benchmark compile times
 
-| Language | Pos |
-|----------|-----|
-|          |     |
-
-**Ergonomics**
-
-*How easy the language is to write.*
-
-Lua is at the bottom, followed by Python.
-
-| Language | Pos |
-|----------|-----|
-|          |     |
-
-**Scalability**
-
-*How easy it is to expand the complexity of the application.*
-
-| Language | Pos |
-|----------|-----|
-|          |     |
-
-**Good compile times**
-
-
-| Language | Good |
-|----------|------|
-| Nim      | No   |
-
-**Required Modifying Path**
-
-| Language | Needs work? |
-|----------|-------------|
-| Lua      | Yes         |
-| V        | Yes         |
-| Nim      | Yes         |
-| Python   | No*         |
-| Rust     | No          |
-| C        | No*         |
-
-**Good build command**
-
-| Language | Good? |
-|----------|-------|
-| Rust     | Yes   |
-
-**Good documentation**
-
-| Language | Good? |
-|----------|-------|
-| Rust     | Yes   |
-
+I'll need to go over each section in each language with sources such as the documentation.
 
 ### Python
 Python is simple as long as you don't require any dependencies.

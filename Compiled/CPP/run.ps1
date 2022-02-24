@@ -1,0 +1,1 @@
+g++ timer.cpp -o timer.exe; ./timer
