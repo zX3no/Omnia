@@ -17,11 +17,11 @@ A timer seems like a good fit.
   - Lua
 
 - Compiled
-  - Rust
-  - C++
   - C
   - V
   - Go
+  - Rust
+  - C++
   - Nim
 
 - Bytecode
@@ -32,6 +32,35 @@ A timer seems like a good fit.
 - Functional
   - Elm
   - ReasonML  
+
+
+### Rankings
+
+**Overall**
+
+| Language | Pos |
+|----------|-----|
+|          |     |
+
+**Simplicity**
+
+*How easy the language was to use. This includes using the provided tooling.*
+
+| Language | Pos |
+|----------|-----|
+|          |     |
+
+**Scalability**
+
+*How easy it is to expand the complexity of the application.*
+
+| Language | Pos |
+|----------|-----|
+|          |     |
+
+**Performance**
+
+*How fast the language complies. Real performance is not relevant since most compiled languages are about the same speed.*
 
 ### Python
 Python is simple as long as you don't require any dependencies.
