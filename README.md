@@ -30,8 +30,11 @@ A timer seems like a good fit.
   - C#
 
 - Functional
+  - Elixer
   - Elm
   - ReasonML  
+  - OCaml
+  - Gleam
 
 
 ### Rankings
@@ -56,6 +59,7 @@ A timer seems like a good fit.
 | V          | Good       | Meh*           | Good        | Yes                      | Fast          |                |
 
 **depends on install method*
+
 **V has good library documentation, however documentation for the language isn't finished so it's a bit rough. It's better than C/C++/Python*
 
 TODO: benchmark compile times
@@ -112,7 +116,7 @@ Installing Node and setting up dependencies was easy.
 It's okay.
 
 ### C
-Fairly simple to write. The input function is a poorly designed. 
+Fairly simple to write. The input function is poorly designed. 
 You pass your variable in by reference, rather than the function returning your inputted value. 
 There is no cross-platform sleep function for some reason?
 
@@ -185,3 +189,83 @@ Docs are okay.
 https://nim-lang.org/docs/lib.html
 
 Ergonomics are decent. It's like a complied version of python. But it compiles pretty slow so I don't see a good use for it.
+
+### Elm
+
+This language is built for making websites?
+
+### ReasonML
+
+They have some instructions on setup. 
+
+```
+git clone https://github.com/esy-ocaml/hello-reason.git
+cd hello-reason
+
+# Install all dependencies (might take a while in the first run)
+esy 
+
+# Compile and run Hello.exe
+esy x Hello
+```
+
+It then install 10,000 packages and spits out this error: 
+```
+info esy 0.6.12 (using package.json)
+info fetching: done
+error command failed: "tar" "xf" "/cygdrive/d/Git/Project-Omnia/Functional/ReasonML/hello-reason/_esy/default/dist/ad5be437c50b699d66afc4e4a159c290" "-C" "/cygdrive/c/Users/Bay/AppData/Local/Temp/esy-dff42d"
+      stderr:
+               tar: ocamlbuild-0.14.1/examples/07-dependent-projects/libdemo: Cannot create symlink to ‘../04-library/libdemo’: Operation not permitted
+               tar: Exiting with failure status due to previous errors
+
+      stdout:
+
+error: error running command
+  unpacking @opam/ocamlbuild@opam:0.14.1
+  installing @opam/ocamlbuild@opam:0.14.1
+esy: exiting due to errors above
+```
+🤨
+
+### OCaml
+
+*OCaml on Windows is still a work in progress. In the meantime, if you only need to run OCaml programs on a Windows machine, then the simplest solution is to use the Windows Subsystem for Linux 2 (WSL2).*
+
+L
+
+### Gleam
+
+Required me to put gleam.exe in path. It's nice that it's just a single exe though.
+Then I needed to install erlang and put it into path.
+
+Trying to get the user input was not easy.
+
+*The `io.get_list` function has been moved to the `gleam_os` library.*
+
+Where is this gleam_os library? This library does not seem to have much documentation?
+
+This language seemed pretty cool.
+
+L
+
+### Elixir
+
+Check out these errors I got:
+
+```
+** (ArgumentError) cannot invoke def/2 outside module
+    (elixir 1.13.3) lib/kernel.ex:6111: Kernel.assert_module_scope/3
+    (elixir 1.13.3) lib/kernel.ex:4839: Kernel.define/4
+    (elixir 1.13.3) expanding macro: Kernel.def/2
+    timer.exs:4: (file)
+```
+```
+** (Protocol.UndefinedError) protocol String.Chars not implemented for {10, ""} of type Tuple
+    (elixir 1.13.3) lib/string/chars.ex:3: String.Chars.impl_for!/1
+    (elixir 1.13.3) lib/string/chars.ex:22: String.Chars.to_string/1
+    (elixir 1.13.3) lib/io.ex:724: IO.puts/2
+```
+
+Oof. This language seems pretty complicated and not very well documented.
+
+Despite that I've still managed to make it work. I'm pretty impressed with some of the things I've seen. I don't think *Elixir* is it yet.
