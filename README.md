@@ -43,17 +43,17 @@ A timer seems like a good fit.
 |          |     |
 
 
-| Language   | Simplicity | Documentation? | Build Tools | Manual path modification | Compile Times |
-|------------|------------|----------------|-------------|--------------------------|---------------|
-| Python     | Good       | Meh            | Bad         | No*                      | -             |
-| Lua        | Bad        | Bad            | Bad         | Yes                      | -             |
-| JavaScript | Bad        | Bad            | Good        | No                       | -             |
-| C          | Bad        | Meh            | Bad         | No*                      | Okay          |
-| C++        | Bad        | Meh            | Bad         | No*                      | Okay          |
-| Nim        | Good       | Meh            | Good        | Yes                      | Slow          |
-| Rust       | Okay       | Good           | Good        | No                       | Slow          |
-| Go         | Bad        | Bad            | Okay        | No                       | Fast          |
-| V          | Good       | Meh*           | Good        | Yes                      | Fast          |
+| Language   | Simplicity | Documentation? | Build Tools | Manual path modification | Compile Times | Error Messages |
+|------------|------------|----------------|-------------|--------------------------|---------------|----------------|
+| Python     | Good       | Meh            | Bad         | No*                      | -             |                |
+| Lua        | Bad        | Bad            | Bad         | Yes                      | -             |                |
+| JavaScript | Bad        | Bad            | Good        | No                       | -             |                |
+| C          | Bad        | Meh            | Bad         | No*                      | Okay          | Bad            |
+| C++        | Bad        | Meh            | Bad         | No*                      | Okay          | Bad            |
+| Nim        | Good       | Meh            | Good        | Yes                      | Slow          |                |
+| Rust       | Okay       | Good           | Good        | No                       | Slow          | Good           |
+| Go         | Bad        | Bad            | Okay        | No                       | Fast          |                |
+| V          | Good       | Meh*           | Good        | Yes                      | Fast          |                |
 
 **depends on install method*
 **V has good library documentation, however documentation for the language isn't finished so it's a bit rough. It's better than C/C++/Python*
