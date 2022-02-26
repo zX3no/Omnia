@@ -1,9 +1,11 @@
+Unfinished: Odin, Haskell 
+TODO: Java, Kotlin, C#, Clojure
+
 ### Languages
 
 - Dynamic
   - Python
   - JavaScript
-  - Lua
 
 - Compiled
   - C
@@ -18,6 +20,7 @@
 - Bytecode
   - Java
   - Kotlin
+  - Lua
   - C#
 
 - Functional
@@ -59,46 +62,12 @@ TODO: benchmark compile times
 
 I'll need to go over each section in each language with sources such as the documentation.
 
+# Interpreted
+
 ### Python
 Python is simple as long as you don't require any dependencies.
 Just run `python timer.py`.
 
-
-### Lua
-
-Had to setup environment variable for it.
-I had to download both lua and luarocks. 
-Both required me to use a package manager.
-Lua's syntax is somehow worse than pythons. 
-Most of the resources on this language are 10 years old.
-
-I don't understand the appeal.
-
-I needed to download luasocket for an accurate sleep function.
-After running `luarocks install luasocket` i received a nice error:
-```
-Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
-
-luasocket 3.0rc1-2 depends on lua >= 5.1 (5.4-1 provided by VM)
-mingw32-gcc -O2 -c -o src/luasocket.o -IC:/Users/Bay/scoop/apps/lua/current/include src/luasocket.c -DLUA_COMPAT_APIINTCASTS -DLUASOCKET_DEBUG -DLUASOCKET_INET_PTON -DWINVER=0x0501 -DLUASOCKET_API=__declspec(dllexport) -DMIME_API=__declspec(dllexport) -Ic:/windows/system32/include
-'mingw32-gcc' is not recognized as an internal or external command,
-operable program or batch file.
-
-Error: Build error: Failed compiling object src/luasocket.o
-```
-
-Oops looks like someone wants to run linux commands.
-
-I manually installed both lua and luarocks. Which was not easy since the lua website is so bad.
-Now I have this error:
-
-```
-Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
-
-Error: Failed finding Lua header files. You may need to install them or configure LUA_INCDIR.
-```
-
-I'm going to pass on this language. 
 
 ### JavaScript
 
@@ -107,6 +76,8 @@ I had to use prompt-sync to get the users input.
 Installing Node and setting up dependencies was easy.
 
 It's okay.
+
+# Compiled
 
 ### C
 Fairly simple to write. The input function is poorly designed. 
@@ -252,11 +223,68 @@ I do like the way it auto imports modules I would like that for rust since it's 
 
 
 ### Nim
+
 Had to setup environment variable for it.
 Docs are okay.
 https://nim-lang.org/docs/lib.html
 
 Ergonomics are decent. It's like a complied version of python. But it compiles pretty slow so I don't see a good use for it.
+
+### Odin
+
+Requires setting path.
+
+Setup was pretty easy.
+
+Use `odin run timer.odin` to run.
+
+Documentation is seems good:
+
+https://pkg.odin-lang.org/core/
+
+However I cannot find how to convert a string to an integer.
+
+The language is very new but it's seem pretty meh like the rest of the C wannabees.
+
+# Bytecode
+
+### Lua
+
+Had to setup environment variable for it.
+I had to download both lua and luarocks. 
+Both required me to use a package manager.
+Lua's syntax is somehow worse than pythons. 
+Most of the resources on this language are 10 years old.
+
+I don't understand the appeal.
+
+I needed to download luasocket for an accurate sleep function.
+After running `luarocks install luasocket` i received a nice error:
+```
+Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
+
+luasocket 3.0rc1-2 depends on lua >= 5.1 (5.4-1 provided by VM)
+mingw32-gcc -O2 -c -o src/luasocket.o -IC:/Users/Bay/scoop/apps/lua/current/include src/luasocket.c -DLUA_COMPAT_APIINTCASTS -DLUASOCKET_DEBUG -DLUASOCKET_INET_PTON -DWINVER=0x0501 -DLUASOCKET_API=__declspec(dllexport) -DMIME_API=__declspec(dllexport) -Ic:/windows/system32/include
+'mingw32-gcc' is not recognized as an internal or external command,
+operable program or batch file.
+
+Error: Build error: Failed compiling object src/luasocket.o
+```
+
+Oops looks like someone wants to run linux commands.
+
+I manually installed both lua and luarocks. Which was not easy since the lua website is so bad.
+Now I have this error:
+
+```
+Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
+
+Error: Failed finding Lua header files. You may need to install them or configure LUA_INCDIR.
+```
+
+I'm going to pass on this language. 
+
+# Functional
 
 ### Elm
 
