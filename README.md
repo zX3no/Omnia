@@ -126,6 +126,8 @@ It took me a bit to find the documentation for everything.
 https://modules.vlang.io/
 
 ### Rust
+Installing is pretty difficult as it requires you to install Visual Studio with C++ as well. 
+I tried with Visual Studio 2022 and it didn't work so I had to down grade.
 
 Like javascript I had to user a library to get the user input.
 The first one I tried text_io, did not seem to work correctly on windows. 
@@ -164,6 +166,18 @@ This can be fixed by using `eprint! rather than print!` as it's flushed immediat
 We still need to convert the string in a proper type. We do this with the parse function.
 ```rust
   let mut t = s.parse::<i32>().unwrap();
+```
+
+### C++
+
+This is somehow worse than C. I think I understand why people don't like this language now.
+
+This print function is not good. Maybe I'm using it wrong?
+
+```cpp
+  std::cout << std::setfill('0') << std::setw(2) << mins;
+  std::cout << ":";
+  std::cout << std::setfill('0') << std::setw(2) << secs;
 ```
 
 ### Go
@@ -226,9 +240,7 @@ TODO ...
 
 ### OCaml
 
-*OCaml on Windows is still a work in progress. In the meantime, if you only need to run OCaml programs on a Windows machine, then the simplest solution is to use the Windows Subsystem for Linux 2 (WSL2).*
-
-L
+>OCaml on Windows is still a work in progress. In the meantime, if you only need to run OCaml programs on a Windows machine, then the simplest solution is to use the Windows Subsystem for Linux 2 (WSL2).
 
 ### Gleam
 
@@ -268,3 +280,50 @@ Oof. This language seems pretty complicated and not very well documented.
 Despite that I've still managed to make it work. I'm pretty impressed with some of the things I've seen. I don't think *Elixir* is it yet.
 
 ### Haskell
+
+Starting off with some extremely confusing install instructions:
+
+```
+This page describes the installation of the Haskell toolchain, which consists of the following tools:
+
+GHC: the Glasgow Haskell Compiler
+
+cabal-install: the Cabal installation tool for managing Haskell software
+
+stack: a cross-platform program for developing Haskell projects
+
+haskell-language-server (optional): A language server for developers to integrate with their editor/IDE
+
+Installation instructions
+for Linux, macOS, FreeBSD, Windows or WSL2
+
+Install GHC, cabal-install and haskell-language-server via GHCup
+To install stack, follow the instructions here (N.B. stack does not support FreeBSD)
+```
+
+This isn't even english. I think i'm supposed to go here: https://www.haskell.org/ghc/download_ghc_9_2_1.html#windows64
+
+I just used `scoop install haskell stack` instead. It's 500mb's... oof.
+
+To setup the project:
+```
+stack new timer
+cd timer
+stack run
+```
+Then download another 400MB for the compile which is already installed.
+
+Then downloading it downloaded msys2??
+
+I guess we're installing linux now.
+
+I opted for a simpler approach `ghc timer.hs;./timer.exe`
+
+Compile times are exceptionally bad for this language.
+
+The documentation is worse than Elixir plus the language is harder to understand.
+
+TODO
+
+### Clojure 
+> Currently, clj on Windows is in an alpha state. Please try it and provide feedback in the TDEPS jira or on #clj-on-windows room on Clojurians slack.

@@ -1,0 +1,1 @@
+ghc timer.hs;./timer.exe

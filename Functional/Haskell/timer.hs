@@ -1,0 +1,4 @@
+-- main = do
+--   putStrLn "Enter a time in seconds: "
+--   s <- getLine
+--   let t = read s :: Integer
