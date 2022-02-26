@@ -12,6 +12,8 @@
   - Rust
   - C++
   - Nim
+  - Zig
+  - Odin
 
 - Bytecode
   - Java
@@ -179,6 +181,65 @@ This print function is not good. Maybe I'm using it wrong?
   std::cout << ":";
   std::cout << std::setfill('0') << std::setw(2) << secs;
 ```
+
+### Zig
+
+Download the binary and add to path.
+
+Creating a project
+
+```bash
+mkdir timer
+zig init-exe 
+zig run 
+
+error: `zig run` expects at least one positional argument
+```
+
+`zig run` is not like `cargo run`
+
+I swapped to `zig build-exe timer.zig;./timer.exe`
+
+Compile times don't seem great.
+
+```
+C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
+        @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
+        ^
+C:\path\zig\lib\std\io\writer.zig:28:34: note: called from here
+            return std.fmt.format(self, format, args);
+                                 ^
+C:\path\zig\lib\std\debug.zig:67:27: note: called from here
+    nosuspend stderr.print(fmt, args) catch return;
+                          ^
+.\timer.zig:15:14: note: called from here
+        print("{}", t);
+             ^
+.\timer.zig:4:29: note: called from here
+pub fn main() anyerror!void {
+                            ^
+C:\path\zig\lib\std\io\writer.zig:28:34: error: expected type 'std.os.WriteError!void', found '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set!void'
+            return std.fmt.format(self, format, args);
+                                 ^
+C:\path\zig\lib\std\debug.zig:67:27: note: called from here
+    nosuspend stderr.print(fmt, args) catch return;
+                          ^
+.\timer.zig:15:14: note: called from here
+        print("{}", t);
+             ^
+.\timer.zig:4:29: note: called from here
+pub fn main() anyerror!void {
+                            ^
+C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set' cannot cast into error set 'std.os.WriteError'
+            return std.fmt.format(self, format, args);
+                                 ^
+```
+
+Nice easy to understand error messages.
+
+This language feels like it was written by someone who wanted to make C even harder to use.
+
+Documentation is not good.
 
 ### Go
 
