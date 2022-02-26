@@ -1,5 +1,10 @@
 Unfinished: Odin, Haskell 
-TODO: Java, Kotlin, C#, Clojure
+
+TODO: Java, Kotlin, C#, Clojure, Lua, Elm, ReasonML
+
+Missing Windows support: OCaml, Clojure
+
+Can't find input function: Gleam, Odin
 
 ### Languages
 
@@ -415,4 +420,5 @@ The documentation is worse than Elixir plus the language is harder to understand
 TODO
 
 ### Clojure 
+
 > Currently, clj on Windows is in an alpha state. Please try it and provide feedback in the TDEPS jira or on #clj-on-windows room on Clojurians slack.
