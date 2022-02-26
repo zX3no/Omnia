@@ -12,8 +12,7 @@ int main()
     {
         int mins = floor(t / 60);
         int secs = t % 60;
-        // there are spaces here because C does not seem to clear the line?
-        printf("%d:%d  \r", mins, secs);
+        printf("%02d:%02d\r", mins, secs);
         Sleep(1000);
         t -= 1;
     };

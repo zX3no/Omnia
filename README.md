@@ -1,14 +1,3 @@
-### Goals
-I really want to get to the bottom of the language war. 
-Why are there so many languages? 
-Which ones are good or bad?
-
-To determine this I will create the same project multiple times in different languages.
-
-The program must be simple and have a GUI.
-
-A timer seems like a good fit.
-
 ### Languages
 
 - Dynamic
@@ -30,11 +19,13 @@ A timer seems like a good fit.
   - C#
 
 - Functional
-  - Elixer
+  - Elixir
   - Elm
   - ReasonML  
   - OCaml
   - Gleam
+  - Haskell
+  - Clojure
 
 
 ### Rankings
@@ -121,7 +112,9 @@ You pass your variable in by reference, rather than the function returning your 
 There is no cross-platform sleep function for some reason?
 
 Compiling with C is annoying. I used `gcc timer.c -o timer.exe;timer.exe` to build and run.
-V does this better since you don't need to specify the executable name.
+This sucks because if it fails to compile it will run the program anyway.
+
+printf is actually pretty decent. Headers are pretty archaic. Don't think I'd want to use C for massive projects but it's not too bad for this.
 
 ### V 
 
@@ -194,6 +187,8 @@ Ergonomics are decent. It's like a complied version of python. But it compiles p
 
 This language is built for making websites?
 
+TODO this can't be right
+
 ### ReasonML
 
 They have some instructions on setup. 
@@ -226,6 +221,8 @@ error: error running command
 esy: exiting due to errors above
 ```
 🤨
+
+TODO ...
 
 ### OCaml
 
@@ -269,3 +266,5 @@ Check out these errors I got:
 Oof. This language seems pretty complicated and not very well documented.
 
 Despite that I've still managed to make it work. I'm pretty impressed with some of the things I've seen. I don't think *Elixir* is it yet.
+
+### Haskell
