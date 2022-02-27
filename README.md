@@ -311,6 +311,32 @@ Exception in thread "main" java.lang.NumberFormatException: Cannot parse null st
 Java is old, overcomplicated and not very useful. The benefits of byte code languages don't seem to be worth it nowadays.
 Especially given V's sub second compile times.
 
+### C#
+
+Getting setup with this language is extremely difficult. I don't know what I need, visual studio, .NET SDK?
+After downloading something, it seems to work?
+
+Creating a new project with `dotnet new console --framework net6.0`
+
+Running with `dotnet run`
+
+Error messages:
+```
+Unhandled exception. System.FormatException: Format specifier was invalid.
+   at System.Number.GetFloatingPointMaxDigitsAndPrecision(Char fmt, Int32& precision, NumberFormatInfo info, Boolean& isSignificantDigits)
+   at System.Number.FormatDouble(ValueStringBuilder& sb, Double value, ReadOnlySpan`1 format, NumberFormatInfo info)
+   at System.Number.TryFormatDouble(Double value, ReadOnlySpan`1 format, NumberFormatInfo info, Span`1 destination, Int32& charsWritten)
+   at System.Double.TryFormat(Span`1 destination, Int32& charsWritten, ReadOnlySpan`1 format, IFormatProvider provider)
+   at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1)
+   at Program.<Main>$(String[] args) in D:\Git\Project-Omnia\Bytecode\C#\Program.cs:line 9
+```
+
+Definitely better than Java however it's still a bit rough around the edges.
+Documentation is okay.
+Build tools are okay.
+
 # Functional
 
 ### Elm
