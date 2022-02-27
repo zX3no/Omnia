@@ -49,19 +49,19 @@ Can't find input function: Gleam, Odin
 
 | Language   | Simplicity | Documentation? | Build Tools | Manual path modification | Compile Times | Error Messages |
 |------------|------------|----------------|-------------|--------------------------|---------------|----------------|
-| Python     | Good       | Meh            | Bad         | No*                      | -             |                |
+| Python     | Good       | Meh            | Bad         | No ¹                     | -             |                |
 | Lua        | Bad        | Bad            | Bad         | Yes                      | -             |                |
 | JavaScript | Bad        | Bad            | Good        | No                       | -             |                |
-| C          | Bad        | Meh            | Bad         | No*                      | Okay          | Bad            |
-| C++        | Bad        | Meh            | Bad         | No*                      | Okay          | Bad            |
+| C          | Bad        | Meh            | Bad         | No ¹                     | Okay          | Bad            |
+| C++        | Bad        | Meh            | Bad         | No ¹                     | Okay          | Bad            |
 | Nim        | Good       | Meh            | Good        | Yes                      | Slow          |                |
 | Rust       | Okay       | Good           | Good        | No                       | Slow          | Good           |
 | Go         | Bad        | Bad            | Okay        | No                       | Fast          |                |
-| V          | Good       | Meh*           | Good        | Yes                      | Fast          |                |
+| V          | Good       | Meh ²          | Good        | Yes                      | Fast          |                |
 
-**depends on install method*
+*¹ depends on install method*
 
-**V has good library documentation, however documentation for the language isn't finished so it's a bit rough. It's better than C/C++/Python*
+*² V has good library documentation, however documentation for the language isn't finished so it's a bit rough. It's better than C/C++/Python*
 
 TODO: benchmark compile times
 
@@ -351,7 +351,6 @@ I measured `5.01` seconds to compile and run hello world.
 kotlinc timer.kt -include-runtime -d timer.jar
 java -jar timer.jar
 ```
-
 
 Don't see the point of even trying to use this language but i'll give it a go.
 
