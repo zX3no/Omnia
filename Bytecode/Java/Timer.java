@@ -1,7 +1,7 @@
 import java.io.Console;
 
 public class Timer {
-  public static void main() {
+  public static void main(String[] args) {
     System.out.format("Enter a time in seconds: ");
     Console console = System.console();
     int t = Integer.parseInt(console.readLine());

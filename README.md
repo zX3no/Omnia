@@ -337,6 +337,47 @@ Definitely better than Java however it's still a bit rough around the edges.
 Documentation is okay.
 Build tools are okay.
 
+### Kotlin
+
+Kotlin seems to be focus towards IDE use. However there is an article about using it in the command line.
+
+https://kotlinlang.org/docs/command-line.html
+
+I don't know if it's suppose to take so long to compile but it's basically unusable.
+
+I measured `5.01` seconds to compile and run hello world.
+
+```
+kotlinc timer.kt -include-runtime -d timer.jar
+java -jar timer.jar
+```
+
+
+Don't see the point of even trying to use this language but i'll give it a go.
+
+An error message:
+
+```
+  timer.kt:9:22: error: overload resolution ambiguity: 
+  public final operator fun rem(other: Byte): Double defined in kotlin.Double
+  public final operator fun rem(other: Byte): Int defined in kotlin.Int
+  public final operator fun rem(other: Int): Double defined in kotlin.Double
+  public final operator fun rem(other: Int): Int defined in kotlin.Int
+  public final operator fun rem(other: Long): Double defined in kotlin.Double
+  public final operator fun rem(other: Long): Long defined in kotlin.Int
+  public final operator fun rem(other: Short): Double defined in kotlin.Double
+  public final operator fun rem(other: Short): Int defined in kotlin.Int
+  var secs = t.rem(60);
+```
+
+I got so many of these overload ambiguity errors it's insane.
+
+The syntax is okay, much simpler than java. 
+
+Documentation is okay. 
+
+Error messages and compile times are awful.
+
 # Functional
 
 ### Elm
