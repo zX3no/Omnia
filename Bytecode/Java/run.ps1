@@ -1,0 +1,1 @@
+javac timer.java;java Timer

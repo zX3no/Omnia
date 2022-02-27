@@ -289,6 +289,28 @@ Error: Failed finding Lua header files. You may need to install them or configur
 
 I'm going to pass on this language. 
 
+### Java
+
+This language is like 100 years old but there still isn't any good documentation for it.
+
+Building is pretty standard `javac timer.java;java Timer`
+
+Errors are pretty decent: 
+
+```
+timer.java:8: error: incompatible types: int cannot be converted to boolean
+    while (t) {
+           ^
+timer.java:9: error: incompatible types: possible lossy conversion from double to int
+        int mins = Math.floor(t / 60);
+                             ^
+2 errors
+Exception in thread "main" java.lang.NumberFormatException: Cannot parse null string
+```
+
+Java is old, overcomplicated and not very useful. The benefits of byte code languages don't seem to be worth it nowadays.
+Especially given V's sub second compile times.
+
 # Functional
 
 ### Elm
