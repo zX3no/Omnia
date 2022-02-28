@@ -20,7 +20,7 @@ int main()
         std::cout << "\r";
 
         Sleep(1000);
-        t -= 1;
+        t--;
     }
     return 0;
 }

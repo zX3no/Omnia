@@ -14,7 +14,7 @@ int main()
         int secs = t % 60;
         printf("%02d:%02d\r", mins, secs);
         Sleep(1000);
-        t -= 1;
+        t--;
     };
 
     return 0;

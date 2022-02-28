@@ -21,10 +21,8 @@ func main() {
 	for t != 0 {
 		mins := math.Floor(float64(t) / 60.0)
 		secs := t % 60
-
-		fmt.Print(mins, ":", secs, " \r")
-
+		fmt.Printf("%02v:%02v\r", mins, secs)
 		time.Sleep(1 * time.Second)
-		t -= 1
+		t--
 	}
 }

@@ -11,6 +11,6 @@ fn main() {
 		secs := t % 60
 		print('${mins:02}:${secs:02}\r')
 		time.sleep(1 * time.second)
-		t -= 1
+		t--
 	}
 }

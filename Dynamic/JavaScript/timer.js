@@ -6,10 +6,9 @@ async function main() {
     while (t) {
         var mins = Math.floor(t / 60);
         var secs = t % 60;
-        //TODO: formatting
-        process.stdout.write(mins + ":" + secs + "\r");
+        process.stdout.write(String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0') + '\r');
         await sleep(1000);
-        t -= 1;
+        t--;
     }
 }
 

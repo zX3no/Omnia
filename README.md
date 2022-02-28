@@ -1,10 +1,30 @@
-Unfinished: Odin, Haskell 
+## Goals
 
-TODO: Java, Kotlin, C#, Clojure, Lua, Elm, ReasonML
+I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
+Sometimes it feels like the *quality* of a language is determined by how old it is, rather than how good it is.
 
-Missing Windows support: OCaml, Clojure
+To get to the bottom of this, I've deciced to remake the same project in over 20 different languages.
 
-Can't find input function: Gleam, Odin
+The project I've chosen is a countdown timer. This feels like a good choice since it requires:
+
+- Getting the users input from `stdin`
+- Accessing the OS's sleep function
+- Formatting the time left with zero padding, for example: `01:08`
+- Using a floor function from the languages math library
+
+Here's some pseudo code of the timer:
+
+```
+time = 60
+
+while time != 0 
+    mins = floor(t / 60)
+    secs = t % 60
+
+    print mins secs
+    sleep 1 second
+    t--
+```
 
 ### Languages
 
@@ -14,10 +34,10 @@ Can't find input function: Gleam, Odin
 
 - Compiled
   - C
-  - V
+  - C++
   - Go
   - Rust
-  - C++
+  - V
   - Nim
   - Zig
   - Odin
@@ -30,15 +50,62 @@ Can't find input function: Gleam, Odin
 
 - Functional
   - Elixir
+  - Haskell
   - Elm
   - ReasonML  
   - OCaml
   - Gleam
-  - Haskell
   - Clojure
 
 
 ### Rankings
+
+Something I like about each language:
+
+Python: Very clean input function. Only language that has a `divmod` function. Standard library seems very strong and comprehensive.
+
+JavaScript: Despite being built for the web. It's was still very easy to setup dependencies and find documentation.
+
+C: `printf` is very easy to use. No hassles with flushing `stdout`.
+
+C++: I've used this language a lot before I swapped to rust. I swapped for a reason.
+
+Go: Automatically imports every that you need. I wish rust had this! 
+
+Rust: I don't think rust's benfits matter for a project this small.
+However the `cargo` is the best build tool I've ever used. 
+Plus the documentation for this language is unmatched. 
+
+V: It's simple to write, fast to compile.
+This language is what Go should have been.
+
+Nim: Very simple to write, feels like a cross between rust and python.
+
+Zig: This language is awful
+
+Odin: This languge is also awful
+
+Java: This language is awful
+
+Kotlin: Much better than Java, I think I'd enjoy writing android apps with this langauge.
+
+Lua: TODO
+
+C#: Ehh, it's better than Java?
+
+Elixir: The only functional lanaguage that actually worked for me. Opened my mind to new ways of thinking about programming.
+
+Haskell: TODO
+
+Elm: TODO
+
+ReasonML: TODO
+
+OCaml: Does not support Windows; cringe.
+
+Gleam: This langauge seems really nice, however it's seems extremly new. I'll keep an eye on this one.
+
+Clojure: Does not support Windows.
 
 **Overall**
 
@@ -49,15 +116,23 @@ Can't find input function: Gleam, Odin
 
 | Language   | Simplicity | Documentation? | Build Tools | Manual path modification | Compile Times | Error Messages |
 |------------|------------|----------------|-------------|--------------------------|---------------|----------------|
-| Python     | Good       | Meh            | Bad         | No ¹                     | -             |                |
-| Lua        | Bad        | Bad            | Bad         | Yes                      | -             |                |
+| Python     | Good       | Meh            | Bad         | No¹                      | -             |                |
 | JavaScript | Bad        | Bad            | Good        | No                       | -             |                |
-| C          | Bad        | Meh            | Bad         | No ¹                     | Okay          | Bad            |
-| C++        | Bad        | Meh            | Bad         | No ¹                     | Okay          | Bad            |
+| C          | Bad        | Meh            | Bad         | No¹                      | Okay          | Bad            |
+| C++        | Bad        | Meh            | Bad         | No¹                      | Okay          | Bad            |
 | Nim        | Good       | Meh            | Good        | Yes                      | Slow          |                |
 | Rust       | Okay       | Good           | Good        | No                       | Slow          | Good           |
 | Go         | Bad        | Bad            | Okay        | No                       | Fast          |                |
-| V          | Good       | Meh ²          | Good        | Yes                      | Fast          |                |
+| V          | Good       | Meh²           | Good        | Yes                      | Fast          |                |
+
+Unfinished: Odin, Haskell, Zig 
+
+TODO: Java, Kotlin, C#, Clojure, Lua, Elm, ReasonML
+
+Missing Windows support: OCaml, Clojure
+
+Can't find input function: Gleam, Odin
+
 
 *¹ depends on install method*
 
@@ -67,7 +142,7 @@ TODO: benchmark compile times
 
 I'll need to go over each section in each language with sources such as the documentation.
 
-# Interpreted
+## Interpreted
 
 ### Python
 Python is simple as long as you don't require any dependencies.
@@ -82,9 +157,10 @@ Installing Node and setting up dependencies was easy.
 
 It's okay.
 
-# Compiled
+## Compiled
 
 ### C
+
 Fairly simple to write. The input function is poorly designed. 
 You pass your variable in by reference, rather than the function returning your inputted value. 
 There is no cross-platform sleep function for some reason?
@@ -97,11 +173,32 @@ printf is actually pretty decent. Headers are pretty archaic. Don't think I'd wa
 ### V 
 
 Had to setup environment variable for it.
-Tooling is not very good so there was no language server. Maybe mines just broken?
+Language server is in alpha and did not work for me.
 The code is really nice to write and libraries are clean and easy to use.
 It took me a bit to find the documentation for everything.
 
 https://modules.vlang.io/
+
+Error messages are decent:  
+
+```
+.\timer.v:11:13: error: string types only have the following operators defined: `==`, `!=`, `<`, `>`, `<=`, `>=`, and `+`
+    9 |     for t != 0 {
+   10 |         mins := math.floor(t / 60)
+   11 |         secs := t % 60
+      |                   ^
+   12 |         print('${mins:02}:${secs:02}\r')
+   13 |         time.sleep(1 * time.second)
+.\timer.v:14:3: error: operator `-=` not defined on left operand type `string`
+   12 |         print('${mins:02}:${secs:02}\r')
+   13 |         time.sleep(1 * time.second)
+   14 |         t -= 1
+      |         ^
+   15 |     }
+   16 | }
+```
+
+Here `t` is a `string` when it should be an `i16`.
 
 ### Rust
 Installing is pretty difficult as it requires you to install Visual Studio with C++ as well. 
@@ -116,21 +213,22 @@ Rust loves verbosity, in a some of ways it's more low level than C.
 Usually rust has a good balance of low level and high level functions.
 There should be a read! macro like println!.
 
-Here is the low level code:
+Here's the low level code:
+
 ```rust
-  use std::io::{stdin, stdout, Write};
+use std::io::{stdin, stdout, Write};
 
-  let mut s = String::new();
-  print!("Please enter some text: ");
-  stdout().flush().unwrap();
-  stdin().read_line(&mut s).unwrap();
+let mut s = String::new();
+print!("Please enter some text: ");
+stdout().flush().unwrap();
+stdin().read_line(&mut s).unwrap();
 
-  // remove \r\n
-  s.pop();
-  s.pop();
+// remove \r\n
+s.pop();
+s.pop();
 
-  let mut t = s.parse::<i32>().unwrap();
-  println!("You entered the number: {}", t);
+let mut t = s.parse::<i32>().unwrap();
+println!("You entered the number: {}", t);
 ```
 
 First of all we're reading the raw string, which isn't bad, I just don't want that.
@@ -142,9 +240,20 @@ This is because stdout frequently line-buffered by default and needs to be flush
 This can be fixed by using `eprint! rather than print!` as it's flushed immediately. Keep in mind this goes to `stderr` rather than `stdout`.
 
 We still need to convert the string in a proper type. We do this with the parse function.
+
+To fix this problem I created a crate (a rust dependency).
+
+It defines a macro that can be imported and used to get input.
+
+Here is the new input code:
+
 ```rust
-  let mut t = s.parse::<i32>().unwrap();
+use read_io::read;
+
+let mut t: i32 = read!("Enter the time in seconds: ");
 ```
+
+Hopefully something like this can be added to the standard library one day.
 
 ### C++
 
@@ -251,7 +360,7 @@ However I cannot find how to convert a string to an integer.
 
 The language is very new but it's seem pretty meh like the rest of the C wannabees.
 
-# Bytecode
+## Bytecode
 
 ### Lua
 
@@ -377,7 +486,7 @@ Documentation is okay.
 
 Error messages and compile times are awful.
 
-# Functional
+## Functional
 
 ### Elm
 
