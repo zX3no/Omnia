@@ -255,6 +255,19 @@ let mut t: i32 = read!("Enter the time in seconds: ");
 
 Hopefully something like this can be added to the standard library one day.
 
+There are actually a lot of discussion about Rust's lack of a read function.
+
+https://github.com/rust-lang/rust/pull/75435
+https://github.com/rust-lang/rfcs/pull/3196
+
+A list of libraries that try to fix this issue:
+https://crates.io/crates/text_io
+https://crates.io/crates/ezio
+https://crates.io/crates/scan-rules
+https://crates.io/crates/scan_fmt
+
+TODO: Rewrite this section.
+
 ### C++
 
 This is somehow worse than C. I think I understand why people don't like this language now.
