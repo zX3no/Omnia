@@ -1,2 +1,1 @@
-zig build-exe timer.zig
-./timer.exe
+zig build run

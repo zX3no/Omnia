@@ -62,6 +62,7 @@ TODO REMOVE
   - OCaml
   - Gleam
   - Clojure
+  - PureScript
 
 
 ### Rankings
@@ -76,8 +77,6 @@ Libraries are a very important part of any language eco-system.
 Most of us don't have time to reinvent the wheel every day. 
 Sometimes languages are worth using for a simple package.
 Many people use Python just for TensorFlow or PyTorch.
-
-There will two ranking sections, one for beginners, the other for advanced users.
 
 --- 
 
@@ -130,40 +129,32 @@ Gleam: This language want's to make functional programing accessible, however it
 
 Clojure: Does not support Windows.
 
-#### Beginner
-
-| Language | Pos |
-|----------|-----|
-|          |     |
-
-#### Advanced
-
-| Language | Pos |
-|----------|-----|
-|          |     |
+| Language | Pos | Beginner friendly? |
+|----------|-----|--------------------|
+|          |     |                    |
 
 
 #### All
 
-| Language   | Simplicity | Documentation? | Build Tools | Updates Path | Compile Times(ms) | Error Messages | Offical Install Guide                               |
+| Language   | Simplicity | Documentation? | Build Tools | Updates Path | Compile Times(ms) | Error Messages | Official Install Guide                              |
 |------------|------------|----------------|-------------|--------------|-------------------|----------------|-----------------------------------------------------|
-| Python     | Good       | Meh            | Bad         | No           | -                 |                | [Yes](https://www.python.org/about/gettingstarted/) |
+| Python     | Good       | Okay           | Okay        | No           | -                 |                | [Yes](https://www.python.org/about/gettingstarted/) |
 | JavaScript | Bad        | Bad            | Good        | Yes          | -                 |                | No                                                  |
 | TypeScript |            |                |             |              |                   |                |                                                     |
-| C          | Bad        | Meh            | Bad         | Yes          | Okay              | Bad            | No                                                  |
-| C++        | Bad        | Meh            | Bad         | Yes          | Okay              | Bad            | [Yes](https://isocpp.org/get-started)               |
+| C          | Okay       | Okay           | Bad         | Yes          | Okay              | Bad            | No                                                  |
+| C++        | Bad        | Okay           | Bad         | Yes          | Okay              | Bad            | [Yes](https://isocpp.org/get-started)               |
 | Go         | Bad        | Bad            | Okay        | Yes          | Fast              |                |                                                     |
 | Rust       | Okay       | Good           | Good        | Yes          | Slow              | Good           |                                                     |
 | V          | Good       | Good           | Good        | No           | Fast              |                |                                                     |
-| Nim        | Good       | Meh            | Good        | No           | Slow              |                |                                                     |
-| Zig        | Awful      |                |             |              |                   |                |                                                     |
-| Odin       |            |                |             |              |                   |                |                                                     |
-| Java       | Bad        |                |             |              |                   |                |                                                     |
-| Kotlin     | Okay       |                |             |              |                   |                |                                                     |
-| Lua        |            |                |             |              |                   |                |                                                     |
-| C#         |            |                |             |              |                   |                |                                                     |
-| Elixir     |            |                |             |              |                   |                |                                                     |
-| Haskell    |            |                |             |              |                   |                |                                                     |
+| Nim        | Good       | Good           | Good        | No           | Slow              |                |                                                     |
+| Zig        | Awful      | Bad            | Bad         | No           | Slow              | Bad            | [Yes](https://ziglang.org/learn/getting-started/)   |
+| Odin       | Bad        | Bad            |             |              |                   |                |                                                     |
+| Java       | Bad        | Bad            |             |              |                   |                |                                                     |
+| Kotlin     | Okay       | Okay           |             |              |                   |                |                                                     |
+| Lua        |            | Bad            |             |              |                   |                |                                                     |
+| C#         | Okay       | Okay           |             |              |                   |                |                                                     |
+| Elixir     | ?          | Good           |             |              |                   |                |                                                     |
+| Haskell    | ?          | Okay           |             |              |                   |                |                                                     |
 |            |            |                |             |              |                   |                |                                                     |
 |            |            |                |             |              |                   |                |                                                     |
 
@@ -259,7 +250,7 @@ https://modules.vlang.io/
 
 Error messages are decent:  
 
-```
+```log
 .\timer.v:11:13: error: string types only have the following operators defined: `==`, `!=`, `<`, `>`, `<=`, `>=`, and `+`
     9 |     for t != 0 {
    10 |         mins := math.floor(t / 60)
@@ -370,7 +361,7 @@ Download the binary and add to path.
 
 Creating a project
 
-```bash
+```log
 mkdir timer
 zig init-exe 
 zig run 
@@ -384,7 +375,7 @@ I swapped to `zig build-exe timer.zig;./timer.exe`
 
 Compile times don't seem great.
 
-```
+```log
 C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
         @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
         ^
@@ -471,7 +462,8 @@ I don't understand the appeal.
 
 I needed to download luasocket for an accurate sleep function.
 After running `luarocks install luasocket` i received a nice error:
-```
+
+```log
 Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
 
 luasocket 3.0rc1-2 depends on lua >= 5.1 (5.4-1 provided by VM)
@@ -503,7 +495,7 @@ Building is pretty standard `javac timer.java;java Timer`
 
 Errors are pretty decent: 
 
-```
+```log
 timer.java:8: error: incompatible types: int cannot be converted to boolean
     while (t) {
            ^
@@ -529,7 +521,8 @@ Creating a new project with `dotnet new console --framework net6.0`
 Running with `dotnet run`
 
 Error messages:
-```
+
+```log
 Unhandled exception. System.FormatException: Format specifier was invalid.
    at System.Number.GetFloatingPointMaxDigitsAndPrecision(Char fmt, Int32& precision, NumberFormatInfo info, Boolean& isSignificantDigits)
    at System.Number.FormatDouble(ValueStringBuilder& sb, Double value, ReadOnlySpan`1 format, NumberFormatInfo info)
@@ -564,7 +557,7 @@ Don't see the point of even trying to use this language but i'll give it a go.
 
 An error message:
 
-```
+```log
   timer.kt:9:22: error: overload resolution ambiguity: 
   public final operator fun rem(other: Byte): Double defined in kotlin.Double
   public final operator fun rem(other: Byte): Int defined in kotlin.Int
@@ -599,7 +592,7 @@ TODO this can't be right
 
 They have some instructions on setup. 
 
-```
+```log
 git clone https://github.com/esy-ocaml/hello-reason.git
 cd hello-reason
 
@@ -611,7 +604,8 @@ esy x Hello
 ```
 
 It then install 10,000 packages and spits out this error: 
-```
+
+```log
 info esy 0.6.12 (using package.json)
 info fetching: done
 error command failed: "tar" "xf" "/cygdrive/d/Git/Project-Omnia/Functional/ReasonML/hello-reason/_esy/default/dist/ad5be437c50b699d66afc4e4a159c290" "-C" "/cygdrive/c/Users/Bay/AppData/Local/Temp/esy-dff42d"
@@ -653,23 +647,21 @@ L
 
 Check out these errors I got:
 
-```
+```log
 ** (ArgumentError) cannot invoke def/2 outside module
     (elixir 1.13.3) lib/kernel.ex:6111: Kernel.assert_module_scope/3
     (elixir 1.13.3) lib/kernel.ex:4839: Kernel.define/4
     (elixir 1.13.3) expanding macro: Kernel.def/2
     timer.exs:4: (file)
 ```
-```
+```log
 ** (Protocol.UndefinedError) protocol String.Chars not implemented for {10, ""} of type Tuple
     (elixir 1.13.3) lib/string/chars.ex:3: String.Chars.impl_for!/1
     (elixir 1.13.3) lib/string/chars.ex:22: String.Chars.to_string/1
     (elixir 1.13.3) lib/io.ex:724: IO.puts/2
 ```
 
-Oof. This language seems pretty complicated and not very well documented.
-
-Despite that I've still managed to make it work. I'm pretty impressed with some of the things I've seen. I don't think *Elixir* is it yet.
+Oof. I'm still impressed with some of the things I've seen. I don't think *Elixir* is it yet.
 
 ### Haskell
 
@@ -698,6 +690,7 @@ This isn't even english. I think i'm supposed to go here: https://www.haskell.or
 I just used `scoop install haskell stack` instead. It's 500mb's... oof.
 
 To setup the project:
+
 ```
 stack new timer
 cd timer
