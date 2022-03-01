@@ -1,3 +1,6 @@
+I feel this information could be useful for people looking for a language.
+Should rename the project.
+
 ## Goals
 
 I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
@@ -28,9 +31,12 @@ while time != 0
 
 ### Languages
 
+TODO REMOVE
+
 - Dynamic
   - Python
   - JavaScript
+  - TypeScript
 
 - Compiled
   - C
@@ -60,11 +66,28 @@ while time != 0
 
 ### Rankings
 
-Something I like about each language:
+There are some import things to note when looking for a new language.
+The best language is one that is easiest to learn.
+Many new `simple` languages lack documentation and are not a good choice for people learning.
+
+Tooling is often very important, having a nice build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make life easy.
+
+Libraries are a very important part of any language eco-system. 
+Most of us don't have time to reinvent the wheel every day. 
+Sometimes languages are worth using for a simple package.
+Many people use Python just for TensorFlow or PyTorch.
+
+There will two ranking sections, one for beginners, the other for advanced users.
+
+--- 
+
+#### Something I like about each language:
 
 Python: Very clean input function. Only language that has a `divmod` function. Standard library seems very strong and comprehensive.
 
 JavaScript: Despite being built for the web. It's was still very easy to setup dependencies and find documentation.
+
+TypeScript: TODO
 
 C: `printf` is very easy to use. No hassles with flushing `stdout`.
 
@@ -72,7 +95,7 @@ C++: I've used this language a lot before I swapped to rust. I swapped for a rea
 
 Go: Automatically imports every that you need. I wish rust had this! 
 
-Rust: I don't think rust's benfits matter for a project this small.
+Rust: I don't think rust's benefits matter for a project this small.
 However the `cargo` is the best build tool I've ever used. 
 Plus the documentation for this language is unmatched. 
 
@@ -83,17 +106,17 @@ Nim: Very simple to write, feels like a cross between rust and python.
 
 Zig: This language is awful
 
-Odin: This languge is also awful
+Odin: This language is also awful
 
 Java: This language is awful
 
-Kotlin: Much better than Java, I think I'd enjoy writing android apps with this langauge.
+Kotlin: Much better than Java, I think I'd enjoy writing android apps with this language.
 
 Lua: TODO
 
-C#: Ehh, it's better than Java?
+C#: It's better than Java?
 
-Elixir: The only functional lanaguage that actually worked for me. Opened my mind to new ways of thinking about programming.
+Elixir: The only functional language that actually worked for me. Opened my mind to new ways of thinking about programming.
 
 Haskell: TODO
 
@@ -101,42 +124,56 @@ Elm: TODO
 
 ReasonML: TODO
 
-OCaml: Does not support Windows; cringe.
+OCaml: Does not support Windows.
 
-Gleam: This langauge seems really nice, however it's seems extremly new. I'll keep an eye on this one.
+Gleam: This language want's to make functional programing accessible, however it's very new. I'll keep an eye on this one.
 
 Clojure: Does not support Windows.
 
-**Overall**
+#### Beginner
+
+| Language | Pos |
+|----------|-----|
+|          |     |
+
+#### Advanced
 
 | Language | Pos |
 |----------|-----|
 |          |     |
 
 
-| Language   | Simplicity | Documentation? | Build Tools | Manual path modification | Compile Times | Error Messages |
-|------------|------------|----------------|-------------|--------------------------|---------------|----------------|
-| Python     | Good       | Meh            | Bad         | No¹                      | -             |                |
-| JavaScript | Bad        | Bad            | Good        | No                       | -             |                |
-| C          | Bad        | Meh            | Bad         | No¹                      | Okay          | Bad            |
-| C++        | Bad        | Meh            | Bad         | No¹                      | Okay          | Bad            |
-| Nim        | Good       | Meh            | Good        | Yes                      | Slow          |                |
-| Rust       | Okay       | Good           | Good        | No                       | Slow          | Good           |
-| Go         | Bad        | Bad            | Okay        | No                       | Fast          |                |
-| V          | Good       | Meh²           | Good        | Yes                      | Fast          |                |
+#### All
+
+| Language   | Simplicity | Documentation? | Build Tools | Updates Path | Compile Times(ms) | Error Messages | Offical Install Guide                               |
+|------------|------------|----------------|-------------|--------------|-------------------|----------------|-----------------------------------------------------|
+| Python     | Good       | Meh            | Bad         | No           | -                 |                | [Yes](https://www.python.org/about/gettingstarted/) |
+| JavaScript | Bad        | Bad            | Good        | Yes          | -                 |                | No                                                  |
+| TypeScript |            |                |             |              |                   |                |                                                     |
+| C          | Bad        | Meh            | Bad         | Yes          | Okay              | Bad            | No                                                  |
+| C++        | Bad        | Meh            | Bad         | Yes          | Okay              | Bad            | [Yes](https://isocpp.org/get-started)               |
+| Go         | Bad        | Bad            | Okay        | Yes          | Fast              |                |                                                     |
+| Rust       | Okay       | Good           | Good        | Yes          | Slow              | Good           |                                                     |
+| V          | Good       | Good           | Good        | No           | Fast              |                |                                                     |
+| Nim        | Good       | Meh            | Good        | No           | Slow              |                |                                                     |
+| Zig        | Awful      |                |             |              |                   |                |                                                     |
+| Odin       |            |                |             |              |                   |                |                                                     |
+| Java       | Bad        |                |             |              |                   |                |                                                     |
+| Kotlin     | Okay       |                |             |              |                   |                |                                                     |
+| Lua        |            |                |             |              |                   |                |                                                     |
+| C#         |            |                |             |              |                   |                |                                                     |
+| Elixir     |            |                |             |              |                   |                |                                                     |
+| Haskell    |            |                |             |              |                   |                |                                                     |
+|            |            |                |             |              |                   |                |                                                     |
+|            |            |                |             |              |                   |                |                                                     |
 
 Unfinished: Odin, Haskell, Zig 
 
-TODO: Java, Kotlin, C#, Clojure, Lua, Elm, ReasonML
+TODO: Lua, Elm, ReasonML
 
 Missing Windows support: OCaml, Clojure
 
 Can't find input function: Gleam, Odin
-
-
-*¹ depends on install method*
-
-*² V has good library documentation, however documentation for the language isn't finished so it's a bit rough. It's better than C/C++/Python*
 
 TODO: benchmark compile times
 
@@ -145,17 +182,58 @@ I'll need to go over each section in each language with sources such as the docu
 ## Interpreted
 
 ### Python
+
+- Documentation: 
+
+  https://docs.python.org/3/
+
+- Required Computer Knowledge: 
+
+  Low
+
+- Install Guide:
+
+  https://www.python.org/ > 
+  https://www.python.org/about/gettingstarted/ >
+  https://wiki.python.org/moin/BeginnersGuide/Download >
+  https://www.python.org/downloads/ 
+
+  Adding to path requires ticking a checkbox
+
+  Cannot be installed by following instructions;.
+
 Python is simple as long as you don't require any dependencies.
 Just run `python timer.py`.
 
-
 ### JavaScript
 
-I would say JavaScript syntax is about as complicated as Rust. 
-I had to use prompt-sync to get the users input.
-Installing Node and setting up dependencies was easy.
+Keep in mind that I'm talking about JavaScript + Node.js.
 
-It's okay.
+- Documentation: 
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+https://nodejs.org/docs/latest-v15.x/api/
+https://nodejs.dev/learn/introduction-to-nodejs
+
+I really like node's introduction to nodejs.
+
+- Required Computer Knowledge:
+
+  Moderate
+
+- Install Guide:
+  First you need to understand that JavaScript is dynamic and requires a `runtime` like Node.js or Deno.
+
+  https://nodejs.org/en/
+
+  Installing is really easy, doesn't require modifying your path. 
+
+
+It may be hard for people to understand that JavScript requires a runtime like NodeJs. I can't recommend this language to new users because of this.
+
+The JavaScript syntax is pretty ugly.
+I had to used the `prompt-sync` package to get the users input because `read-line` was super complicated.
+Installing Node and setting up dependencies was easy.
 
 ## Compiled
 
@@ -269,6 +347,12 @@ https://crates.io/crates/scan_fmt
 TODO: Rewrite this section.
 
 ### C++
+
+Install Guide:
+
+https://isocpp.org/ > https://isocpp.org/get-started > https://nuwen.net/mingw.html > https://nuwen.net/mingw.html#install
+
+Describes setting up enviroment variables. Might be hard to follow since it doesn't explain how to open the command prompt.
 
 This is somehow worse than C. I think I understand why people don't like this language now.
 
@@ -433,6 +517,8 @@ Exception in thread "main" java.lang.NumberFormatException: Cannot parse null st
 Java is old, overcomplicated and not very useful. The benefits of byte code languages don't seem to be worth it nowadays.
 Especially given V's sub second compile times.
 
+I've used maven a few times and it seems okay.
+
 ### C#
 
 Getting setup with this language is extremely difficult. I don't know what I need, visual studio, .NET SDK?
@@ -498,6 +584,8 @@ The syntax is okay, much simpler than java.
 Documentation is okay. 
 
 Error messages and compile times are awful.
+
+If this language didn't give me so much hassle with types, i would've given it a *good* in simplicity.
 
 ## Functional
 
