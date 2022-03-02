@@ -193,8 +193,13 @@ I'll need to go over each section in each language with sources such as the docu
 
   Cannot be installed by following instructions;.
 
+- Build Command:
+
+  `python timer.py`
+
 Python is simple as long as you don't require any dependencies.
-Just run `python timer.py`.
+I find the syntax to be difficult at scale but fine for small projects.
+I would also caution people in using interpreted languages as they are inherently slow.
 
 ### JavaScript
 
@@ -202,11 +207,13 @@ Keep in mind that I'm talking about JavaScript + Node.js.
 
 - Documentation: 
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript
-https://nodejs.org/docs/latest-v15.x/api/
-https://nodejs.dev/learn/introduction-to-nodejs
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
-I really like node's introduction to nodejs.
+  https://nodejs.org/docs/latest-v15.x/api/
+
+  https://nodejs.dev/learn/introduction-to-nodejs
+
+  >I really like node's introduction to nodejs.
 
 - Required Computer Knowledge:
 
@@ -219,38 +226,102 @@ I really like node's introduction to nodejs.
 
   Installing is really easy, doesn't require modifying your path. 
 
+- Build Command: 
 
-It may be hard for people to understand that JavScript requires a runtime like NodeJs. I can't recommend this language to new users because of this.
+  `node timer.js`
 
-The JavaScript syntax is pretty ugly.
-I had to used the `prompt-sync` package to get the users input because `read-line` was super complicated.
-Installing Node and setting up dependencies was easy.
+
+It may be hard for people to understand that JavaScript requires a runtime like NodeJs. I can't recommend this language to new users because of this.
+
+Node's `read-line` class is not easy to use. 
+I used `prompt-sync` instead as it was easy to setup and use.
+
+I'm not a fan of the async code required, it's clear that JavaScript was build for the web.
+Please use it in that context.
+
+
+### TypeScript
+
+Install typescript `npm install -g typescript`
+
+Create a project with `npm i -D typescript`
+
+Run with `node timer.ts`
+
+NodeJs is super annoying with it's imports.
 
 ## Compiled
 
 ### C
 
-Fairly simple to write. The input function is poorly designed. 
-You pass your variable in by reference, rather than the function returning your inputted value. 
-There is no cross-platform sleep function for some reason?
+- Documentation: 
 
-Compiling with C is annoying. I used `gcc timer.c -o timer.exe;timer.exe` to build and run.
-This sucks because if it fails to compile it will run the program anyway.
+  https://devdocs.io/c/
 
-printf is actually pretty decent. Headers are pretty archaic. Don't think I'd want to use C for massive projects but it's not too bad for this.
+- Required Computer Knowledge:
+
+  High
+
+- Build Command:
+
+  `gcc timer.c -o timer.exe;timer.exe`
+
+- Install Guide:
+
+  C has no official guide.
+
+Fairly simple to write. 
+At first I didn't like `scanf`, but it turned out to be better than 90% of languages I tried.
+Unfortunately C lacks an easy cross-platform sleep function.
+Sometimes C would compile even though my IDE was telling me there should be an error.
+It feels very difficult to find bugs in C code.
+
+An annoying habit seems to start here with C. 
+I would like to build and run my program in one command, for example: `gcc timer.c --run`.
+Instead I will build and run with the following: `gcc timer.c -o timer.exe;timer.exe`.
+See the issue? If my program fails to compile I will still run the program. 
+
+I have looked for a solution but with no success.
+
+My project is so simple that it does not highlight any of C's issues. It feels unfair to talk about them without examples. 
+All I'll say is, C has not changed for a long time, there are *new* and *different* approaches to solving programming problems.
+Give them a go and you might be surprised.
 
 ### V 
 
-Had to setup environment variable for it.
-Language server is in alpha and did not work for me.
-The code is really nice to write and libraries are clean and easy to use.
-It took me a bit to find the documentation for everything.
+- Documentation: 
 
-https://modules.vlang.io/
+  https://github.com/vlang/v/blob/master/doc/docs.md
 
-Error messages are decent:  
+  https://modules.vlang.io/
 
-```log
+- Required Computer Knowledge:
+
+  High
+
+- Build Command:
+
+  `v run .`
+
+- Install Guide:
+
+  V has no official guide.
+
+V is quite a new language and has some rough edges
+
+- Documentation is lacking
+- Language server is in alpha 
+- Lack of resources/learning material
+
+Despite this I really like writing code with V. 
+The code is simple, the compiler is fast and has great messages. 
+Standard library documentation is very easy to navigate.
+
+I have high hopes for this language.
+
+An example error message:
+
+```v
 .\timer.v:11:13: error: string types only have the following operators defined: `==`, `!=`, `<`, `>`, `<=`, `>=`, and `+`
     9 |     for t != 0 {
    10 |         mins := math.floor(t / 60)
@@ -267,22 +338,28 @@ Error messages are decent:
    16 | }
 ```
 
-Here `t` is a `string` when it should be an `i16`.
-
 ### Rust
-Installing is pretty difficult as it requires you to install Visual Studio with C++ as well. 
-I tried with Visual Studio 2022 and it didn't work so I had to down grade.
 
-Like javascript I had to user a library to get the user input.
-The first one I tried text_io, did not seem to work correctly on windows. 
-This is pretty common for all aspects of software engineering (as we saw with lua). 
-I'll be honest Rust is my favorite language. However I can't ignore how dumb this over-site is.
+- Documentation: 
 
-Rust loves verbosity, in a some of ways it's more low level than C.
-Usually rust has a good balance of low level and high level functions.
-There should be a read! macro like println!.
+  https://doc.rust-lang.org/book/
 
-Here's the low level code:
+  https://doc.rust-lang.org/std/
+
+- Required Computer Knowledge:
+
+  High
+
+- Build Command:
+
+  `cargo run`
+
+- Install Guide:
+
+  https://www.rust-lang.org/learn/get-started
+
+First off, Rust is missing an input function like most other languages. 
+Here is how to get the users input: 
 
 ```rust
 use std::io::{stdin, stdout, Write};
@@ -296,54 +373,45 @@ stdin().read_line(&mut s).unwrap();
 s.pop();
 s.pop();
 
-let mut t = s.parse::<i32>().unwrap();
-println!("You entered the number: {}", t);
+let i = s.parse::<i32>().unwrap();
+println!("You entered the number: {}", i);
 ```
 
-First of all we're reading the raw string, which isn't bad, I just don't want that.
+Not great. However there is discussion and an active pull request to fix the issue.
 
-Notice how we need to remove '\r\n' from the end of the string.
+https://github.com/rust-lang/rfcs/pull/3196
+https://github.com/rust-lang/rust/pull/75435
 
-There is also stdout().flush(). 
-This is because stdout frequently line-buffered by default and needs to be flush for the output to be displayed immediately.
-This can be fixed by using `eprint! rather than print!` as it's flushed immediately. Keep in mind this goes to `stderr` rather than `stdout`.
-
-We still need to convert the string in a proper type. We do this with the parse function.
-
-To fix this problem I created a crate (a rust dependency).
-
-It defines a macro that can be imported and used to get input.
+I really want to show off how simple rust can be, so I created a crate to get user input.
+I created the crate [read_io](https://crates.io/crates/read_io). 
 
 Here is the new input code:
 
 ```rust
-use read_io::read;
-
 let mut t: i32 = read!("Enter the time in seconds: ");
 ```
 
 Hopefully something like this can be added to the standard library one day.
 
-There are actually a lot of discussion about Rust's lack of a read function.
-
-https://github.com/rust-lang/rust/pull/75435
-https://github.com/rust-lang/rfcs/pull/3196
-
-A list of libraries that try to fix this issue:
-https://crates.io/crates/text_io
-https://crates.io/crates/ezio
-https://crates.io/crates/scan-rules
-https://crates.io/crates/scan_fmt
-
-TODO: Rewrite this section.
+Rust has some of the best documentation out of any language and `cargo` is a really nice build tool. 
 
 ### C++
 
-Install Guide:
+- Documentation: 
 
-https://isocpp.org/ > https://isocpp.org/get-started > https://nuwen.net/mingw.html > https://nuwen.net/mingw.html#install
+  https://en.cppreference.com/w/
 
-Describes setting up enviroment variables. Might be hard to follow since it doesn't explain how to open the command prompt.
+- Required Computer Knowledge:
+
+  High
+
+- Build Command:
+
+  `g++ timer.cpp -o timer.exe; ./timer`
+
+- Install Guide:
+
+  https://isocpp.org/get-started 
 
 This is somehow worse than C. I think I understand why people don't like this language now.
 

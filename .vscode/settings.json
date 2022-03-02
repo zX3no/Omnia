@@ -1,5 +1,8 @@
 {
     "cSpell.enableFiletypes": [
         "markdown"
-    ]
+    ],
+    "files.associations": {
+        "cmath": "c"
+    }
 }
