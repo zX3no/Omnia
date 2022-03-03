@@ -57,13 +57,16 @@ TODO REMOVE
 - Functional
   - Elixir
   - Haskell
+  - Erlang
   - Elm
-  - ReasonML  
-  - OCaml
   - Gleam
-  - Clojure
-  - PureScript
 
+- Incompatible
+  - Clojure
+  - ReasonML
+
+- Maybe Delete
+  - OCaml
 
 ### Rankings
 
@@ -133,30 +136,29 @@ Clojure: Does not support Windows.
 |----------|-----|--------------------|
 |          |     |                    |
 
-
 #### All
 
-| Language   | Simplicity | Documentation? | Build Tools | Updates Path | Compile Times(ms) | Error Messages | Official Install Guide                              |
-|------------|------------|----------------|-------------|--------------|-------------------|----------------|-----------------------------------------------------|
-| Python     | Good       | Okay           | Okay        | No           | -                 |                | [Yes](https://www.python.org/about/gettingstarted/) |
-| JavaScript | Bad        | Bad            | Good        | Yes          | -                 |                | No                                                  |
-| TypeScript |            |                |             |              |                   |                |                                                     |
-| C          | Okay       | Okay           | Bad         | Yes          | Okay              | Bad            | No                                                  |
-| C++        | Bad        | Okay           | Bad         | Yes          | Okay              | Bad            | [Yes](https://isocpp.org/get-started)               |
-| Go         | Bad        | Bad            | Okay        | Yes          | Fast              |                |                                                     |
-| Rust       | Okay       | Good           | Good        | Yes          | Slow              | Good           |                                                     |
-| V          | Good       | Good           | Good        | No           | Fast              |                |                                                     |
-| Nim        | Good       | Good           | Good        | No           | Slow              |                |                                                     |
-| Zig        | Awful      | Bad            | Bad         | No           | Slow              | Bad            | [Yes](https://ziglang.org/learn/getting-started/)   |
-| Odin       | Bad        | Bad            |             |              |                   |                |                                                     |
-| Java       | Bad        | Bad            |             |              |                   |                |                                                     |
-| Kotlin     | Okay       | Okay           |             |              |                   |                |                                                     |
-| Lua        |            | Bad            |             |              |                   |                |                                                     |
-| C#         | Okay       | Okay           |             |              |                   |                |                                                     |
-| Elixir     | ?          | Good           |             |              |                   |                |                                                     |
-| Haskell    | ?          | Okay           |             |              |                   |                |                                                     |
-|            |            |                |             |              |                   |                |                                                     |
-|            |            |                |             |              |                   |                |                                                     |
+| Language   | Simplicity | Documentation? | Build Tools | Updates Path | Compile Times(ms) | Error Messages |
+|------------|------------|----------------|-------------|--------------|-------------------|----------------|
+| Python     | Good       | Okay           | Okay        | No           | -                 |                |
+| JavaScript | Bad        | Bad            | Good        | Yes          | -                 |                |
+| TypeScript |            |                |             |              |                   |                |
+| C          | Okay       | Okay           | Bad         | Yes          | Okay              | Bad            |
+| C++        | Bad        | Okay           | Bad         | Yes          | Okay              | Bad            |
+| Go         | Bad        | Bad            | Okay        | Yes          | Fast              |                |
+| Rust       | Okay       | Good           | Good        | Yes          | Slow              | Good           |
+| V          | Good       | Good           | Good        | No           | Fast              |                |
+| Nim        | Good       | Good           | Good        | No           | Slow              |                |
+| Zig        | Awful      | Bad            | Bad         | No           | Slow              | Bad            |
+| Odin       | Bad        | Bad            | Okay        | No           | -                 | -              |
+| Java       | Bad        | Bad            |             |              |                   |                |
+| Kotlin     | Okay       | Okay           |             |              |                   |                |
+| Lua        |            | Bad            |             |              |                   |                |
+| C#         | Okay       | Okay           |             |              |                   |                |
+| Elixir     | ?          | Good           |             |              |                   |                |
+| Haskell    | ?          | Okay           |             |              |                   |                |
+|            |            |                |             |              |                   |                |
+|            |            |                |             |              |                   |                |
 
 Unfinished: Odin, Haskell, Zig 
 
@@ -256,7 +258,7 @@ NodeJs is super annoying with it's imports.
 
 - Documentation: 
 
-  https://devdocs.io/c/
+  There is no official documentation
 
 - Required Computer Knowledge:
 
@@ -286,6 +288,35 @@ I have looked for a solution but with no success.
 My project is so simple that it does not highlight any of C's issues. It feels unfair to talk about them without examples. 
 All I'll say is, C has not changed for a long time, there are *new* and *different* approaches to solving programming problems.
 Give them a go and you might be surprised.
+
+### C++
+
+- Documentation: 
+
+  https://en.cppreference.com/w/
+
+- Required Computer Knowledge:
+
+  High
+
+- Build Command:
+
+  `g++ timer.cpp -o timer.exe; ./timer`
+
+- Install Guide:
+
+  https://isocpp.org/get-started 
+
+This is somehow worse than C. I think I understand why people don't like this language now.
+
+This print function is not good. Maybe I'm using it wrong?
+
+```cpp
+  std::cout << std::setfill('0') << std::setw(2) << mins;
+  std::cout << ":";
+  std::cout << std::setfill('0') << std::setw(2) << secs;
+```
+
 
 ### V 
 
@@ -395,11 +426,11 @@ Hopefully something like this can be added to the standard library one day.
 
 Rust has some of the best documentation out of any language and `cargo` is a really nice build tool. 
 
-### C++
-
+### Zig
 - Documentation: 
 
-  https://en.cppreference.com/w/
+  https://ziglang.org/documentation/master/
+  https://ziglang.org/documentation/master/std/
 
 - Required Computer Knowledge:
 
@@ -407,67 +438,20 @@ Rust has some of the best documentation out of any language and `cargo` is a rea
 
 - Build Command:
 
-  `g++ timer.cpp -o timer.exe; ./timer`
+  `zig build run`
 
 - Install Guide:
 
-  https://isocpp.org/get-started 
+  https://ziglang.org/learn/getting-started/
 
-This is somehow worse than C. I think I understand why people don't like this language now.
 
-This print function is not good. Maybe I'm using it wrong?
-
-```cpp
-  std::cout << std::setfill('0') << std::setw(2) << mins;
-  std::cout << ":";
-  std::cout << std::setfill('0') << std::setw(2) << secs;
-```
-
-### Zig
-
-Download the binary and add to path.
-
-Creating a project
-
-```log
-mkdir timer
-zig init-exe 
-zig run 
-
-error: `zig run` expects at least one positional argument
-```
-
-`zig run` is not like `cargo run`
-
-I swapped to `zig build-exe timer.zig;./timer.exe`
-
-Compile times don't seem great.
+Compile times are bad, error messages are bad, documentation is bad. 
+This language feels like it was written by someone who wanted to make C even harder to use.
 
 ```log
 C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
         @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
         ^
-C:\path\zig\lib\std\io\writer.zig:28:34: note: called from here
-            return std.fmt.format(self, format, args);
-                                 ^
-C:\path\zig\lib\std\debug.zig:67:27: note: called from here
-    nosuspend stderr.print(fmt, args) catch return;
-                          ^
-.\timer.zig:15:14: note: called from here
-        print("{}", t);
-             ^
-.\timer.zig:4:29: note: called from here
-pub fn main() anyerror!void {
-                            ^
-C:\path\zig\lib\std\io\writer.zig:28:34: error: expected type 'std.os.WriteError!void', found '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set!void'
-            return std.fmt.format(self, format, args);
-                                 ^
-C:\path\zig\lib\std\debug.zig:67:27: note: called from here
-    nosuspend stderr.print(fmt, args) catch return;
-                          ^
-.\timer.zig:15:14: note: called from here
-        print("{}", t);
-             ^
 .\timer.zig:4:29: note: called from here
 pub fn main() anyerror!void {
                             ^
@@ -476,13 +460,23 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
                                  ^
 ```
 
-Nice easy to understand error messages.
-
-This language feels like it was written by someone who wanted to make C even harder to use.
-
-Documentation is not good.
-
 ### Go
+
+- Documentation: 
+
+  https://pkg.go.dev/std
+
+- Required Computer Knowledge:
+
+  Moderate 
+
+- Build Command:
+
+  `go run .`
+
+- Install Guide:
+
+  https://go.dev/doc/install
 
 This language is somehow more complicated than rust.
 The functions are super weird, `ReadString` reads up to a certain character and includes it. So your always going to have `\r\n` in your input.
@@ -491,30 +485,56 @@ I can't believe how bad the documentation is and how shit the api is.
 I see why V exists now, yikes...
 I do like the way it auto imports modules I would like that for rust since it's such an import heavy language.
 
+```go
+# timer
+.\timer.go:21:24: cannot use t / 60 (type int) as type float64 in argument to math.Floor
+```
 
 ### Nim
 
-Had to setup environment variable for it.
-Docs are okay.
-https://nim-lang.org/docs/lib.html
+- Documentation: 
+  https://nim-lang.org/docs/lib.html
+  https://nim-lang.org/docs/manual.html
 
-Ergonomics are decent. It's like a complied version of python. But it compiles pretty slow so I don't see a good use for it.
+- Required Computer Knowledge:
+
+  Moderate 
+
+- Build Command:
+
+  `nim c -r timer.nim`
+
+- Install Guide:
+
+  https://nim-lang.org/install_windows.html
+
+
+Installing is simple. 
+Documentation is decent and the language is quite simple.
+It's like a complied version of python. 
+Compile times are quite slow which is unfortunate since it might be a good choice otherwise.
 
 ### Odin
 
-Requires setting path.
+- Documentation: 
 
-Setup was pretty easy.
+  https://pkg.odin-lang.org/core/
 
-Use `odin run timer.odin` to run.
+- Required Computer Knowledge:
 
-Documentation is seems good:
+  High 
 
-https://pkg.odin-lang.org/core/
+- Build Command:
 
-However I cannot find how to convert a string to an integer.
+  `odin run .`
 
-The language is very new but it's seem pretty meh like the rest of the C wannabees.
+- Install Guide:
+
+  https://odin-lang.org/docs/install/
+  This guide is bad and does not provide enough instructions.
+
+Documentation does not have a functional search and the source code is hard to read. 
+Even with LSP I cannot find a way to convert a string to an int.
 
 ## Bytecode
 
@@ -692,10 +712,6 @@ esy: exiting due to errors above
 
 TODO ...
 
-### OCaml
-
->OCaml on Windows is still a work in progress. In the meantime, if you only need to run OCaml programs on a Windows machine, then the simplest solution is to use the Windows Subsystem for Linux 2 (WSL2).
-
 ### Gleam
 
 Required me to put gleam.exe in path. It's nice that it's just a single exe though.
@@ -707,9 +723,9 @@ Trying to get the user input was not easy.
 
 Where is this gleam_os library? This library does not seem to have much documentation?
 
-This language seemed pretty cool.
+`gleam add gleam_erlang`
 
-L
+No sleep function. How to write a while loop? Where are the if statements?
 
 ### Elixir
 
@@ -781,3 +797,9 @@ TODO
 ### Clojure 
 
 > Currently, clj on Windows is in an alpha state. Please try it and provide feedback in the TDEPS jira or on #clj-on-windows room on Clojurians slack.
+
+### Erlang
+
+https://www.erlang.org/doc/getting_started/intro.html
+
+The documentation for this language is so out of date. I can't even find what the file extension is.

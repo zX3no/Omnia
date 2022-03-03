@@ -15,7 +15,6 @@ func main() {
 	fmt.Print("Enter time in seconds: ")
 	text, _ := s.ReadString('\r')
 	text = strings.TrimSuffix(text, "\r")
-
 	t, _ := strconv.Atoi(text)
 
 	for t != 0 {

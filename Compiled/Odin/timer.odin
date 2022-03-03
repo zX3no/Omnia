@@ -8,7 +8,7 @@ import "core:io"
 import "core:strings"
 
 main :: proc() {
-    s := os.stream_from_handle(os.stdin)
+	s := os.stream_from_handle(os.stdin)
 	r: bufio.Reader
 	bufio.reader_init(&r, io.Reader{s})
 
@@ -20,5 +20,5 @@ main :: proc() {
 	fmt.printf("read:    %q\n", line)
 	fmt.printf("trimmed: %q\n", trimmed)
 
-    // time.sleep(1 * time.Millisecond)
+	// time.sleep(1 * time.Millisecond)
 }
