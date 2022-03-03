@@ -13,7 +13,7 @@ $go = Measure-Command {
 } | Select-Object -Property TotalMilliseconds
 Set-Location ../../
 
-Remove-Item Compiled/Rust/target -Recurse -Force
+Remove-Item Compiled/Rust/target -Recurse -Force -ErrorAction Ignore
 $rust = Measure-Command {
     cargo build --manifest-path Compiled/Rust/Cargo.toml
 } | Select-Object -Property TotalMilliseconds
@@ -27,8 +27,8 @@ $nim = Measure-Command {
 } | Select-Object -Property TotalMilliseconds
 
 Set-Location Compiled/Zig
-Remove-Item zig-cache -Recurse -Force
-Remove-Item zig-out -Recurse -Force
+Remove-Item zig-cache -Recurse -Force -ErrorAction Ignore
+Remove-Item zig-out -Recurse -Force -ErrorAction Ignore
 $zig = Measure-Command {
     zig build 
 } | Select-Object -Property TotalMilliseconds

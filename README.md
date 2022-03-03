@@ -142,20 +142,20 @@ Clojure: Does not support Windows.
 |------------|------------|----------------|-------------|--------------|-------------------|----------------|
 | Python     | Good       | Okay           | Okay        | No           | -                 |                |
 | JavaScript | Bad        | Bad            | Good        | Yes          | -                 |                |
-| TypeScript |            |                |             |              |                   |                |
-| C          | Okay       | Okay           | Bad         | Yes          | Okay              | Bad            |
-| C++        | Bad        | Okay           | Bad         | Yes          | Okay              | Bad            |
-| Go         | Bad        | Bad            | Okay        | Yes          | Fast              |                |
-| Rust       | Okay       | Good           | Good        | Yes          | Slow              | Good           |
-| V          | Good       | Good           | Good        | No           | Fast              |                |
-| Nim        | Good       | Good           | Good        | No           | Slow              |                |
-| Zig        | Awful      | Bad            | Bad         | No           | Slow              | Bad            |
+| TypeScript |            |                |             |              | -                 |                |
+| C          | Okay       | Okay           | Bad         | Yes          | 800               | Bad            |
+| C++        | Bad        | Okay           | Bad         | Yes          | 1359              | Bad            |
+| Go         | Bad        | Bad            | Okay        | Yes          | 436               |                |
+| Rust       | Okay       | Good           | Good        | Yes          | 1250              | Good           |
+| V          | Good       | Good           | Good        | No           | 430               |                |
+| Nim        | Good       | Good           | Good        | No           | 965               |                |
+| Zig        | Awful      | Bad            | Bad         | No           | 5297              | Bad            |
 | Odin       | Bad        | Bad            | Okay        | No           | -                 | -              |
-| Java       | Bad        | Bad            |             |              |                   |                |
-| Kotlin     | Okay       | Okay           |             |              |                   |                |
-| Lua        |            | Bad            |             |              |                   |                |
-| C#         | Okay       | Okay           |             |              |                   |                |
-| Elixir     | ?          | Good           |             |              |                   |                |
+| Java       | Bad        | Bad            |             |              | -                 |                |
+| Kotlin     | Okay       | Okay           |             |              | -                 |                |
+| Lua        |            | Bad            |             |              | -                 |                |
+| C#         | Okay       | Okay           |             |              | -                 |                |
+| Elixir     | ?          | Good           |             |              | -                 |                |
 | Haskell    | ?          | Okay           |             |              |                   |                |
 |            |            |                |             |              |                   |                |
 |            |            |                |             |              |                   |                |
