@@ -60,8 +60,6 @@ TODO REMOVE
   - Erlang
   - Elm
   - Gleam
-
-- Incompatible
   - Clojure
   - ReasonML
 
@@ -114,9 +112,9 @@ Java: This language is awful
 
 Kotlin: Much better than Java, I think I'd enjoy writing android apps with this language.
 
-Lua: TODO
+Lua: This was the only language on the list which made me angry.
 
-C#: It's better than Java?
+C#: It's better than Java.
 
 Elixir: The only functional language that actually worked for me. Opened my mind to new ways of thinking about programming.
 
@@ -126,11 +124,11 @@ Elm: TODO
 
 ReasonML: TODO
 
-OCaml: Does not support Windows.
+OCaml: -
 
 Gleam: This language want's to make functional programing accessible, however it's very new. I'll keep an eye on this one.
 
-Clojure: Does not support Windows.
+Clojure: -
 
 | Language | Pos | Beginner friendly? |
 |----------|-----|--------------------|
@@ -145,12 +143,12 @@ Clojure: Does not support Windows.
 | TypeScript |            |                |             |              | -                 |                |
 | C          | Okay       | Okay           | Bad         | Yes          | 800               | Bad            |
 | C++        | Bad        | Okay           | Bad         | Yes          | 1359              | Bad            |
-| Go         | Bad        | Bad            | Okay        | Yes          | 436               |                |
+| Go         | Bad        | Bad            | Good        | Yes          | 436               |                |
 | Rust       | Okay       | Good           | Good        | Yes          | 1250              | Good           |
 | V          | Good       | Good           | Good        | No           | 430               |                |
 | Nim        | Good       | Good           | Good        | No           | 965               |                |
-| Zig        | Awful      | Bad            | Bad         | No           | 5297              | Bad            |
-| Odin       | Bad        | Bad            | Okay        | No           | -                 | -              |
+| Zig        | Awful      | Bad            | Okay        | No           | 5297              | Bad            |
+| Odin       | Bad        | Bad            | Good        | No           | -                 | -              |
 | Java       | Bad        | Bad            |             |              | -                 |                |
 | Kotlin     | Okay       | Okay           |             |              | -                 |                |
 | Lua        |            | Bad            |             |              | -                 |                |
@@ -162,13 +160,11 @@ Clojure: Does not support Windows.
 
 Unfinished: Odin, Haskell, Zig 
 
-TODO: Lua, Elm, ReasonML
+TODO: Elm, ReasonML
 
 Missing Windows support: OCaml, Clojure
 
 Can't find input function: Gleam, Odin
-
-TODO: benchmark compile times
 
 I'll need to go over each section in each language with sources such as the documentation.
 
@@ -540,18 +536,27 @@ Even with LSP I cannot find a way to convert a string to an int.
 
 ### Lua
 
-Had to setup environment variable for it.
-I had to download both lua and luarocks. 
-Both required me to use a package manager.
-Lua's syntax is somehow worse than pythons. 
-Most of the resources on this language are 10 years old.
+- Documentation: 
 
-I don't understand the appeal.
+  https://www.lua.org/manual/5.4/
 
-I needed to download luasocket for an accurate sleep function.
-After running `luarocks install luasocket` i received a nice error:
+- Required Computer Knowledge:
 
-```log
+  High 
+
+- Build Command:
+
+  `lua timer.lua`
+
+- Install Guide:
+
+  There is no install guide
+
+
+I wanted to use luasocket for my sleep function, since Lua does not have one included.
+After running `luarocks install luasocket` I recieve this nice error:
+
+```lua
 Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
 
 luasocket 3.0rc1-2 depends on lua >= 5.1 (5.4-1 provided by VM)
@@ -562,10 +567,7 @@ operable program or batch file.
 Error: Build error: Failed compiling object src/luasocket.o
 ```
 
-Oops looks like someone wants to run linux commands.
-
-I manually installed both lua and luarocks. Which was not easy since the lua website is so bad.
-Now I have this error:
+After fixing that I recieve a new error:
 
 ```
 Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
@@ -573,7 +575,16 @@ Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
 Error: Failed finding Lua header files. You may need to install them or configure LUA_INCDIR.
 ```
 
-I'm going to pass on this language. 
+I decied to use something I found on stack overflow instead:
+
+```lua
+function sleep(n)
+  if n > 0 then os.execute("ping -n " .. tonumber(n+1) .. " localhost > NUL") end
+end
+```
+
+The documentation is horrible, the syntax is somehow worse the python.
+This language took me the longest to write, don't use it.
 
 ### Java
 
