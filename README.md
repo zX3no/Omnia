@@ -154,7 +154,7 @@ Clojure: -
 | Lua        |            | Bad            |             |              | -                 |                |
 | C#         | Okay       | Okay           |             |              | -                 |                |
 | Elixir     | ?          | Good           |             |              | -                 |                |
-| Haskell    | ?          | Okay           |             |              |                   |                |
+| Haskell    | Awful      | Bad            | Bad         | Yes          | 3738              | Bad            |
 |            |            |                |             |              |                   |                |
 |            |            |                |             |              |                   |                |
 
@@ -760,6 +760,22 @@ Oof. I'm still impressed with some of the things I've seen. I don't think *Elixi
 
 ### Haskell
 
+- Documentation: 
+
+  There is no offical documentation.
+
+- Required Computer Knowledge:
+
+  Extreme 
+
+- Build Command:
+
+  `ghc timer.hs;./timer.exe`
+
+- Install Guide:
+
+  https://www.haskell.org/downloads/
+
 Starting off with some extremely confusing install instructions:
 
 ```
@@ -791,6 +807,7 @@ stack new timer
 cd timer
 stack run
 ```
+
 Then download another 400MB for the compile which is already installed.
 
 Then downloading it downloaded msys2??
@@ -800,10 +817,34 @@ I guess we're installing linux now.
 I opted for a simpler approach `ghc timer.hs;./timer.exe`
 
 Compile times are exceptionally bad for this language.
+3742 ms to compile hello world.
 
 The documentation is worse than Elixir plus the language is harder to understand.
 
-TODO
+This compile message is formatted nicely but impossable to understand.
+
+```haskell
+timer.hs:8:3: error:
+    • Couldn't match expected type ‘IO a0’ with actual type ‘Integer’
+    • In a stmt of a 'do' block: countdown (t)
+      In the expression:
+        do putStr "Enter a time in seconds:"
+           s <- getLine
+           let t = ...
+           countdown (t)
+           ....
+      In an equation for ‘main’:
+          main
+            = do putStr "Enter a time in seconds:"
+                 s <- getLine
+                 let t = ...
+                 ....
+  |
+8 |   countdown (t)
+  |   ^^^^^^^^^^^^^
+```
+
+This language is cursed.
 
 ### Clojure 
 
