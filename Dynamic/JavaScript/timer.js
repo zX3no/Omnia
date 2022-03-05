@@ -1,7 +1,7 @@
 const prompt = require('prompt-sync')();
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function main() {
+(async () => {
     let t = prompt('Enter the time in seconds: ');
     while (t) {
         var mins = Math.floor(t / 60);
@@ -10,6 +10,4 @@ async function main() {
         await sleep(1000);
         t--;
     }
-}
-
-main();
+})();

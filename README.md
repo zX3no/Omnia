@@ -37,6 +37,7 @@ TODO REMOVE
   - Python
   - JavaScript
   - TypeScript
+  - PureScript
 
 - Compiled
   - C
@@ -58,13 +59,7 @@ TODO REMOVE
   - Elixir
   - Haskell
   - Erlang
-  - Elm
   - Gleam
-  - Clojure
-  - ReasonML
-
-- Maybe Delete
-  - OCaml
 
 ### Rankings
 
@@ -80,6 +75,74 @@ Sometimes languages are worth using for a simple package.
 Many people use Python just for TensorFlow or PyTorch.
 
 --- 
+
+#### The best & worst languages
+
+- Best languages for beginner programmers
+  - Python
+  - Rust
+
+  Python is the most popular language and has many learning resources because of that. 
+  I don't think the language is worth using since it's interpreted, however it's a good start.
+
+  Rust is much more complicated but also has lot's of learning resources. 
+  C++ does have good resouces but the language is worse.
+
+- Best languages for experienced programmers
+  - V
+  - Rust
+  - Nim
+
+  V is a language I hope to move into the beginner category. It's simple, performat and modern.
+  It sometimes requires you to dig through the source code to find stuff. 
+  Hopefully the issues will be resolved by version 1.0.
+
+  Rust has great tooling, documentation, a [borrow checker](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html) and is easy write. 
+
+  Nim is very young but looks very promising. It tries to make low level programming as simple as python. It's tooling and documentation are decent and it's pretty easy to write. 
+
+- Best bytecode languages
+  - C#
+  - Kotlin
+
+  I don't like bytecode langauges but if you can't help yourself, C# and Kotlin are decent choices.
+
+- Best functional languages
+  - Elixir
+  - Gleam
+
+  If you like functional programming you might like either of these.
+
+- Languages you should never use
+  - Zig
+  - Java
+  - Lua
+
+  These languages all have alternatives that are better. 
+
+| Language   | Simplicity | Documentation? | Build Tools | Compile Times(ms) | Error Messages |
+|------------|------------|----------------|-------------|-------------------|----------------|
+| Python     | Good       | Okay           | Okay        | -                 |                |
+| JavaScript | Bad        | Bad            | Good        | -                 |                |
+| TypeScript |            |                |             | -                 |                |
+| C          | Okay       | Okay           | Bad         | 800               | Bad            |
+| C++        | Bad        | Okay           | Bad         | 1359              | Bad            |
+| Go         | Bad        | Bad            | Good        | 436               |                |
+| Rust       | Okay       | Great          | Great       | 1250              | Great          |
+| V          | Great      | Good           | Good        | 430               | Good           |
+| Nim        | Good       | Good           | Good        | 965               |                |
+| Zig        | 0____0     | Bad            | Okay        | 5297              | Bad            |
+| Odin       | Bad        | Bad            | Good        | -                 | -              |
+| Java       | Bad        | Bad            | Bad         | -                 | Okay           |
+| Kotlin     | Okay       | Okay           | Bad         | -                 | Bad            |
+| Lua        |            | Bad            | Bad         | -                 |                |
+| Elixir     | Bad        | Good           |             | -                 |                |
+| Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
+| PureScript |            |                |             | -                 |                |
+
+Unfinished: Odin, Haskell, Zig, PureScript, Gleam, TypeScript, Zig
+
+---
 
 #### Something I like about each language:
 
@@ -124,49 +187,9 @@ Elm: TODO
 
 ReasonML: TODO
 
-OCaml: -
+PureScript: TODO
 
-Gleam: This language want's to make functional programing accessible, however it's very new. I'll keep an eye on this one.
-
-Clojure: -
-
-| Language | Pos | Beginner friendly? |
-|----------|-----|--------------------|
-|          |     |                    |
-
-#### All
-
-| Language   | Simplicity | Documentation? | Build Tools | Updates Path | Compile Times(ms) | Error Messages |
-|------------|------------|----------------|-------------|--------------|-------------------|----------------|
-| Python     | Good       | Okay           | Okay        | No           | -                 |                |
-| JavaScript | Bad        | Bad            | Good        | Yes          | -                 |                |
-| TypeScript |            |                |             |              | -                 |                |
-| C          | Okay       | Okay           | Bad         | Yes          | 800               | Bad            |
-| C++        | Bad        | Okay           | Bad         | Yes          | 1359              | Bad            |
-| Go         | Bad        | Bad            | Good        | Yes          | 436               |                |
-| Rust       | Okay       | Good           | Good        | Yes          | 1250              | Good           |
-| V          | Good       | Good           | Good        | No           | 430               |                |
-| Nim        | Good       | Good           | Good        | No           | 965               |                |
-| Zig        | Awful      | Bad            | Okay        | No           | 5297              | Bad            |
-| Odin       | Bad        | Bad            | Good        | No           | -                 | -              |
-| Java       | Bad        | Bad            |             |              | -                 |                |
-| Kotlin     | Okay       | Okay           |             |              | -                 |                |
-| Lua        |            | Bad            |             |              | -                 |                |
-| C#         | Okay       | Okay           |             |              | -                 |                |
-| Elixir     | ?          | Good           |             |              | -                 |                |
-| Haskell    | Awful      | Bad            | Bad         | Yes          | 3738              | Bad            |
-|            |            |                |             |              |                   |                |
-|            |            |                |             |              |                   |                |
-
-Unfinished: Odin, Haskell, Zig 
-
-TODO: Elm, ReasonML
-
-Missing Windows support: OCaml, Clojure
-
-Can't find input function: Gleam, Odin
-
-I'll need to go over each section in each language with sources such as the documentation.
+Gleam: TODO
 
 ## Interpreted
 
@@ -211,18 +234,17 @@ Keep in mind that I'm talking about JavaScript + Node.js.
 
   https://nodejs.dev/learn/introduction-to-nodejs
 
-  >I really like node's introduction to nodejs.
+  > I really like node's introduction to nodejs.
 
 - Required Computer Knowledge:
 
   Moderate
 
 - Install Guide:
-  First you need to understand that JavaScript is dynamic and requires a `runtime` like Node.js or Deno.
+
+  > First you need to understand that JavaScript is dynamic and requires a `runtime` like Node.js or Deno.
 
   https://nodejs.org/en/
-
-  Installing is really easy, doesn't require modifying your path. 
 
 - Build Command: 
 
@@ -256,10 +278,6 @@ NodeJs is super annoying with it's imports.
 
   There is no official documentation
 
-- Required Computer Knowledge:
-
-  High
-
 - Build Command:
 
   `gcc timer.c -o timer.exe;timer.exe`
@@ -291,10 +309,6 @@ Give them a go and you might be surprised.
 
   https://en.cppreference.com/w/
 
-- Required Computer Knowledge:
-
-  High
-
 - Build Command:
 
   `g++ timer.cpp -o timer.exe; ./timer`
@@ -313,7 +327,6 @@ This print function is not good. Maybe I'm using it wrong?
   std::cout << std::setfill('0') << std::setw(2) << secs;
 ```
 
-
 ### V 
 
 - Documentation: 
@@ -321,10 +334,6 @@ This print function is not good. Maybe I'm using it wrong?
   https://github.com/vlang/v/blob/master/doc/docs.md
 
   https://modules.vlang.io/
-
-- Required Computer Knowledge:
-
-  High
 
 - Build Command:
 
@@ -372,10 +381,6 @@ An example error message:
   https://doc.rust-lang.org/book/
 
   https://doc.rust-lang.org/std/
-
-- Required Computer Knowledge:
-
-  High
 
 - Build Command:
 
@@ -428,10 +433,6 @@ Rust has some of the best documentation out of any language and `cargo` is a rea
   https://ziglang.org/documentation/master/
   https://ziglang.org/documentation/master/std/
 
-- Required Computer Knowledge:
-
-  High
-
 - Build Command:
 
   `zig build run`
@@ -462,10 +463,6 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
 
   https://pkg.go.dev/std
 
-- Required Computer Knowledge:
-
-  Moderate 
-
 - Build Command:
 
   `go run .`
@@ -492,10 +489,6 @@ I do like the way it auto imports modules I would like that for rust since it's 
   https://nim-lang.org/docs/lib.html
   https://nim-lang.org/docs/manual.html
 
-- Required Computer Knowledge:
-
-  Moderate 
-
 - Build Command:
 
   `nim c -r timer.nim`
@@ -516,10 +509,6 @@ Compile times are quite slow which is unfortunate since it might be a good choic
 
   https://pkg.odin-lang.org/core/
 
-- Required Computer Knowledge:
-
-  High 
-
 - Build Command:
 
   `odin run .`
@@ -533,6 +522,113 @@ Documentation does not have a functional search and the source code is hard to r
 Even with LSP I cannot find a way to convert a string to an int.
 
 ## Bytecode
+
+### Java
+
+- Documentation: 
+
+  https://docs.oracle.com/javase/8/docs/api/overview-summary.html
+
+- Build Command:
+
+  `javac timer.java;java Timer`
+
+- Install Guide:
+
+  > This is better than the offical website
+
+  https://adoptopenjdk.net/
+
+Errors are pretty decent: 
+
+```log
+timer.java:8: error: incompatible types: int cannot be converted to boolean
+    while (t) {
+           ^
+timer.java:9: error: incompatible types: possible lossy conversion from double to int
+        int mins = Math.floor(t / 60);
+                             ^
+2 errors
+Exception in thread "main" java.lang.NumberFormatException: Cannot parse null string
+```
+
+Java is hard to install, hard to write, hard to compile, documentation is awful.
+
+This language is not relavent to modern programming.
+
+### Kotlin
+
+- Documentation: 
+
+  https://kotlinlang.org/api/latest/jvm/stdlib/
+
+- Build Command:
+
+  `kotlinc timer.kt -include-runtime -d timer.jar;java -jar timer.jar`
+
+- Install Guide:
+
+  https://kotlinlang.org/docs/getting-started.html
+
+  https://kotlinlang.org/docs/command-line.html
+
+
+Kotlin is meant to be used with IntelliJ IDEA, but I don't like IDE's so I followed the command line tutorial instead.
+I measured `5.01` seconds to compile and run hello world. I don't think it should be that slow so I'll just leave it up to my own incompitence.
+
+I kept running into these overload ambiugity errors. I was quite frustrating.
+
+```log
+  timer.kt:9:22: error: overload resolution ambiguity: 
+  public final operator fun rem(other: Byte): Double defined in kotlin.Double
+  public final operator fun rem(other: Byte): Int defined in kotlin.Int
+  public final operator fun rem(other: Int): Double defined in kotlin.Double
+  public final operator fun rem(other: Int): Int defined in kotlin.Int
+  public final operator fun rem(other: Long): Double defined in kotlin.Double
+  public final operator fun rem(other: Long): Long defined in kotlin.Int
+  public final operator fun rem(other: Short): Double defined in kotlin.Double
+  public final operator fun rem(other: Short): Int defined in kotlin.Int
+  var secs = t.rem(60);
+```
+
+Kotlin is easier than Java. It's a very mediorce langauge in all aspects. 
+However since android requires you to use either Java or Kotlin I'd go with Kotlin.
+
+### C#
+
+- Documentation: 
+
+  https://docs.microsoft.com/en-us/dotnet/csharp/
+
+- Build Command:
+
+  `dotnet run`
+
+- Install Guide:
+
+  https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/install
+
+
+Creating a new project with `dotnet new console --framework net6.0`
+
+Running with `dotnet run`
+
+Error messages are not easy to read:
+
+```c#
+Unhandled exception. System.FormatException: Format specifier was invalid.
+   at System.Number.GetFloatingPointMaxDigitsAndPrecision(Char fmt, Int32& precision, NumberFormatInfo info, Boolean& isSignificantDigits)
+   at System.Number.FormatDouble(ValueStringBuilder& sb, Double value, ReadOnlySpan`1 format, NumberFormatInfo info)
+   at System.Number.TryFormatDouble(Double value, ReadOnlySpan`1 format, NumberFormatInfo info, Span`1 destination, Int32& charsWritten)
+   at System.Double.TryFormat(Span`1 destination, Int32& charsWritten, ReadOnlySpan`1 format, IFormatProvider provider)
+   at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1)
+   at Program.<Main>$(String[] args) in D:\Git\Project-Omnia\Bytecode\C#\Program.cs:line 9
+```
+
+The documenation and build tools are okay.
+I like C# more than Kotlin and Java, however it's still pretty mediorce. There are faster and simpler languages.
 
 ### Lua
 
@@ -551,7 +647,6 @@ Even with LSP I cannot find a way to convert a string to an int.
 - Install Guide:
 
   There is no install guide
-
 
 I wanted to use luasocket for my sleep function, since Lua does not have one included.
 After running `luarocks install luasocket` I recieve this nice error:
@@ -586,142 +681,7 @@ end
 The documentation is horrible, the syntax is somehow worse the python.
 This language took me the longest to write, don't use it.
 
-### Java
-
-This language is like 100 years old but there still isn't any good documentation for it.
-
-Building is pretty standard `javac timer.java;java Timer`
-
-Errors are pretty decent: 
-
-```log
-timer.java:8: error: incompatible types: int cannot be converted to boolean
-    while (t) {
-           ^
-timer.java:9: error: incompatible types: possible lossy conversion from double to int
-        int mins = Math.floor(t / 60);
-                             ^
-2 errors
-Exception in thread "main" java.lang.NumberFormatException: Cannot parse null string
-```
-
-Java is old, overcomplicated and not very useful. The benefits of byte code languages don't seem to be worth it nowadays.
-Especially given V's sub second compile times.
-
-I've used maven a few times and it seems okay.
-
-### C#
-
-Getting setup with this language is extremely difficult. I don't know what I need, visual studio, .NET SDK?
-After downloading something, it seems to work?
-
-Creating a new project with `dotnet new console --framework net6.0`
-
-Running with `dotnet run`
-
-Error messages:
-
-```log
-Unhandled exception. System.FormatException: Format specifier was invalid.
-   at System.Number.GetFloatingPointMaxDigitsAndPrecision(Char fmt, Int32& precision, NumberFormatInfo info, Boolean& isSignificantDigits)
-   at System.Number.FormatDouble(ValueStringBuilder& sb, Double value, ReadOnlySpan`1 format, NumberFormatInfo info)
-   at System.Number.TryFormatDouble(Double value, ReadOnlySpan`1 format, NumberFormatInfo info, Span`1 destination, Int32& charsWritten)
-   at System.Double.TryFormat(Span`1 destination, Int32& charsWritten, ReadOnlySpan`1 format, IFormatProvider provider)
-   at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
-   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
-   at System.String.Format(String format, Object arg0, Object arg1)
-   at Program.<Main>$(String[] args) in D:\Git\Project-Omnia\Bytecode\C#\Program.cs:line 9
-```
-
-Definitely better than Java however it's still a bit rough around the edges.
-Documentation is okay.
-Build tools are okay.
-
-### Kotlin
-
-Kotlin seems to be focus towards IDE use. However there is an article about using it in the command line.
-
-https://kotlinlang.org/docs/command-line.html
-
-I don't know if it's suppose to take so long to compile but it's basically unusable.
-
-I measured `5.01` seconds to compile and run hello world.
-
-```
-kotlinc timer.kt -include-runtime -d timer.jar
-java -jar timer.jar
-```
-
-Don't see the point of even trying to use this language but i'll give it a go.
-
-An error message:
-
-```log
-  timer.kt:9:22: error: overload resolution ambiguity: 
-  public final operator fun rem(other: Byte): Double defined in kotlin.Double
-  public final operator fun rem(other: Byte): Int defined in kotlin.Int
-  public final operator fun rem(other: Int): Double defined in kotlin.Double
-  public final operator fun rem(other: Int): Int defined in kotlin.Int
-  public final operator fun rem(other: Long): Double defined in kotlin.Double
-  public final operator fun rem(other: Long): Long defined in kotlin.Int
-  public final operator fun rem(other: Short): Double defined in kotlin.Double
-  public final operator fun rem(other: Short): Int defined in kotlin.Int
-  var secs = t.rem(60);
-```
-
-I got so many of these overload ambiguity errors it's insane.
-
-The syntax is okay, much simpler than java. 
-
-Documentation is okay. 
-
-Error messages and compile times are awful.
-
-If this language didn't give me so much hassle with types, i would've given it a *good* in simplicity.
-
 ## Functional
-
-### Elm
-
-This language is built for making websites?
-
-TODO this can't be right
-
-### ReasonML
-
-They have some instructions on setup. 
-
-```log
-git clone https://github.com/esy-ocaml/hello-reason.git
-cd hello-reason
-
-# Install all dependencies (might take a while in the first run)
-esy 
-
-# Compile and run Hello.exe
-esy x Hello
-```
-
-It then install 10,000 packages and spits out this error: 
-
-```log
-info esy 0.6.12 (using package.json)
-info fetching: done
-error command failed: "tar" "xf" "/cygdrive/d/Git/Project-Omnia/Functional/ReasonML/hello-reason/_esy/default/dist/ad5be437c50b699d66afc4e4a159c290" "-C" "/cygdrive/c/Users/Bay/AppData/Local/Temp/esy-dff42d"
-      stderr:
-               tar: ocamlbuild-0.14.1/examples/07-dependent-projects/libdemo: Cannot create symlink to ‘../04-library/libdemo’: Operation not permitted
-               tar: Exiting with failure status due to previous errors
-
-      stdout:
-
-error: error running command
-  unpacking @opam/ocamlbuild@opam:0.14.1
-  installing @opam/ocamlbuild@opam:0.14.1
-esy: exiting due to errors above
-```
-🤨
-
-TODO ...
 
 ### Gleam
 
@@ -845,10 +805,6 @@ timer.hs:8:3: error:
 ```
 
 This language is cursed.
-
-### Clojure 
-
-> Currently, clj on Windows is in an alpha state. Please try it and provide feedback in the TDEPS jira or on #clj-on-windows room on Clojurians slack.
 
 ### Erlang
 
