@@ -6,7 +6,7 @@ Should rename the project.
 I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
 Sometimes it feels like the *quality* of a language is determined by how old it is, rather than how good it is.
 
-To get to the bottom of this, I've deciced to remake the same project in over 20 different languages.
+To get to the bottom of this, I've decided to remake the same project in over 20 different languages.
 
 The project I've chosen is a countdown timer. This feels like a good choice since it requires:
 
@@ -86,14 +86,14 @@ Many people use Python just for TensorFlow or PyTorch.
   I don't think the language is worth using since it's interpreted, however it's a good start.
 
   Rust is much more complicated but also has lot's of learning resources. 
-  C++ does have good resouces but the language is worse.
+  C++ does have good resources but the language is worse.
 
 - Best languages for experienced programmers
   - V
   - Rust
   - Nim
 
-  V is a language I hope to move into the beginner category. It's simple, performat and modern.
+  V is a language I hope to move into the beginner category. It's simple, preformat and modern.
   It sometimes requires you to dig through the source code to find stuff. 
   Hopefully the issues will be resolved by version 1.0.
 
@@ -105,20 +105,20 @@ Many people use Python just for TensorFlow or PyTorch.
   - C#
   - Kotlin
 
-  I don't like bytecode langauges but if you can't help yourself, C# and Kotlin are decent choices.
+  I don't like bytecode languages but if you can't help yourself, C# and Kotlin are decent choices.
 
 - Best functional languages
   - Elixir
   - Gleam
 
-  If you like functional programming you might like either of these.
+  If you like functional programming, you might like one of these.
 
 - Languages you should never use
   - Zig
   - Java
   - Lua
 
-  These languages all have alternatives that are better. 
+  These languages all have alternatives that are objectively better. 
 
 | Language   | Simplicity | Documentation? | Build Tools | Compile Times(ms) | Error Messages |
 |------------|------------|----------------|-------------|-------------------|----------------|
@@ -234,8 +234,6 @@ Keep in mind that I'm talking about JavaScript + Node.js.
 
   https://nodejs.dev/learn/introduction-to-nodejs
 
-  > I really like node's introduction to nodejs.
-
 - Required Computer Knowledge:
 
   Moderate
@@ -249,7 +247,6 @@ Keep in mind that I'm talking about JavaScript + Node.js.
 - Build Command: 
 
   `node timer.js`
-
 
 It may be hard for people to understand that JavaScript requires a runtime like NodeJs. I can't recommend this language to new users because of this.
 
@@ -471,10 +468,12 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
 
   https://go.dev/doc/install
 
+TODO rewrite this.
+
 This language is somehow more complicated than rust.
 The functions are super weird, `ReadString` reads up to a certain character and includes it. So your always going to have `\r\n` in your input.
 Worse than that, there's no pop function. Not epic.
-I can't believe how bad the documentation is and how shit the api is.
+I can't believe how bad the documentation is and how shit the API is.
 I see why V exists now, yikes...
 I do like the way it auto imports modules I would like that for rust since it's such an import heavy language.
 
@@ -535,7 +534,7 @@ Even with LSP I cannot find a way to convert a string to an int.
 
 - Install Guide:
 
-  > This is better than the offical website
+  > This is better than the official website
 
   https://adoptopenjdk.net/
 
@@ -554,7 +553,7 @@ Exception in thread "main" java.lang.NumberFormatException: Cannot parse null st
 
 Java is hard to install, hard to write, hard to compile, documentation is awful.
 
-This language is not relavent to modern programming.
+This language is not relevant to modern programming.
 
 ### Kotlin
 
@@ -574,9 +573,9 @@ This language is not relavent to modern programming.
 
 
 Kotlin is meant to be used with IntelliJ IDEA, but I don't like IDE's so I followed the command line tutorial instead.
-I measured `5.01` seconds to compile and run hello world. I don't think it should be that slow so I'll just leave it up to my own incompitence.
+I measured `5.01` seconds to compile and run hello world. I don't think it should be that slow so I'll just leave it up to my own incompetence.
 
-I kept running into these overload ambiugity errors. I was quite frustrating.
+I kept running into these overload ambiguity errors. I was quite frustrating.
 
 ```log
   timer.kt:9:22: error: overload resolution ambiguity: 
@@ -591,7 +590,7 @@ I kept running into these overload ambiugity errors. I was quite frustrating.
   var secs = t.rem(60);
 ```
 
-Kotlin is easier than Java. It's a very mediorce langauge in all aspects. 
+Kotlin is easier than Java. It's a very mediocre language in all aspects. 
 However since android requires you to use either Java or Kotlin I'd go with Kotlin.
 
 ### C#
@@ -627,8 +626,8 @@ Unhandled exception. System.FormatException: Format specifier was invalid.
    at Program.<Main>$(String[] args) in D:\Git\Project-Omnia\Bytecode\C#\Program.cs:line 9
 ```
 
-The documenation and build tools are okay.
-I like C# more than Kotlin and Java, however it's still pretty mediorce. There are faster and simpler languages.
+The documentation and build tools are okay.
+I like C# more than Kotlin and Java, however it's still pretty mediocre. There are faster and simpler languages.
 
 ### Lua
 
@@ -649,7 +648,7 @@ I like C# more than Kotlin and Java, however it's still pretty mediorce. There a
   There is no install guide
 
 I wanted to use luasocket for my sleep function, since Lua does not have one included.
-After running `luarocks install luasocket` I recieve this nice error:
+After running `luarocks install luasocket` I receive this nice error:
 
 ```lua
 Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
@@ -662,7 +661,7 @@ operable program or batch file.
 Error: Build error: Failed compiling object src/luasocket.o
 ```
 
-After fixing that I recieve a new error:
+After fixing that I receive a new error:
 
 ```
 Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
@@ -670,7 +669,7 @@ Installing https://luarocks.org/luasocket-3.0rc1-2.src.rock
 Error: Failed finding Lua header files. You may need to install them or configure LUA_INCDIR.
 ```
 
-I decied to use something I found on stack overflow instead:
+I decide to use something I found on stack overflow instead:
 
 ```lua
 function sleep(n)
@@ -722,7 +721,7 @@ Oof. I'm still impressed with some of the things I've seen. I don't think *Elixi
 
 - Documentation: 
 
-  There is no offical documentation.
+  There is no official documentation.
 
 - Required Computer Knowledge:
 
@@ -735,6 +734,8 @@ Oof. I'm still impressed with some of the things I've seen. I don't think *Elixi
 - Install Guide:
 
   https://www.haskell.org/downloads/
+
+TODO rewrite
 
 Starting off with some extremely confusing install instructions:
 
@@ -756,7 +757,7 @@ Install GHC, cabal-install and haskell-language-server via GHCup
 To install stack, follow the instructions here (N.B. stack does not support FreeBSD)
 ```
 
-This isn't even english. I think i'm supposed to go here: https://www.haskell.org/ghc/download_ghc_9_2_1.html#windows64
+This isn't English. I think I'm supposed to go here: https://www.haskell.org/ghc/download_ghc_9_2_1.html#windows64
 
 I just used `scoop install haskell stack` instead. It's 500mb's... oof.
 
@@ -772,16 +773,16 @@ Then download another 400MB for the compile which is already installed.
 
 Then downloading it downloaded msys2??
 
-I guess we're installing linux now.
+I guess we're installing Linux now.
 
 I opted for a simpler approach `ghc timer.hs;./timer.exe`
 
 Compile times are exceptionally bad for this language.
-3742 ms to compile hello world.
+3742ms to compile hello world.
 
 The documentation is worse than Elixir plus the language is harder to understand.
 
-This compile message is formatted nicely but impossable to understand.
+This compile message is formatted nicely but impossible to understand.
 
 ```haskell
 timer.hs:8:3: error:
