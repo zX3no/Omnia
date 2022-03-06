@@ -26,7 +26,7 @@ while time != 0
 
     print mins secs
     sleep 1 second
-    t--
+    t = t - 1
 ```
 
 ### Languages
@@ -37,7 +37,6 @@ TODO REMOVE
   - Python
   - JavaScript
   - TypeScript
-  - PureScript
 
 - Compiled
   - C
@@ -60,6 +59,7 @@ TODO REMOVE
   - Haskell
   - Erlang
   - Gleam
+  - PureScript
 
 ### Rankings
 
@@ -154,7 +154,8 @@ TypeScript: TODO
 
 C: `printf` is very easy to use. No hassles with flushing `stdout`.
 
-C++: I've used this language a lot before I swapped to rust. I swapped for a reason.
+C++: It has scoped variables(RAII), which is a necessary feature that C does not have. 
+Plus you can use the C standard library in C++ and have the best of both worlds.
 
 Go: Automatically imports every that you need. I wish rust had this! 
 
@@ -314,15 +315,19 @@ Give them a go and you might be surprised.
 
   https://isocpp.org/get-started 
 
-This is somehow worse than C. I think I understand why people don't like this language now.
 
-This print function is not good. Maybe I'm using it wrong?
+This is by far the worst print function I've seen.
 
 ```cpp
   std::cout << std::setfill('0') << std::setw(2) << mins;
   std::cout << ":";
   std::cout << std::setfill('0') << std::setw(2) << secs;
 ```
+
+This language feel stuck in the past, it's very similar to C in that regard. If you need to use either C or C++, obviously chose C++. 
+You can still use the C standard library, while still maintaining all the benefits like: better exceptions/error handling, RAII, a vector class, smart pointers, etc... 
+
+If you want to write good low level software, just use Rust and save yourself the headache of C/C++.
 
 ### V 
 
@@ -351,8 +356,6 @@ The code is simple, the compiler is fast and has great messages.
 Standard library documentation is very easy to navigate.
 
 I have high hopes for this language.
-
-An example error message:
 
 ```v
 .\timer.v:11:13: error: string types only have the following operators defined: `==`, `!=`, `<`, `>`, `<=`, `>=`, and `+`
@@ -388,7 +391,7 @@ An example error message:
   https://www.rust-lang.org/learn/get-started
 
 First off, Rust is missing an input function like most other languages. 
-Here is how to get the users input: 
+Here is the hard way of getting the users input: 
 
 ```rust
 use std::io::{stdin, stdout, Write};
@@ -411,8 +414,7 @@ Not great. However there is discussion and an active pull request to fix the iss
 https://github.com/rust-lang/rfcs/pull/3196
 https://github.com/rust-lang/rust/pull/75435
 
-I really want to show off how simple rust can be, so I created a crate to get user input.
-I created the crate [read_io](https://crates.io/crates/read_io). 
+I really want to show off how simple rust can be, so I created a [crate](https://crates.io/crates/read_io) to fix the issue.
 
 Here is the new input code:
 
@@ -421,8 +423,6 @@ let mut t: i32 = read!("Enter the time in seconds: ");
 ```
 
 Hopefully something like this can be added to the standard library one day.
-
-Rust has some of the best documentation out of any language and `cargo` is a really nice build tool. 
 
 ### Zig
 - Documentation: 
@@ -442,7 +442,7 @@ Rust has some of the best documentation out of any language and `cargo` is a rea
 Compile times are bad, error messages are bad, documentation is bad. 
 This language feels like it was written by someone who wanted to make C even harder to use.
 
-```log
+```c
 C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
         @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
         ^
