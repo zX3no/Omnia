@@ -20,11 +20,9 @@ pub fn main() !void {
 
     while (t != 0) {
         var f = @intToFloat(f32, t);
-        const mins = math.floor(f / 60.0);
+        const mins = @floatToInt(i32, math.floor(f / 60.0));
         const secs = t % 60;
         os.windows.kernel32.Sleep(1000);
-
-        //idk how to format?
         print("{any}:{any} \r", .{ mins, secs });
         t -= 1;
     }

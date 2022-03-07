@@ -113,27 +113,31 @@ Many people use Python just for TensorFlow or PyTorch.
 
   These languages all have alternatives that are objectively better. 
 
+---
+
 | Language   | Simplicity | Documentation? | Build Tools | Compile Times(ms) | Error Messages |
 |------------|------------|----------------|-------------|-------------------|----------------|
-| Python     | Good       | Okay           | Okay        | -                 |                |
-| JavaScript | Bad        | Bad            | Good        | -                 |                |
-| TypeScript |            |                |             | -                 |                |
+| Python     | Good       | Okay           | Okay        | -                 | Okay           |
+| JavaScript | Bad        | Bad            | Good        | -                 | Okay           |
+| TypeScript | Bad        | Okay           | Good        | -                 | Okay           |
 | C          | Okay       | Okay           | Bad         | 800               | Bad            |
 | C++        | Bad        | Okay           | Bad         | 1359              | Bad            |
-| Go         | Bad        | Bad            | Good        | 436               |                |
+| Go         | Bad        | Bad            | Good        | 436               | Okay           |
 | Rust       | Okay       | Great          | Great       | 1250              | Great          |
 | V          | Great      | Good           | Good        | 430               | Good           |
-| Nim        | Good       | Good           | Good        | 965               |                |
+| Nim        | Good       | Good           | Good        | 965               | Okay           |
 | Zig        | 0____0     | Bad            | Okay        | 5297              | Bad            |
 | Odin       | Bad        | Bad            | Good        | -                 | -              |
 | Java       | Bad        | Bad            | Bad         | -                 | Okay           |
 | Kotlin     | Okay       | Okay           | Bad         | -                 | Bad            |
-| Lua        |            | Bad            | Bad         | -                 |                |
+| Lua        |            | Bad            | Bad         | -                 | Okay           |
 | Elixir     | Bad        | Good           |             | -                 |                |
 | Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
+| Erlang     |            |                |             | -                 |                |
+| Gleam      |            |                |             | -                 | Good           |
 | PureScript |            |                |             | -                 |                |
 
-Unfinished: Odin, Haskell, Zig, PureScript, Gleam, Zig
+Unfinished: Odin, Haskell, PureScript, Gleam
 
 ---
 
