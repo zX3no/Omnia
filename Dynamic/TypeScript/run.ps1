@@ -1,1 +1,0 @@
-node timer.ts

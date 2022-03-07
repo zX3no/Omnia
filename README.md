@@ -79,14 +79,7 @@ Many people use Python just for TensorFlow or PyTorch.
 #### The best & worst languages
 
 - Best languages for beginner programmers
-  - Python
-  - Rust
-
-  Python is the most popular language and has many learning resources because of that. 
-  I don't think the language is worth using since it's interpreted, however it's a good start.
-
-  Rust is much more complicated but also has lot's of learning resources. 
-  C++ does have good resources but the language is worse.
+  - Choose whatever you want
 
 - Best languages for experienced programmers
   - V
