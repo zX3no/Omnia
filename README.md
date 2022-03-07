@@ -118,7 +118,7 @@ Many people use Python just for TensorFlow or PyTorch.
 | Language   | Simplicity | Documentation? | Build Tools | Compile Times(ms) | Error Messages |
 |------------|------------|----------------|-------------|-------------------|----------------|
 | Python     | Good       | Okay           | Okay        | -                 | Okay           |
-| JavaScript | Bad        | Bad            | Good        | -                 | Okay           |
+| JavaScript | Bad        | Okay           | Good        | -                 | Okay           |
 | TypeScript | Bad        | Okay           | Good        | -                 | Okay           |
 | C          | Okay       | Okay           | Bad         | 800               | Bad            |
 | C++        | Bad        | Okay           | Bad         | 1359              | Bad            |
@@ -127,7 +127,7 @@ Many people use Python just for TensorFlow or PyTorch.
 | V          | Great      | Good           | Good        | 430               | Good           |
 | Nim        | Good       | Good           | Good        | 965               | Okay           |
 | Zig        | 0____0     | Bad            | Okay        | 5297              | Bad            |
-| Odin       | Bad        | Bad            | Good        | -                 | -              |
+| Odin       | Bad        | Okay           | Good        | 821               | Okay           |
 | Java       | Bad        | Bad            | Bad         | -                 | Okay           |
 | Kotlin     | Okay       | Okay           | Bad         | -                 | Bad            |
 | Lua        |            | Bad            | Bad         | -                 | Okay           |
@@ -137,7 +137,7 @@ Many people use Python just for TensorFlow or PyTorch.
 | Gleam      |            |                |             | -                 | Good           |
 | PureScript |            |                |             | -                 |                |
 
-Unfinished: Odin, Haskell, PureScript, Gleam
+Unfinished: Haskell, PureScript, Gleam
 
 ---
 

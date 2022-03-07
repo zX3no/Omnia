@@ -34,6 +34,13 @@ $zig = Measure-Command {
 } | Select-Object -Property TotalMilliseconds
 Set-Location ../../
 
+Set-Location Compiled/Odin
+Remove-Item timer.exe -Force -ErrorAction Ignore
+$odin = Measure-Command {
+    odin build timer.odin
+} | Select-Object -Property TotalMilliseconds
+Set-Location ../../
+
 echo $c
 echo $cpp
 echo $go
@@ -41,3 +48,4 @@ echo $rust
 echo $v
 echo $nim
 echo $zig
+echo $odin
