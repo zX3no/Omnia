@@ -133,7 +133,7 @@ Many people use Python just for TensorFlow or PyTorch.
 | Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
 | PureScript |            |                |             | -                 |                |
 
-Unfinished: Odin, Haskell, Zig, PureScript, Gleam, TypeScript, Zig
+Unfinished: Odin, Haskell, Zig, PureScript, Gleam, Zig
 
 ---
 
@@ -143,7 +143,7 @@ Python: Very clean input function. Only language that has a `divmod` function. S
 
 JavaScript: Despite being built for the web. It's was still very easy to setup dependencies and find documentation.
 
-TypeScript: TODO
+TypeScript: It's JavaScript with compile time type checking, what's not to love?
 
 C: `printf` is very easy to use. No hassles with flushing `stdout`.
 
@@ -228,10 +228,6 @@ Keep in mind that I'm talking about JavaScript + Node.js.
 
   https://nodejs.dev/learn/introduction-to-nodejs
 
-- Required Computer Knowledge:
-
-  Moderate
-
 - Install Guide:
 
   > First you need to understand that JavaScript is dynamic and requires a `runtime` like Node.js or Deno.
@@ -253,13 +249,36 @@ Please use it in that context.
 
 ### TypeScript
 
-Install typescript `npm install -g typescript`
+- Documentation: 
 
-Create a project with `npm i -D typescript`
+  https://www.typescriptlang.org/docs/
 
-Run with `node timer.ts`
+- Install Guide:
 
-NodeJs is super annoying with it's imports.
+  https://www.typescriptlang.org/download
+
+- Build Command: 
+
+  `yarn dev`
+
+TypeScript requires quite a significant amount of effort to setup. 
+It is difficult to find information about how it's used with Node.js.
+I watched [Using TypeScript in Node.js](https://www.youtube.com/watch?v=1UcLoOD1lRM) and that cleared up most of my confusing.
+
+TypeScript requires you to import TypeScript definitions for JavaScript libraries.
+Node.js does not work without importing `@types/node`.
+
+I needed to add `ts-node` to my project and setup a build script. 
+Then I can run my project with `yarn dev`.
+
+```json
+ "scripts": {
+    "dev": "ts-node src/timer.ts"
+  },
+```
+
+I've always preferred statically typed languages. 
+If your a web developer you'll probably like this more than JavaScript.
 
 ## Compiled
 
