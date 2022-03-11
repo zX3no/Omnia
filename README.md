@@ -115,27 +115,27 @@ Many people use Python just for TensorFlow or PyTorch.
 
 ---
 
-| Language   | Simplicity | Documentation? | Build Tools | Compile Times(ms)  | Error Messages |
-|------------|------------|----------------|-------------|--------------------|----------------|
-| Python     | Good       | Okay           | Okay        | -                  | Okay           |
-| JavaScript | Bad        | Okay           | Good        | -                  | Okay           |
-| TypeScript | Bad        | Okay           | Good        | -                  | Okay           |
-| C          | Okay       | Okay           | Bad         | 800                | Bad            |
-| C++        | Bad        | Okay           | Bad         | 1359               | Bad            |
-| Go         | Bad        | Bad            | Good        | 436                | Okay           |
-| Rust       | Okay       | Great          | Great       | 1250 / 460(cached) | Great          |
-| V          | Great      | Good           | Good        | 430                | Good           |
-| Nim        | Good       | Good           | Good        | 965                | Okay           |
-| Zig        | 0____0     | Bad            | Okay        | 5297               | Bad            |
-| Odin       | Bad        | Okay           | Good        | 821                | Okay           |
-| Java       | Bad        | Bad            | Bad         | -                  | Okay           |
-| Kotlin     | Okay       | Okay           | Bad         | -                  | Bad            |
-| Lua        |            | Bad            | Bad         | -                  | Okay           |
-| Elixir     | Bad        | Good           |             | -                  |                |
-| Haskell    | 0____0     | Bad            | Bad         | 3738               | Bad            |
-| Erlang     |            |                |             | -                  |                |
-| Gleam      | Bad        | Bad            | Great       | 1891 / 260(cached) | Great          |
-| PureScript |            |                |             | -                  |                |
+| Language   | Simplicity | Documentation? | Build Tools | Compile Times(ms) | Error Messages |
+|------------|------------|----------------|-------------|-------------------|----------------|
+| Python     | Good       | Okay           | Okay        | -                 | Okay           |
+| JavaScript | Bad        | Okay           | Good        | -                 | Okay           |
+| TypeScript | Bad        | Okay           | Good        | -                 | Okay           |
+| C          | Okay       | Okay           | Bad         | 800               | Bad            |
+| C++        | Bad        | Okay           | Bad         | 1359              | Bad            |
+| Go         | Bad        | Bad            | Good        | 436               | Okay           |
+| Rust       | Okay       | Great          | Great       | 1114              | Great          |
+| V          | Great      | Good           | Good        | 430               | Good           |
+| Nim        | Good       | Good           | Good        | 965               | Okay           |
+| Zig        | 0____0     | Bad            | Okay        | 5297              | Bad            |
+| Odin       | Bad        | Okay           | Good        | 821               | Okay           |
+| Java       | Bad        | Bad            | Bad         | -                 | Okay           |
+| Kotlin     | Okay       | Okay           | Bad         | -                 | Bad            |
+| Lua        |            | Bad            | Bad         | -                 | Okay           |
+| Elixir     | Bad        | Good           |             | -                 |                |
+| Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
+| Erlang     |            |                |             | -                 |                |
+| Gleam      | Bad        | Bad            | Great       | 1891              | Great          |
+| PureScript |            |                |             | -                 |                |
 
 Unfinished: Haskell, PureScript
 
@@ -187,7 +187,7 @@ ReasonML: TODO
 
 PureScript: TODO
 
-Gleam: TODO
+Gleam: It has great error messages and tooling. It takes a lot of inspiration from Rust which is my favourite language. I won't pretend to understand functional programming however this felt like the most beginner friendly. 
 
 ## Interpreted
 
@@ -421,8 +421,8 @@ stdin().read_line(&mut s).unwrap();
 s.pop();
 s.pop();
 
-let i = s.parse::<i32>().unwrap();
-println!("You entered the number: {}", i);
+let mut t = s.parse::<i32>().unwrap();
+println!("You entered the number: {}", t);
 ```
 
 Not great. However there is discussion and an active pull request to fix the issue.

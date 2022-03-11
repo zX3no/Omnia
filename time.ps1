@@ -41,7 +41,6 @@ $odin = Measure-Command {
 } | Select-Object -Property TotalMilliseconds
 Set-Location ../../
 
-
 Set-Location Functional/Gleam
 Remove-Item build -Recurse -Force -ErrorAction Ignore
 $gleam = Measure-Command {
