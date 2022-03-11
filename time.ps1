@@ -41,6 +41,14 @@ $odin = Measure-Command {
 } | Select-Object -Property TotalMilliseconds
 Set-Location ../../
 
+
+Set-Location Functional/Gleam
+Remove-Item build -Recurse -Force -ErrorAction Ignore
+$gleam = Measure-Command {
+    gleam build
+} | Select-Object -Property TotalMilliseconds
+Set-Location ../../
+
 echo $c
 echo $cpp
 echo $go
@@ -49,3 +57,4 @@ echo $v
 echo $nim
 echo $zig
 echo $odin
+echo $gleam

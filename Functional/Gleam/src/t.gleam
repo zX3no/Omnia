@@ -6,16 +6,19 @@ import gleam/float
 
 fn loop(i: Int) {
   case i {
-    0 -> io.print("")
+    0 -> io.print("Done.")
     n -> {
       let f = int.to_float(i) /. 60.0
       let m = float.floor(f)
       let mins = float.round(m)
       let secs = i % 60
-      io.print(int.to_string(mins))
-      io.print(":")
-      io.print(int.to_string(secs))
-      io.print("  \r")
+      //Gleam does not have print formatting
+      io.print(
+        int.to_string(mins)
+        |> string.append(":")
+        |> string.append(int.to_string(secs))
+        |> string.append("  \r"),
+      )
       erlang.sleep(1 * 1000)
       loop(i - 1)
     }
