@@ -9,4 +9,5 @@ main = do
   s <- getLine
   let t = read s :: Integer
   let _ = countdown (t)
+
   putStr ""
