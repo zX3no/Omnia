@@ -14,7 +14,7 @@ func main() {
 	s := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter time in seconds: ")
 	text, _ := s.ReadString('\r')
-	text = strings.TrimSuffix(text, "\r")
+	text = strings.Trim(text, "\n\r")
 	t, _ := strconv.Atoi(text)
 
 	for t != 0 {

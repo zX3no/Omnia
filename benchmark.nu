@@ -1,0 +1,1 @@
+benchmark { v Compiled/v -o Compiled/v/timer.exe}

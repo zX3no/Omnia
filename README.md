@@ -30,7 +30,7 @@ while time != 0
 
 There are some import things to note when looking for a new language.
 The best language is one that is easiest to learn.
-Many new `simple` languages lack documentation and are not a good choice for people learning.
+Many new `simple` languages lack documentation and are not a good choice for beginners.
 
 Tooling is often very important, having a nice build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make life easy.
 
@@ -98,7 +98,6 @@ Many people use Python just for TensorFlow or PyTorch.
 | Lua        |            | Bad            | Bad         | -                 | Okay           |
 | Elixir     | Bad        | Good           |             | -                 |                |
 | Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
-| Erlang     |            |                |             | -                 |                |
 | Gleam      | Bad        | Bad            | Great       | 1891              | Great          |
 | PureScript |            |                |             | -                 |                |
 
@@ -319,11 +318,12 @@ If you want to write good low level software, just use Rust and save yourself th
 
   V has no official guide.
 
-V is quite a new language and has some rough edges
+V is quite a new language and has some rough edges.
 
 - Documentation is lacking
 - Language server is in alpha 
 - Lack of resources/learning material
+- Still under heavy development
 
 Despite this I really like writing code with V. 
 The code is simple, the compiler is fast and has great messages. 
@@ -383,17 +383,19 @@ let mut t = s.parse::<i32>().unwrap();
 println!("You entered the number: {}", t);
 ```
 
-Not great. However there is discussion and an active pull request to fix the issue.
+Not great. However there is discussion about this issue but nothing very substantial.
 
 https://github.com/rust-lang/rfcs/pull/3196
 https://github.com/rust-lang/rust/pull/75435
 
-I really want to show off how simple rust can be, so I created a [crate](https://crates.io/crates/read_io) to fix the issue.
+It doesn't seem like there is much agreement about this topic and it's disappointing that it's been left out.
+
+To fix this, I created my own crate called [read_io](https://crates.io/crates/read_io).
 
 Here is the new input code:
 
 ```rust
-let mut t: i32 = read!("Enter the time in seconds: ");
+let mut t: i32 = read!("Enter the time in seconds: ").unwrap();
 ```
 
 Hopefully something like this can be added to the standard library one day.
@@ -748,7 +750,7 @@ Compile times are exceptionally bad for this language.
 
 The documentation is worse than Elixir plus the language is harder to understand.
 
-This compile message is formatted nicely but impossible to understand.
+This error message is formatted nicely but is impossible to understand.
 
 ```haskell
 timer.hs:8:3: error:
@@ -772,9 +774,3 @@ timer.hs:8:3: error:
 ```
 
 This language is cursed.
-
-### Erlang
-
-https://www.erlang.org/doc/getting_started/intro.html
-
-The documentation for this language is so out of date. I can't even find what the file extension is.
