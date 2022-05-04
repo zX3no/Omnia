@@ -7,7 +7,7 @@ import gleam/float
 fn loop(i: Int) {
   case i {
     0 -> io.print("Done.")
-    n -> {
+    _ -> {
       let f = int.to_float(i) /. 60.0
       let m = float.floor(f)
       let mins = float.round(m)
@@ -19,19 +19,16 @@ fn loop(i: Int) {
         |> string.append(int.to_string(secs))
         |> string.append("  \r"),
       )
-      erlang.sleep(1 * 1000)
+      erlang.sleep(1000)
       loop(i - 1)
     }
   }
 }
 
 pub fn main() {
-  case erlang.get_line("Enter a time in seconds: ") {
-    Ok(s) ->
-      case int.parse(string.trim(s)) {
-        Ok(t) -> loop(t)
-        Error(e) -> io.println("Invalid number.")
-      }
-    Error(e) -> io.println("Invalid number.")
-  }
+  //TODO: for some reason get_line doesn't work anymore?
+  assert Ok(input) = erlang.get_line("Enter a time in seconds: ")
+  assert Ok(t) =  string.trim(input) |> int.parse()
+
+  loop(t)
 }

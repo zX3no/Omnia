@@ -98,10 +98,9 @@ Many people use Python just for TensorFlow or PyTorch.
 | Lua        |            | Bad            | Bad         | -                 | Okay           |
 | Elixir     | Bad        | Good           |             | -                 |                |
 | Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
-| Gleam      | Bad        | Bad            | Great       | 1891              | Great          |
-| PureScript |            |                |             | -                 |                |
+| Gleam      | Okay       | Bad            | Great       | 1891              | Great          |
 
-Unfinished: Haskell, PureScript
+Unfinished: Haskell
 
 ---
 
@@ -145,13 +144,9 @@ Elixir: The only functional language that actually worked for me. Opened my mind
 
 Haskell: TODO
 
-ReasonML: TODO
-
-PureScript: TODO
-
 Gleam: It has great error messages and tooling. It takes a lot of inspiration from Rust which is my favourite language. I won't pretend to understand functional programming however this felt like the most beginner friendly. 
 
-### Interpreted
+## Interpreted
 
 ### Python
 
