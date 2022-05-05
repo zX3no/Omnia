@@ -137,15 +137,15 @@ Odin: This language is also awful
 
 Java: This language is awful
 
-Kotlin: Much better than Java, I think I'd enjoy writing android apps with this language.
+Kotlin: Simple to write, not a bad langauge to write android apps with.
 
 Lua: This was the only language on the list which made me angry.
 
 C#: It's better than Java.
 
-Elixir: The only functional language that actually worked for me. Opened my mind to new ways of thinking about programming.
+Elixir: One of the few functional languages that worked for me. Opened my mind to different ways of problem solving.
 
-Gleam: It has great error messages and tooling. It takes a lot of inspiration from Rust which is my favourite language. I won't pretend to understand functional programming however this felt like the most beginner friendly. 
+Gleam: Great error messages and tooling. I won't pretend to understand functional langauges however this felt the most beginner friendly. 
 
 ---
 
@@ -469,7 +469,7 @@ Summary
 
 How is it possible that `printf` is better than `std::cout`. It's been over 20 years and it still sucks, why even write it?
 
-In fairness, C++ has some great features that C doesn't have like: RAII, vectors, smart pointers, better multi-threading and error handling.
+In fairness, C++ has some great features that C doesn't have: RAII, vectors, smart pointers, better multi-threading and error handling.
 You can even keep using `printf` and all your favourite C libraries in C++... or you could just learn Rust.
 
 ### V 
