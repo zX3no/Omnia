@@ -278,6 +278,27 @@ Please use it for the web, not for desktop applications.
 
   `yarn dev`
 
+#### Code
+
+```ts
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
+
+(async () => {
+    let s = prompt('Enter the time in seconds: ');
+    let t = parseInt(s);
+    while (t) {
+        let mins = Math.floor(t / 60);
+        let secs = t % 60;
+        process.stdout.write(String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0') + '\r');
+        await new Promise(f => setTimeout(f, 1000));
+        t--;
+    }
+})();
+```
+
+#### Overview
+
 TypeScript requires quite a significant amount of effort to setup. 
 It is difficult to find information about how it's used with Node.js.
 I watched [Using TypeScript in Node.js](https://www.youtube.com/watch?v=1UcLoOD1lRM) and that cleared up most of my confusing.
@@ -316,20 +337,27 @@ If your a web developer you'll probably like this more than JavaScript.
 #### Code
 
 ```c
-  int t;
-  printf("Enter the time in seconds: ");
-  scanf("%d", &t);
+  #include <stdio.h>
+  #include <math.h>
+  #include <windows.h>
 
-  while (t)
+  int main()
   {
-      int mins = floor(t / 60);
-      int secs = t % 60;
-      printf("%02d:%02d\r", mins, secs);
-      Sleep(1000);
-      t--;
-  };
+      int t;
+      printf("Enter the time in seconds: ");
+      scanf("%d", &t);
 
-  return 0;
+      while (t)
+      {
+          int mins = floor(t / 60);
+          int secs = t % 60;
+          printf("%02d:%02d\r", mins, secs);
+          Sleep(1000);
+          t--;
+      };
+
+      return 0;
+  }
 ```
 
 #### Overview
@@ -369,24 +397,32 @@ Give them a go and you might be surprised.
 #### Code
 
 ```cpp
-  int t;
-  std::cout << "Enter a time in seconds: ";
-  std::cin >> t;
+  #include <iostream>
+  #include <iomanip>
+  #include <Windows.h>
+  #include <cmath>
 
-  while (t)
+  int main()
   {
-      int mins = floor(t / 60);
-      int secs = t % 60;
+      int t;
+      std::cout << "Enter a time in seconds: ";
+      std::cin >> t;
 
-      std::cout << std::setfill('0') << std::setw(2) << mins;
-      std::cout << ":";
-      std::cout << std::setfill('0') << std::setw(2) << secs;
-      std::cout << "\r";
+      while (t)
+      {
+          int mins = floor(t / 60);
+          int secs = t % 60;
 
-      Sleep(1000);
-      t--;
+          std::cout << std::setfill('0') << std::setw(2) << mins;
+          std::cout << ":";
+          std::cout << std::setfill('0') << std::setw(2) << secs;
+          std::cout << "\r";
+
+          Sleep(1000);
+          t--;
+      }
+      return 0;
   }
-  return 0;
 ```
 
 #### Overview
@@ -433,7 +469,8 @@ Summary
 
 How is it possible that `printf` is better than `std::cout`. It's been over 20 years and it still sucks, why even write it?
 
-Please just learn Rust.
+In fairness, C++ has some great features that C doesn't have like: RAII, vectors, smart pointers, better multi-threading and error handling.
+You can even keep using `printf` and all your favourite C libraries in C++... or you could just learn Rust.
 
 ### V 
 
@@ -454,16 +491,22 @@ Please just learn Rust.
 #### Code
 
 ```v
-    input := os.input('Enter the time in seconds: ')
-	mut t := input.i16()
+  import time
+  import os
+  import math
 
-	for t != 0 {
-		mins := math.floor(t / 60)
-		secs := t % 60
-		print('${mins:02}:${secs:02}\r')
-		time.sleep(1 * time.second)
-		t--
-	}
+  fn main() {
+    input := os.input('Enter the time in seconds: ')
+    mut t := input.i16()
+
+    for t != 0 {
+      mins := math.floor(t / 60)
+      secs := t % 60
+      print('${mins:02}:${secs:02}\r')
+      time.sleep(1 * time.second)
+      t--
+    }
+  }
 ```
 
 #### Overview
@@ -517,20 +560,30 @@ I have high hopes for this language.
 #### Code
 
 ```rust
-  let mut s = String::new();
-  eprint!("Please enter the time in seconds: ");
-  stdin().read_line(&mut s).unwrap();
+use std::{
+  io::{stdin, stdout, Write},
+  thread,
+  time::Duration,
+};
 
-  let mut t: i32 = s.trim().parse().unwrap();
+fn main() {
+    let mut s = String::new();
+    eprint!("Please enter the time in seconds: ");
+    stdin().read_line(&mut s).unwrap();
 
-  while t != 0 {
-      let mins = (t as f32 / 60.0).floor();
-      let secs = t % 60;
-      print!("{:02}:{:02}\r", mins, secs);
-      stdout().flush().unwrap();
-      thread::sleep(Duration::from_secs(1));
-      t -= 1;
-  }
+    let mut t: i32 = s.trim().parse().unwrap();
+
+    while t != 0 {
+        let mins = (t as f32 / 60.0).floor();
+        let secs = t % 60;
+        print!("{:02}:{:02}\r", mins, secs);
+        stdout().flush().unwrap();
+        thread::sleep(Duration::from_secs(1));
+        t -= 1;
+    }
+}
+
+
 ```
 
 #### Overview
@@ -583,6 +636,43 @@ Keep in mind I didn't use this crate for the code example because it would impac
 
   https://ziglang.org/learn/getting-started/
 
+#### Code
+
+```zig
+const std = @import("std");
+const print = std.debug.print;
+const fmt = std.fmt;
+const math = std.math;
+const os = std.os;
+const time = std.time;
+
+pub fn main() !void {
+    const stdin = std.io.getStdIn().reader();
+    var buf: [20]u8 = undefined;
+
+    print("Enter a time in seconds: ", .{});
+
+    const amt = try stdin.read(&buf);
+    const line = std.mem.trimRight(u8, buf[0..amt], "\r\n");
+    var t = fmt.parseUnsigned(u8, line, 10) catch {
+        print("Invalid number.\n", .{});
+        return;
+    };
+
+    while (t != 0) {
+        var f = @intToFloat(f32, t);
+        const mins = @floatToInt(i32, math.floor(f / 60.0));
+        const secs = t % 60;
+        os.windows.kernel32.Sleep(1000);
+        print("{any}:{any} \r", .{ mins, secs });
+        t -= 1;
+    }
+}
+```
+
+#### Overview
+
+TODO: rewrite overview and code
 
 Compile times are bad, error messages are bad, documentation is bad. 
 This language feels like it was written by someone who wanted to make C even harder to use.
@@ -613,7 +703,41 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
 
   https://go.dev/doc/install
 
-TODO rewrite this.
+#### Code
+
+```
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"math"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+)
+
+func main() {
+	s := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter time in seconds: ")
+	text, _ := s.ReadString('\r')
+	text = strings.Trim(text, "\n\r")
+	t, _ := strconv.Atoi(text)
+
+	for t != 0 {
+		mins := math.Floor(float64(t) / 60.0)
+		secs := t % 60
+		fmt.Printf("%02v:%02v\r", mins, secs)
+		time.Sleep(1 * time.Second)
+		t--
+	}
+}
+```
+
+#### Overview
+
+TODO: rewrite this.
 
 This language is somehow more complicated than rust.
 The functions are super weird, `ReadString` reads up to a certain character and includes it. So your always going to have `\r\n` in your input.
@@ -641,6 +765,31 @@ I do like the way it auto imports modules I would like that for rust since it's 
 
   https://nim-lang.org/install_windows.html
 
+#### Code
+
+```nim
+import std/math, strutils, strformat
+import os
+
+write(stdout, "Enter the time in seconds: ")
+
+var s = readLine(stdin)
+var t = parseInt(s)
+
+while t != 0:
+    var mins = math.floor(t / 60)
+    var secs = t mod 60
+
+    var str = &"{mins:02}:{secs:02}\r"
+    write(stdout, str)
+
+    os.sleep(1000)
+    t -= 1
+```
+
+#### Overview
+
+TODO: rewrite
 
 Installing is simple. 
 Documentation is decent and the language is quite simple.
@@ -662,6 +811,46 @@ Compile times are quite slow which is unfortunate since it might be a good choic
   https://odin-lang.org/docs/install/
   This guide is bad and does not provide enough instructions.
 
+#### Code
+
+```odin
+package main
+
+import "core:fmt"
+import "core:time"
+import "core:os"
+import "core:bufio"
+import "core:io"
+import "core:strings"
+import "core:math"
+import "core:strconv"
+
+main :: proc() {
+	s := os.stream_from_handle(os.stdin)
+	r: bufio.Reader
+	bufio.reader_init(&r, io.Reader{s})
+
+	fmt.printf("Enter the time in seconds: ")
+	line, err := bufio.reader_read_string(&r, '\n')
+	assert(err == .None)
+	input := strings.trim_space(line)
+
+	t := strconv.atoi(input)
+
+	for t != 0 {
+		mins := i32(math.floor(f32(t) / 60))
+		secs := t % 60
+		fmt.printf("%02d:%02d\r", mins, secs)
+		time.sleep(1 * time.Second)
+		t -= 1
+	}
+}
+```
+
+#### Overview
+
+TODO: rewrite
+
 Documentation does not have a functional search and the source code is hard to read. 
 Even with LSP I cannot find a way to convert a string to an int.
 
@@ -682,6 +871,37 @@ Even with LSP I cannot find a way to convert a string to an int.
   > This is better than the official website
 
   https://adoptopenjdk.net/
+
+#### Code
+
+```java
+import java.io.Console;
+
+public class Timer {
+  public static void main(String[] args) {
+    System.out.format("Enter a time in seconds: ");
+    Console console = System.console();
+    int t = Integer.parseInt(console.readLine());
+
+    while (t != 0) {
+        double mins = Math.floor(t / 60.0);
+        int secs = t % 60;
+        System.out.format("%02d:%02d\r", (int)mins, secs);
+        try
+        {
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+        t -= 1;
+    }
+  }
+}
+```
+
+#### Overview
 
 Errors are pretty decent: 
 
@@ -716,6 +936,28 @@ This language is not relevant to modern programming.
 
   https://kotlinlang.org/docs/command-line.html
 
+#### Code
+
+```kotlin
+import java.util.Scanner
+
+fun main() {
+    print("Enter a time in seconds: ")
+    val read = Scanner(System.`in`)
+    var t = read.nextInt()
+
+    while (t != 0) {
+        var mins = Math.floor(t / 60.0).toInt()
+        var secs = (t % 60.0).toInt()
+
+        print(java.lang.String.format("%02d:%02d\r", mins, secs))
+        Thread.sleep(1000)
+        t -= 1
+    }
+}
+```
+
+#### Overview
 
 Kotlin is meant to be used with IntelliJ IDEA, but I don't like IDE's so I followed the command line tutorial instead.
 I measured `5.01` seconds to compile and run hello world. I don't think it should be that slow so I'll just leave it up to my own incompetence.
@@ -753,6 +995,32 @@ However since android requires you to use either Java or Kotlin I'd go with Kotl
   https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/install
 
 
+#### Code
+
+```c#
+Console.Write("Enter the time in seconds: ");
+string? s = Console.ReadLine();
+
+if (s is null)
+    return;
+
+int t = int.Parse(s);
+
+while (t != 0)
+{
+    double mins = Math.Floor((double)t / 60);
+    int secs = t % 60;
+    String time = String.Format("{0:D2}:{1:D2}\r", (int)mins, secs);
+    Console.Write(time);
+
+    Thread.Sleep(1000);
+    t -= 1;
+}
+Console.WriteLine(t);
+```
+
+#### Overview
+
 Creating a new project with `dotnet new console --framework net6.0`
 
 Running with `dotnet run`
@@ -787,6 +1055,30 @@ I like C# more than Kotlin and Java, however it's still pretty mediocre. There a
 - Install Guide:
 
   There is no install guide
+
+#### Code
+
+```lua
+function sleep(n)
+  if n > 0 then os.execute("ping -n " .. tonumber(n+1) .. " localhost > NUL") end
+end
+
+io.write("Enter the time in seconds: ")
+t = io.read("*n")
+
+while t > 0 do 
+    mins = math.floor(t / 60)
+    secs = t % 60
+    output = string.format("%02d:%02d\r", mins, secs)
+    io.write(output)
+    sleep(1)
+    t = t - 1
+end
+```
+
+#### Overview
+
+TODO: rewrite
 
 I wanted to use luasocket for my sleep function, since Lua does not have one included.
 After running `luarocks install luasocket` I receive this nice error:
@@ -825,6 +1117,64 @@ This language took me the longest to write, don't use it.
 
 ### Gleam
 
+- Documentation: 
+
+  https://gleam.run/documentation/
+  https://hexdocs.pm/gleam_stdlib/
+
+- Build Command:
+
+  `gleam run`
+
+- Install Guide:
+
+  https://gleam.run/getting-started/
+
+#### Code
+
+TODO: broken code
+
+```rust
+import gleam/io
+import gleam/erlang
+import gleam/int
+import gleam/string
+import gleam/float
+
+fn loop(i: Int) {
+  case i {
+    0 -> io.print("Done.")
+    _ -> {
+      let f = int.to_float(i) /. 60.0
+      let m = float.floor(f)
+      let mins = float.round(m)
+      let secs = i % 60
+
+      io.print(
+        int.to_string(mins)
+        |> string.append(":")
+        |> string.append(int.to_string(secs))
+        |> string.append("  \r"),
+      )
+
+      erlang.sleep(1000)
+      loop(i - 1)
+    }
+  }
+}
+
+pub fn main() {
+  assert Ok(input) = erlang.get_line("Enter a time in seconds: ")
+  assert Ok(t) =  string.trim(input) |> int.parse()
+
+  loop(t)
+}
+```
+
+#### Overview
+
+TODO: rewrite
+
 Required me to put gleam.exe in path. It's nice that it's just a single exe though.
 Then I needed to install erlang and put it into path.
 
@@ -839,6 +1189,49 @@ Where is this gleam_os library? This library does not seem to have much document
 No sleep function. How to write a while loop? Where are the if statements?
 
 ### Elixir
+
+- Documentation: 
+
+  https://elixir-lang.org/docs.html
+  https://hexdocs.pm/elixir/Kernel.html
+
+- Build Command:
+
+  `elixir timer.exs`
+
+- Install Guide:
+
+  https://elixir-lang.org/install.html
+
+#### Code
+
+TODO: IO.write can probably be simpler
+
+```elixir
+defmodule Timer do
+  def run(t) do
+    mins = Integer.floor_div(t, 60)
+    secs = rem(t, 60)
+
+    IO.write(mins)
+    IO.write(":")
+    IO.write(secs)
+    IO.write(' \r')
+
+    Process.sleep(1000)
+
+    if t != 0, do: run(t - 1)
+  end
+end
+
+{t, _} = IO.gets("Enter a time in seconds: ") |> String.trim() |> Integer.parse()
+
+Timer.run(t)
+```
+
+#### Overview
+
+TODO: rewrite
 
 Check out these errors I got:
 
@@ -857,3 +1250,5 @@ Check out these errors I got:
 ```
 
 Oof. I'm still impressed with some of the things I've seen. I don't think *Elixir* is it yet.
+
+Elixir is like Lua...
