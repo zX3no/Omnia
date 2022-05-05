@@ -1,4 +1,3 @@
-// use read_io::read;
 use std::{
     io::{stdin, stdout, Write},
     thread,
@@ -6,16 +5,11 @@ use std::{
 };
 
 fn main() {
-    // let mut t: i32 = read!("Enter the time in seconds: ");
-
     let mut s = String::new();
     eprint!("Please enter the time in seconds: ");
     stdin().read_line(&mut s).unwrap();
 
-    s.pop();
-    s.pop();
-
-    let mut t = s.parse::<i32>().unwrap();
+    let mut t: i32 = s.trim().parse().unwrap();
 
     while t != 0 {
         let mins = (t as f32 / 60.0).floor();

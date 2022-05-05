@@ -1,0 +1,1 @@
+clang timer_clang.cpp -std=c++2b -o timer_clang.exe; ./timer_clang

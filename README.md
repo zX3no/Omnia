@@ -3,40 +3,39 @@
 I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
 Sometimes it feels like the *quality* of a language is determined by how old it is, rather than how good it is.
 
-To get to the bottom of this, I've decided to remake the same project in over 20 different languages.
+To get to the bottom of this, I've decided to remake the same project in over 15 different languages.
 
 The project I've chosen is a countdown timer. This feels like a good choice since it requires:
 
-- Getting the users input from `stdin`
+- Getting input from the user
 - Accessing the OS's sleep function
-- Formatting the time left with zero padding, for example: `01:08`
-- Using a floor function from the languages math library
+- Formatting a string with zero padding, for example: `1:18` into `01:18`
+- Using the math function `floor`
 
 Here's some pseudo code of the timer:
 
-```
+```python
 time = 60
 
 while time != 0 
     mins = floor(t / 60)
     secs = t % 60
 
-    print mins secs
-    sleep 1 second
+    print(mins, secs)
+    sleep(1 second)
     t = t - 1
 ```
 
 ### Rankings
 
-There are some import things to note when looking for a new language.
+There are some important things to note when looking for a new language.
 The best language is one that is easiest to learn.
 Many new `simple` languages lack documentation and are not a good choice for beginners.
 
-Tooling is often very important, having a nice build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make life easy.
+Tooling is also very important, having a nice build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make programming easier.
 
-Libraries are a very important part of any language eco-system. 
-Most of us don't have time to reinvent the wheel every day. 
-Sometimes languages are worth using for a simple package.
+Libraries are very important aswell, most of us don't have time to reinvent the wheel.
+Sometimes a language is worth using for a single package.
 Many people use Python just for TensorFlow or PyTorch.
 
 --- 
@@ -44,16 +43,19 @@ Many people use Python just for TensorFlow or PyTorch.
 #### The best & worst languages
 
 - Best languages for beginner programmers
-  - Choose whatever you want
+  - Choose whatever you want it doesn't matter
 
 - Best languages for experienced programmers
   - V
   - Rust
   - Nim
 
-  V is a language I hope to move into the beginner category. It's simple, preformat and modern.
-  It sometimes requires you to dig through the source code to find stuff. 
-  Hopefully the issues will be resolved by version 1.0.
+  V is a language I hope to move into the beginner category. 
+  It's simple, preformat and modern. 
+  It lacks documentation and may require you to look through the source code. 
+  It's lacking a few features and you'll often get compiler panics.
+
+  Hopefully some of these issues will be resolved by version 1.0.
 
   Rust has great tooling, documentation, a [borrow checker](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html) and is easy write. 
 
@@ -69,7 +71,7 @@ Many people use Python just for TensorFlow or PyTorch.
   - Elixir
   - Gleam
 
-  If you like functional programming, you might like one of these.
+  These were the ones that I managed to get working, I think that speaks to their usability. 
 
 - Languages you should never use
   - Zig
@@ -77,6 +79,9 @@ Many people use Python just for TensorFlow or PyTorch.
   - Lua
 
   These languages all have better alternatives.
+  - Kotlin is better than Java
+  - Anything is better than Lua
+  - Odin is better than Zig
 
 ---
 
@@ -99,8 +104,6 @@ Many people use Python just for TensorFlow or PyTorch.
 | Elixir     | Bad        | Good           |             | -                 |                |
 | Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
 | Gleam      | Okay       | Bad            | Great       | 1891              | Great          |
-
-Unfinished: Haskell
 
 ---
 
@@ -142,9 +145,31 @@ C#: It's better than Java.
 
 Elixir: The only functional language that actually worked for me. Opened my mind to new ways of thinking about programming.
 
-Haskell: TODO
-
 Gleam: It has great error messages and tooling. It takes a lot of inspiration from Rust which is my favourite language. I won't pretend to understand functional programming however this felt like the most beginner friendly. 
+
+---
+
+### Languages I attempt to use
+
+- Haskell
+
+  - Confusing to install
+
+  -  No documentation
+
+  -  Error are difficult to understand
+
+  -  Compiler is around 1 GB
+
+  -  3742ms to compile hello world.
+
+  -  Functional languages are already difficult
+
+- OCaml
+
+  - No windows support
+
+---
 
 ## Interpreted
 
@@ -169,6 +194,22 @@ Gleam: It has great error messages and tooling. It takes a lot of inspiration fr
 
   `python timer.py`
 
+#### Code
+
+```python
+import time
+  
+t = int(input("Enter the time in seconds: "))
+
+while t:
+    mins, secs = divmod(t, 60)
+    print('{:02d}:{:02d}'.format(mins, secs), end = "\r")
+    time.sleep(1)
+    t -= 1
+```
+
+### Overview
+
 Python is simple as long as you don't require any dependencies.
 I find the syntax to be difficult at scale but fine for small projects.
 I would also caution people in using interpreted languages as they are inherently slow.
@@ -187,21 +228,41 @@ Keep in mind that I'm talking about JavaScript + Node.js.
 
 - Install Guide:
 
-  > First you need to understand that JavaScript is dynamic and requires a `runtime` like Node.js or Deno.
-
   https://nodejs.org/en/
 
 - Build Command: 
 
   `node timer.js`
 
-It may be hard for people to understand that JavaScript requires a runtime like NodeJs. I can't recommend this language to new users because of this.
+#### Code
 
-Node's `read-line` class is not easy to use. 
-I used `prompt-sync` instead as it was easy to setup and use.
+```js
+const prompt = require('prompt-sync')();
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-I'm not a fan of the async code required, it's clear that JavaScript was build for the web.
-Please use it in that context.
+(async () => {
+    let t = prompt('Enter the time in seconds: ');
+    while (t) {
+        var mins = Math.floor(t / 60);
+        var secs = t % 60;
+        process.stdout.write(String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0') + '\r');
+        await sleep(1000);
+        t--;
+    }
+})();
+```
+
+#### Overview
+
+TODO: rewrite
+
+It may be hard for people to understand that JavaScript requires a runtime like NodeJs or Deno. It's hard to recommend to new programmers given how complicated the tech stack is.
+
+Node's `read-line` class is not easy to use, I used the library `prompt-sync` instead. 
+
+I'm not a fan of the async code required, it's clear that JavaScript was built for the web.
+
+Please use it for the web, not for desktop applications.
 
 ### TypeScript
 
@@ -250,7 +311,28 @@ If your a web developer you'll probably like this more than JavaScript.
 
 - Install Guide:
 
-  C has no official guide.
+  C has no official install guide.
+
+#### Code
+
+```c
+  int t;
+  printf("Enter the time in seconds: ");
+  scanf("%d", &t);
+
+  while (t)
+  {
+      int mins = floor(t / 60);
+      int secs = t % 60;
+      printf("%02d:%02d\r", mins, secs);
+      Sleep(1000);
+      t--;
+  };
+
+  return 0;
+```
+
+#### Overview
 
 Fairly simple to write. 
 At first I didn't like `scanf`, but it turned out to be better than 90% of languages I tried.
@@ -284,6 +366,31 @@ Give them a go and you might be surprised.
   https://isocpp.org/get-started 
 
 
+#### Code
+
+```cpp
+  int t;
+  std::cout << "Enter a time in seconds: ";
+  std::cin >> t;
+
+  while (t)
+  {
+      int mins = floor(t / 60);
+      int secs = t % 60;
+
+      std::cout << std::setfill('0') << std::setw(2) << mins;
+      std::cout << ":";
+      std::cout << std::setfill('0') << std::setw(2) << secs;
+      std::cout << "\r";
+
+      Sleep(1000);
+      t--;
+  }
+  return 0;
+```
+
+#### Overview
+
 This is by far the worst print function I've seen.
 
 ```cpp
@@ -292,10 +399,41 @@ This is by far the worst print function I've seen.
   std::cout << std::setfill('0') << std::setw(2) << secs;
 ```
 
-This language feel stuck in the past, it's very similar to C in that regard. If you need to use either C or C++, obviously chose C++. 
-You can still use the C standard library, while still maintaining all the benefits like: better exceptions/error handling, RAII, a vector class, smart pointers, etc... 
+You might be wondering why I didn't use `std::format`. 
 
-If you want to write good low level software, just use Rust and save yourself the headache of C/C++.
+```cpp
+  std::cout << std::format("{:02}:{:02}\r", mins, secs);
+```
+
+Firstly it's only avaliable with C++20. 
+Which would be fine if formatting wasn't missing from `GCC`.
+According to the [compiler support page](https://en.cppreference.com/w/cpp/compiler_support) only `Clang` and `MSVC` support it.
+
+This turns out to be incorrect since using the `-std=c++20` flag with clang still gives an error: `no member named 'format' in namespace 'std'`.
+
+Only when using `-std=c++2b` does it compile.
+
+The best part is that Clang compiles 28% slower!
+
+`hyperfine -w 5 'g++ timer.cpp -o timer.exe' 'clang timer_clang.cpp -std=c++2b -o timer_clang.exe'`
+
+```
+Benchmark 1: g++ timer.cpp -o timer.exe
+  Time (mean ± σ):      1.639 s ±  0.011 s    [User: 0.001 s, System: 0.005 s]
+  Range (min … max):    1.629 s …  1.659 s    10 runs
+
+Benchmark 2: clang timer_clang.cpp -std=c++2b -o timer_clang.exe
+  Time (mean ± σ):      2.092 s ±  0.009 s    [User: 0.003 s, System: 0.009 s]
+  Range (min … max):    2.080 s …  2.104 s    10 runs
+
+Summary
+  'g++ timer.cpp -o timer.exe' ran
+    1.28 ± 0.01 times faster than 'clang timer_clang.cpp -std=c++2b -o timer_clang.exe'
+```
+
+How is it possible that `printf` is better than `std::cout`. It's been over 20 years and it still sucks, why even write it?
+
+Please just learn Rust.
 
 ### V 
 
@@ -312,6 +450,23 @@ If you want to write good low level software, just use Rust and save yourself th
 - Install Guide:
 
   V has no official guide.
+
+#### Code
+
+```v
+    input := os.input('Enter the time in seconds: ')
+	mut t := input.i16()
+
+	for t != 0 {
+		mins := math.floor(t / 60)
+		secs := t % 60
+		print('${mins:02}:${secs:02}\r')
+		time.sleep(1 * time.second)
+		t--
+	}
+```
+
+#### Overview
 
 V is quite a new language and has some rough edges.
 
@@ -359,26 +514,42 @@ I have high hopes for this language.
 
   https://www.rust-lang.org/learn/get-started
 
+#### Code
+
+```rust
+  let mut s = String::new();
+  eprint!("Please enter the time in seconds: ");
+  stdin().read_line(&mut s).unwrap();
+
+  let mut t: i32 = s.trim().parse().unwrap();
+
+  while t != 0 {
+      let mins = (t as f32 / 60.0).floor();
+      let secs = t % 60;
+      print!("{:02}:{:02}\r", mins, secs);
+      stdout().flush().unwrap();
+      thread::sleep(Duration::from_secs(1));
+      t -= 1;
+  }
+```
+
+#### Overview
+
 First off, Rust is missing an input function like most other languages. 
 Here is the hard way of getting the users input: 
 
 ```rust
-use std::io::{stdin, stdout, Write};
-
+//get the users input
 let mut s = String::new();
-print!("Please enter some text: ");
-stdout().flush().unwrap();
+print!("Please enter the time in seconds: ");
 stdin().read_line(&mut s).unwrap();
 
-// remove \r\n
-s.pop();
-s.pop();
-
-let mut t = s.parse::<i32>().unwrap();
+//remove /r/n and turn the string into an i32
+let mut t: i32 = s.trim().parse().unwrap();
 println!("You entered the number: {}", t);
 ```
 
-Not great. However there is discussion about this issue but nothing very substantial.
+Not great. However there is some discussion about this issue. Unfortunately nothing very substantial.
 
 https://github.com/rust-lang/rfcs/pull/3196
 https://github.com/rust-lang/rust/pull/75435
@@ -395,7 +566,10 @@ let mut t: i32 = read!("Enter the time in seconds: ").unwrap();
 
 Hopefully something like this can be added to the standard library one day.
 
+Keep in mind I didn't use this crate for the code example because it would impact compile times.
+
 ### Zig
+
 - Documentation: 
 
   https://ziglang.org/documentation/master/
@@ -683,89 +857,3 @@ Check out these errors I got:
 ```
 
 Oof. I'm still impressed with some of the things I've seen. I don't think *Elixir* is it yet.
-
-### Haskell
-
-- Documentation: 
-
-  There is no official documentation.
-
-- Build Command:
-
-  `ghc timer.hs;./timer.exe`
-
-- Install Guide:
-
-  https://www.haskell.org/downloads/
-
-TODO rewrite
-
-Starting off with some extremely confusing install instructions:
-
-```
-This page describes the installation of the Haskell toolchain, which consists of the following tools:
-
-GHC: the Glasgow Haskell Compiler
-
-cabal-install: the Cabal installation tool for managing Haskell software
-
-stack: a cross-platform program for developing Haskell projects
-
-haskell-language-server (optional): A language server for developers to integrate with their editor/IDE
-
-Installation instructions
-for Linux, macOS, FreeBSD, Windows or WSL2
-
-Install GHC, cabal-install and haskell-language-server via GHCup
-To install stack, follow the instructions here (N.B. stack does not support FreeBSD)
-```
-
-This isn't English. I think I'm supposed to go here: https://www.haskell.org/ghc/download_ghc_9_2_1.html#windows64
-
-I just used `scoop install haskell stack` instead. It's 500mb's... oof.
-
-To setup the project:
-
-```
-stack new timer
-cd timer
-stack run
-```
-
-Then download another 400MB for the compile which is already installed.
-
-Then downloading it downloaded msys2??
-
-I guess we're installing Linux now.
-
-I opted for a simpler approach `ghc timer.hs;./timer.exe`
-
-Compile times are exceptionally bad for this language.
-3742ms to compile hello world.
-
-The documentation is worse than Elixir plus the language is harder to understand.
-
-This error message is formatted nicely but is impossible to understand.
-
-```haskell
-timer.hs:8:3: error:
-    • Couldn't match expected type ‘IO a0’ with actual type ‘Integer’
-    • In a stmt of a 'do' block: countdown (t)
-      In the expression:
-        do putStr "Enter a time in seconds:"
-           s <- getLine
-           let t = ...
-           countdown (t)
-           ....
-      In an equation for ‘main’:
-          main
-            = do putStr "Enter a time in seconds:"
-                 s <- getLine
-                 let t = ...
-                 ....
-  |
-8 |   countdown (t)
-  |   ^^^^^^^^^^^^^
-```
-
-This language is cursed.
