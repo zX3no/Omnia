@@ -171,9 +171,9 @@ Gleam: Great error messages and tooling. I won't pretend to understand functiona
 
 ---
 
-## Interpreted
+# Interpreted
 
-### Python
+## Python
 
 - Documentation: 
 
@@ -194,7 +194,7 @@ Gleam: Great error messages and tooling. I won't pretend to understand functiona
 
   `python timer.py`
 
-#### Code
+### Code
 
 ```python
 import time
@@ -214,7 +214,7 @@ Python is simple as long as you don't require any dependencies.
 I find the syntax to be difficult at scale but fine for small projects.
 I would also caution people in using interpreted languages as they are inherently slow.
 
-### JavaScript
+## JavaScript
 
 Keep in mind that I'm talking about JavaScript + Node.js.
 
@@ -234,7 +234,7 @@ Keep in mind that I'm talking about JavaScript + Node.js.
 
   `node timer.js`
 
-#### Code
+### Code
 
 ```js
 const prompt = require('prompt-sync')();
@@ -252,7 +252,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 })();
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite
 
@@ -264,7 +264,7 @@ I'm not a fan of the async code required, it's clear that JavaScript was built f
 
 Please use it for the web, not for desktop applications.
 
-### TypeScript
+## TypeScript
 
 - Documentation: 
 
@@ -278,7 +278,7 @@ Please use it for the web, not for desktop applications.
 
   `yarn dev`
 
-#### Code
+### Code
 
 ```ts
 import promptSync from 'prompt-sync';
@@ -297,7 +297,7 @@ const prompt = promptSync();
 })();
 ```
 
-#### Overview
+### Overview
 
 TypeScript requires quite a significant amount of effort to setup. 
 It is difficult to find information about how it's used with Node.js.
@@ -318,9 +318,9 @@ Then I can run my project with `yarn dev`.
 I've always preferred statically typed languages. 
 If your a web developer you'll probably like this more than JavaScript.
 
-## Compiled
+# Compiled
 
-### C
+## C
 
 - Documentation: 
 
@@ -334,7 +334,7 @@ If your a web developer you'll probably like this more than JavaScript.
 
   C has no official install guide.
 
-#### Code
+### Code
 
 ```c
   #include <stdio.h>
@@ -360,7 +360,7 @@ If your a web developer you'll probably like this more than JavaScript.
   }
 ```
 
-#### Overview
+### Overview
 
 Fairly simple to write. 
 At first I didn't like `scanf`, but it turned out to be better than 90% of languages I tried.
@@ -379,7 +379,7 @@ My project is so simple that it does not highlight any of C's issues. It feels u
 All I'll say is, C has not changed for a long time, there are *new* and *different* approaches to solving programming problems.
 Give them a go and you might be surprised.
 
-### C++
+## C++
 
 - Documentation: 
 
@@ -394,7 +394,7 @@ Give them a go and you might be surprised.
   https://isocpp.org/get-started 
 
 
-#### Code
+### Code
 
 ```cpp
   #include <iostream>
@@ -425,7 +425,7 @@ Give them a go and you might be surprised.
   }
 ```
 
-#### Overview
+### Overview
 
 This is by far the worst print function I've seen.
 
@@ -472,7 +472,7 @@ How is it possible that `printf` is better than `std::cout`. It's been over 20 y
 In fairness, C++ has some great features that C doesn't have: RAII, vectors, smart pointers, better multi-threading and error handling.
 You can even keep using `printf` and all your favourite C libraries in C++... or you could just learn Rust.
 
-### V 
+## V 
 
 - Documentation: 
 
@@ -488,7 +488,7 @@ You can even keep using `printf` and all your favourite C libraries in C++... or
 
   V has no official guide.
 
-#### Code
+### Code
 
 ```v
   import time
@@ -509,7 +509,7 @@ You can even keep using `printf` and all your favourite C libraries in C++... or
   }
 ```
 
-#### Overview
+### Overview
 
 V is quite a new language and has some rough edges.
 
@@ -541,7 +541,7 @@ I have high hopes for this language.
    16 | }
 ```
 
-### Rust
+## Rust
 
 - Documentation: 
 
@@ -557,7 +557,7 @@ I have high hopes for this language.
 
   https://www.rust-lang.org/learn/get-started
 
-#### Code
+### Code
 
 ```rust
 use std::{
@@ -586,7 +586,7 @@ fn main() {
 
 ```
 
-#### Overview
+### Overview
 
 First off, Rust is missing an input function like most other languages. 
 Here is the hard way of getting the users input: 
@@ -621,7 +621,7 @@ Hopefully something like this can be added to the standard library one day.
 
 Keep in mind I didn't use this crate for the code example because it would impact compile times.
 
-### Zig
+## Zig
 
 - Documentation: 
 
@@ -636,7 +636,7 @@ Keep in mind I didn't use this crate for the code example because it would impac
 
   https://ziglang.org/learn/getting-started/
 
-#### Code
+### Code
 
 ```zig
 const std = @import("std");
@@ -670,7 +670,7 @@ pub fn main() !void {
 }
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite overview and code
 
@@ -689,7 +689,7 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
                                  ^
 ```
 
-### Go
+## Go
 
 - Documentation: 
 
@@ -703,7 +703,7 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
 
   https://go.dev/doc/install
 
-#### Code
+### Code
 
 ```
 package main
@@ -735,7 +735,7 @@ func main() {
 }
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite this.
 
@@ -751,10 +751,12 @@ I do like the way it auto imports modules I would like that for rust since it's 
 .\timer.go:21:24: cannot use t / 60 (type int) as type float64 in argument to math.Floor
 ```
 
-### Nim
+## Nim
 
 - Documentation: 
+
   https://nim-lang.org/docs/lib.html
+
   https://nim-lang.org/docs/manual.html
 
 - Build Command:
@@ -765,7 +767,7 @@ I do like the way it auto imports modules I would like that for rust since it's 
 
   https://nim-lang.org/install_windows.html
 
-#### Code
+### Code
 
 ```nim
 import std/math, strutils, strformat
@@ -787,7 +789,7 @@ while t != 0:
     t -= 1
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite
 
@@ -796,7 +798,7 @@ Documentation is decent and the language is quite simple.
 It's like a complied version of python. 
 Compile times are quite slow which is unfortunate since it might be a good choice otherwise.
 
-### Odin
+## Odin
 
 - Documentation: 
 
@@ -811,7 +813,7 @@ Compile times are quite slow which is unfortunate since it might be a good choic
   https://odin-lang.org/docs/install/
   This guide is bad and does not provide enough instructions.
 
-#### Code
+### Code
 
 ```odin
 package main
@@ -847,16 +849,16 @@ main :: proc() {
 }
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite
 
 Documentation does not have a functional search and the source code is hard to read. 
 Even with LSP I cannot find a way to convert a string to an int.
 
-## Bytecode
+# Bytecode
 
-### Java
+## Java
 
 - Documentation: 
 
@@ -872,7 +874,7 @@ Even with LSP I cannot find a way to convert a string to an int.
 
   https://adoptopenjdk.net/
 
-#### Code
+### Code
 
 ```java
 import java.io.Console;
@@ -901,7 +903,7 @@ public class Timer {
 }
 ```
 
-#### Overview
+### Overview
 
 Errors are pretty decent: 
 
@@ -920,7 +922,7 @@ Java is hard to install, hard to write, hard to compile, documentation is awful.
 
 This language is not relevant to modern programming.
 
-### Kotlin
+## Kotlin
 
 - Documentation: 
 
@@ -936,7 +938,7 @@ This language is not relevant to modern programming.
 
   https://kotlinlang.org/docs/command-line.html
 
-#### Code
+### Code
 
 ```kotlin
 import java.util.Scanner
@@ -957,7 +959,7 @@ fun main() {
 }
 ```
 
-#### Overview
+### Overview
 
 Kotlin is meant to be used with IntelliJ IDEA, but I don't like IDE's so I followed the command line tutorial instead.
 I measured `5.01` seconds to compile and run hello world. I don't think it should be that slow so I'll just leave it up to my own incompetence.
@@ -980,7 +982,7 @@ I kept running into these overload ambiguity errors. I was quite frustrating.
 Kotlin is easier than Java. It's a very mediocre language in all aspects. 
 However since android requires you to use either Java or Kotlin I'd go with Kotlin.
 
-### C#
+## C#
 
 - Documentation: 
 
@@ -995,7 +997,7 @@ However since android requires you to use either Java or Kotlin I'd go with Kotl
   https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial/install
 
 
-#### Code
+### Code
 
 ```c#
 Console.Write("Enter the time in seconds: ");
@@ -1019,7 +1021,7 @@ while (t != 0)
 Console.WriteLine(t);
 ```
 
-#### Overview
+### Overview
 
 Creating a new project with `dotnet new console --framework net6.0`
 
@@ -1042,7 +1044,7 @@ Unhandled exception. System.FormatException: Format specifier was invalid.
 The documentation and build tools are okay.
 I like C# more than Kotlin and Java, however it's still pretty mediocre. There are faster and simpler languages.
 
-### Lua
+## Lua
 
 - Documentation: 
 
@@ -1056,7 +1058,7 @@ I like C# more than Kotlin and Java, however it's still pretty mediocre. There a
 
   There is no install guide
 
-#### Code
+### Code
 
 ```lua
 function sleep(n)
@@ -1076,7 +1078,7 @@ while t > 0 do
 end
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite
 
@@ -1113,9 +1115,9 @@ end
 The documentation is horrible, the syntax is somehow worse the python.
 This language took me the longest to write, don't use it.
 
-## Functional
+# Functional
 
-### Gleam
+## Gleam
 
 - Documentation: 
 
@@ -1130,7 +1132,7 @@ This language took me the longest to write, don't use it.
 
   https://gleam.run/getting-started/
 
-#### Code
+### Code
 
 TODO: broken code
 
@@ -1171,7 +1173,7 @@ pub fn main() {
 }
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite
 
@@ -1188,7 +1190,7 @@ Where is this gleam_os library? This library does not seem to have much document
 
 No sleep function. How to write a while loop? Where are the if statements?
 
-### Elixir
+## Elixir
 
 - Documentation: 
 
@@ -1203,7 +1205,7 @@ No sleep function. How to write a while loop? Where are the if statements?
 
   https://elixir-lang.org/install.html
 
-#### Code
+### Code
 
 TODO: IO.write can probably be simpler
 
@@ -1229,7 +1231,7 @@ end
 Timer.run(t)
 ```
 
-#### Overview
+### Overview
 
 TODO: rewrite
 
