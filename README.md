@@ -26,6 +26,32 @@ while time != 0
     t = t - 1
 ```
 
+## Table of contents
+
+TODO: links
+
+- Interpreted
+  - Python
+  - Javascript
+  - Typescript
+- Compiled
+  - C
+  - C++
+  - V
+  - Rust
+  - Zig
+  - Go
+  - Nim
+  - Odin
+- Bytecode
+  - Java
+  - Kotlin
+  - C#
+  - Lua
+- Functional
+  - Gleam
+  - Elixir
+
 ### Rankings
 
 There are some important things to note when looking for a new language.
@@ -83,29 +109,25 @@ Many people use Python just for TensorFlow or PyTorch.
   - Anything is better than Lua
   - Odin is better than Zig
 
----
-
-| Language   | Simplicity | Documentation? | Build Tools | Compile Times(ms) | Error Messages |
-|------------|------------|----------------|-------------|-------------------|----------------|
-| Python     | Good       | Okay           | Okay        | -                 | Okay           |
-| JavaScript | Bad        | Okay           | Good        | -                 | Okay           |
-| TypeScript | Bad        | Okay           | Good        | -                 | Okay           |
-| C          | Okay       | Okay           | Bad         | 800               | Bad            |
-| C++        | Bad        | Okay           | Bad         | 1359              | Bad            |
-| Go         | Bad        | Bad            | Good        | 436               | Okay           |
-| Rust       | Okay       | Great          | Great       | 1114              | Great          |
-| V          | Great      | Good           | Good        | 430               | Good           |
-| Nim        | Good       | Good           | Good        | 965               | Okay           |
-| Zig        | 0____0     | Bad            | Okay        | 5297              | Bad            |
-| Odin       | Bad        | Okay           | Good        | 821               | Okay           |
-| Java       | Bad        | Bad            | Bad         | -                 | Okay           |
-| Kotlin     | Okay       | Okay           | Bad         | -                 | Bad            |
-| Lua        |            | Bad            | Bad         | -                 | Okay           |
-| Elixir     | Bad        | Good           |             | -                 |                |
-| Haskell    | 0____0     | Bad            | Bad         | 3738              | Bad            |
-| Gleam      | Okay       | Bad            | Great       | 1891              | Great          |
-
----
+| Language   | Simplicity | Documentation | Build Tools | Compile Times (ms) | Error Messages |
+|------------|------------|---------------|-------------|--------------------|----------------|
+| Python     | Good       | Okay          | Okay        | -                  | Okay           |
+| JavaScript | Bad        | Okay          | Good        | -                  | Okay           |
+| TypeScript | Bad        | Okay          | Good        | -                  | Okay           |
+| C          | Okay       | Okay          | Bad         | 800                | Bad            |
+| C++        | Bad        | Okay          | Bad         | 1359               | Bad            |
+| Go         | Bad        | Bad           | Good        | 436                | Okay           |
+| Rust       | Okay       | Great         | Great       | 1114               | Great          |
+| V          | Great      | Good          | Good        | 430                | Good           |
+| Nim        | Good       | Good          | Good        | 965                | Okay           |
+| Zig        | 0____0     | Bad           | Okay        | 5297               | Bad            |
+| Odin       | Bad        | Okay          | Good        | 821                | Okay           |
+| Java       | Bad        | Bad           | Bad         | -                  | Okay           |
+| Kotlin     | Okay       | Okay          | Bad         | -                  | Bad            |
+| Lua        |            | Bad           | Bad         | -                  | Okay           |
+| Elixir     | Bad        | Good          |             | -                  |                |
+| Haskell    | 0____0     | Bad           | Bad         | 3738               | Bad            |
+| Gleam      | Okay       | Bad           | Great       | 1891               | Great          |
 
 #### Something I like about each language:
 
@@ -168,8 +190,6 @@ Gleam: Great error messages and tooling. I won't pretend to understand functiona
 - OCaml
 
   - No windows support
-
----
 
 # Interpreted
 
