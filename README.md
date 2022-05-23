@@ -1,6 +1,6 @@
 ## Goals
 
-I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
+I've heard good and bad things about many languages before, people often pick favorites and get very defensive about them.
 Sometimes it feels like the *quality* of a language is determined by how old it is, rather than how good it is.
 
 To get to the bottom of this, I've decided to remake the same project in 17 languages.
@@ -50,7 +50,7 @@ while time != 0
   - [Gleam](#gleam)
   - [Elixir](#elixir)
 
-### Rankings
+## Rankings
 
 There are some important things to note when looking for a new language.
 The best language is one that is easiest to learn.
@@ -58,13 +58,16 @@ Many new `simple` languages lack documentation and are not a good choice for beg
 
 Tooling is also very important, having a nice build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make programming easier.
 
-Libraries are very important aswell, most of us don't have time to reinvent the wheel.
+Libraries are very important as well, most of us don't have time to reinvent the wheel.
 Sometimes a language is worth using for a single package.
 Many people use Python just for TensorFlow or PyTorch.
 
---- 
+It's also important to keep in mind I only used these languages for simple projects so I won't pretend to whole picture.
 
-#### The best & worst languages
+I generally don't like dynamic, bytecode or functional languages because of performance issues or cognitive overhead. 
+I'll try to argue for this, throughout the document. 
+
+### The best & worst languages
 
 - Best languages for beginner programmers
   - Choose whatever you want it doesn't matter
@@ -76,8 +79,7 @@ Many people use Python just for TensorFlow or PyTorch.
 
   V is a language I hope to move into the beginner category. 
   It's simple, preformat and modern. 
-  It lacks documentation and may require you to look through the source code. 
-  It's lacking a few features and you'll often get compiler panics.
+  It's lacking a few features, documentation and you'll often get compiler panics.
 
   Hopefully some of these issues will be resolved by version 1.0.
 
@@ -98,9 +100,9 @@ Many people use Python just for TensorFlow or PyTorch.
   These were the ones that I managed to get working, I think that speaks to their usability. 
 
 - Languages you should never use
-  - Zig
   - Java
   - Lua
+  - Zig
 
   These languages all have better alternatives.
   - Kotlin is better than Java
@@ -135,19 +137,16 @@ JavaScript: Despite being built for the web. It's was still very easy to setup d
 
 TypeScript: It's JavaScript with compile time type checking, what's not to love?
 
-C: `printf` is very easy to use. No hassles with flushing `stdout`.
+C: Standard library is very simple to use. Doesn't require any crazy steps to setup and use.
 
-C++: It has scoped variables(RAII), which is a necessary feature that C does not have. 
-Plus you can use the C standard library in C++ and have the best of both worlds.
+C++: It has scoped variables(RAII) and pretty much every feature you could ask for in a modern programming language (and more). 
 
-Go: Automatically imports every that you need. I wish rust had this! 
+Go: I really like the tooling, imports are managed automatically which saves me a lot of time.
 
-Rust: I don't think rust's benefits matter for a project this small.
-However the `cargo` is the best build tool I've ever used. 
-Plus the documentation for this language is unmatched. 
+Rust: Cargo is the best build tool I've ever used.
+The language also has excellent documentation.
 
 V: It's simple to write, fast to compile.
-This language is what Go should have been.
 
 Nim: Very simple to write, feels like a cross between rust and python.
 
@@ -155,38 +154,31 @@ Zig: This language is awful
 
 Odin: This language is also awful
 
-Java: This language is awful
+Java: This language is also awful
 
-Kotlin: Simple to write, not a bad langauge to write android apps with.
+Kotlin: Simple to write and a great choice to write android apps with.
 
-Lua: This was the only language on the list which made me angry.
+Lua: This language made me angry.
 
 C#: It's better than Java.
 
-Elixir: One of the few functional languages that worked for me. Opened my mind to different ways of problem solving.
+Elixir: One of the few functional languages that worked for me.
+Opened my mind to different ways of problem solving.
 
-Gleam: Great error messages and tooling. I won't pretend to understand functional langauges however this felt the most beginner friendly. 
+Gleam: Great error messages and tooling.
+I won't pretend to understand functional languages however this felt the most beginner friendly. 
 
----
+## Notes
 
-### Languages I attempt to use
+> There were a few languages that I attempted to use but gave up with
 
 - Haskell
-
   - Confusing to install
-
-  -  No documentation
-
+  -  Bad documentation
   -  Error are difficult to understand
-
   -  Compiler is around 1 GB
-
-  -  3742ms to compile hello world.
-
-  -  Functional languages are already difficult
-
+  -  3742ms to compile hello world 🤨
 - OCaml
-
   - No windows support
 
 # Interpreted
@@ -459,7 +451,7 @@ You might be wondering why I didn't use `std::format`.
   std::cout << std::format("{:02}:{:02}\r", mins, secs);
 ```
 
-Firstly it's only avaliable with C++20. 
+Firstly it's only available with C++20. 
 Which would be fine if formatting wasn't missing from `GCC`.
 According to the [compiler support page](https://en.cppreference.com/w/cpp/compiler_support) only `Clang` and `MSVC` support it.
 
@@ -1057,7 +1049,7 @@ Unhandled exception. System.FormatException: Format specifier was invalid.
    at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
    at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
    at System.String.Format(String format, Object arg0, Object arg1)
-   at Program.<Main>$(String[] args) in D:\Git\Project-Omnia\Bytecode\C#\Program.cs:line 9
+   at Program.<Main>$(String[] args) in Program.cs:line 9
 ```
 
 The documentation and build tools are okay.
@@ -1196,7 +1188,7 @@ The install instructions are don't have enough information.
 Firstly there is no information on how to add Gleam to your path. 
 
 Even worse than that is install erlang. 
-Usually installers on Windows automatically add relavent locations to your path.
+Usually installers on Windows automatically add relevant locations to your path.
 
 So when installing Erlang, `C:\Program Files\erl-23.0\bin` would be added to your path.
 However you'll need to search for the right location yourself and add it manually.
