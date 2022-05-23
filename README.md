@@ -1150,11 +1150,9 @@ This language took me the longest to write, don't use it.
 
 - Install Guide:
 
-  https://gleam.run/getting-started/
+  https://gleam.run/getting-started/installing/
 
 ### Code
-
-TODO: broken code
 
 ```rust
 import gleam/io
@@ -1195,20 +1193,43 @@ pub fn main() {
 
 ### Overview
 
-TODO: rewrite
+The install instructions are don't have enough information.
+Firstly there is no information on how to add Gleam to your path. 
 
-Required me to put gleam.exe in path. It's nice that it's just a single exe though.
-Then I needed to install erlang and put it into path.
+Even worse than that is install erlang. 
+Usually installers on Windows automatically add relavent locations to your path.
 
-Trying to get the user input was not easy.
+So when installing Erlang, `C:\Program Files\erl-23.0\bin` would be added to your path.
+However you'll need to search for the right location yourself and add it manually.
+There is no instructions about it on the download page either.
 
-*The `io.get_list` function has been moved to the `gleam_os` library.*
+The code I wrote used to work. However, now I get this error for most functions.
 
-Where is this gleam_os library? This library does not seem to have much documentation?
+```log
+exception error: undefined function gleam@int:to_float/1
+  in function  t:loop/1 (build/dev/erlang/t/build/t.erl, line 13)
+```
 
-`gleam add gleam_erlang`
+Gleam has no input function, so you'll need to add support for running erlang code.
 
-No sleep function. How to write a while loop? Where are the if statements?
+```toml
+# gleam.toml
+
+[dependencies]
+gleam_stdlib = "~> 0.21"
+gleam_erlang = "~> 0.9"
+```
+
+Gleam is also missing string formatting, so there is no zero-padding. Using the pipe operator makes things a little easier.
+
+```rust
+ io.print(
+        int.to_string(mins)
+        |> string.append(":")
+        |> string.append(int.to_string(secs))
+        |> string.append("  \r"),
+      )
+```
 
 ## Elixir
 
