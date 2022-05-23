@@ -34,7 +34,7 @@ while time != 0
   - [Typescript](#typescript)
 - Compiled
   - [C   ](#c)
-  - [C++ ](#c++)
+  - [C++ ](#cpp)
   - [V   ](#v)
   - [Rust](#rust)
   - [Zig ](#zig)
@@ -397,7 +397,7 @@ My project is so simple that it does not highlight any of C's issues. It feels u
 All I'll say is, C has not changed for a long time, there are *new* and *different* approaches to solving programming problems.
 Give them a go and you might be surprised.
 
-## C++
+## <a name="cpp">C++</a>
 
 - Documentation: 
 
