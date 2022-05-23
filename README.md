@@ -3,9 +3,9 @@
 I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
 Sometimes it feels like the *quality* of a language is determined by how old it is, rather than how good it is.
 
-To get to the bottom of this, I've decided to remake the same project in over 15 different languages.
+To get to the bottom of this, I've decided to remake the same project in 17 languages.
 
-The project I've chosen is a countdown timer. This feels like a good choice since it requires:
+The project I've chosen is a countdown timer. It's a good choice because it requires:
 
 - Getting input from the user
 - Accessing the OS's sleep function
@@ -15,42 +15,40 @@ The project I've chosen is a countdown timer. This feels like a good choice sinc
 Here's some pseudo code of the timer:
 
 ```python
-time = 60
+time = 120
 
 while time != 0 
-    mins = floor(t / 60)
-    secs = t % 60
+    mins = ⌊time / 60⌋
+    secs = time % 60
 
     print(mins, secs)
     sleep(1 second)
-    t = t - 1
+    time -= 1
 ```
 
 ## Table of contents
 
-TODO: links
-
 - Interpreted
-  - Python
-  - Javascript
-  - Typescript
+  - [Python](#python)
+  - [Javascript](#javascript)
+  - [Typescript](#typescript)
 - Compiled
-  - C
-  - C++
-  - V
-  - Rust
-  - Zig
-  - Go
-  - Nim
-  - Odin
+  - [C   ](#c)
+  - [C++ ](#c++)
+  - [V   ](#v)
+  - [Rust](#rust)
+  - [Zig ](#zig)
+  - [Go  ](#go)
+  - [Nim ](#nim)
+  - [Odin](#odin)
 - Bytecode
-  - Java
-  - Kotlin
-  - C#
-  - Lua
+  - [Java    ](#java)
+  - [Kotlin  ](#kotlin)
+  - [C#      ](#c-sharp)
+  - [Lua     ](#lua)
 - Functional
-  - Gleam
-  - Elixir
+  - [Gleam](#gleam)
+  - [Elixir](#elixir)
 
 ### Rankings
 
@@ -1002,7 +1000,8 @@ I kept running into these overload ambiguity errors. I was quite frustrating.
 Kotlin is easier than Java. It's a very mediocre language in all aspects. 
 However since android requires you to use either Java or Kotlin I'd go with Kotlin.
 
-## C#
+## <a name="c-sharp">C#</a>
+
 
 - Documentation: 
 
