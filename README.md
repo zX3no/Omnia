@@ -721,7 +721,7 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
 
 ### Code
 
-```
+```go
 package main
 
 import (
