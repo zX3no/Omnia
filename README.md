@@ -178,16 +178,18 @@ I won't pretend to understand functional languages however this felt the most be
 
 ## Notes
 
-> There were a few languages that I attempted to use but gave up with
+There were a few languages that I attempted to use but gave up on.
 
 - Haskell
   - Confusing to install
-  -  Bad documentation
-  -  Error are difficult to understand
-  -  Compiler is around 1 GB
-  -  3742ms to compile hello world 🤨
+  - Bad documentation
+  - Error are difficult to understand
+  - Compiler is around 1 GB
+  - 3742ms to compile hello world 🤨
 - OCaml
   - No windows support
+- Elm
+  - Built for the web, not console applications
 
 # Interpreted
 
@@ -199,14 +201,7 @@ I won't pretend to understand functional languages however this felt the most be
 
 - Install Guide:
 
-  https://www.python.org/ > 
-  https://www.python.org/about/gettingstarted/ >
-  https://wiki.python.org/moin/BeginnersGuide/Download >
-  https://www.python.org/downloads/ 
-
-  Adding to path requires ticking a checkbox
-
-  Cannot be installed by following instructions;.
+  https://www.python.org/about/gettingstarted/ 
 
 - Build Command:
 
@@ -228,9 +223,12 @@ while t:
 
 ### Overview
 
-Python is simple as long as you don't require any dependencies.
-I find the syntax to be difficult at scale but fine for small projects.
-I would also caution people in using interpreted languages as they are inherently slow.
+Python was probably the language to write. Since there are so many users finding help is trivial. I think this is part of the reason why it's recommended to begginers. 
+
+Many people do not like the indentation system, myself included. It can be fine for small amounts of code like I have but it can be super annoying with large funcitons.
+
+I find it difficult to recommend interpreted languages to beginners since they are painfully slow. 
+You'll probably end up writing C libaries to use with Python.
 
 ## JavaScript
 
