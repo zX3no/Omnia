@@ -1184,24 +1184,27 @@ pub fn main() {
 
 ### Overview
 
-The install instructions are don't have enough information.
-Firstly there is no information on how to add Gleam to your path. 
+>  My code does not work anymore, I've tried old versions of gleam but I still get the same issues. 
 
-Even worse than that is install erlang. 
-Usually installers on Windows automatically add relevant locations to your path.
+Gleam is not easy to install.
 
-So when installing Erlang, `C:\Program Files\erl-23.0\bin` would be added to your path.
-However you'll need to search for the right location yourself and add it manually.
-There is no instructions about it on the download page either.
+Unlike most languages where you *just* install them, gleam requires you to install:
 
-The code I wrote used to work. However, now I get this error for most functions.
+- Chocolatey
+- Gleam
+- Erlang
+- Rebar3
 
-```log
-exception error: undefined function gleam@int:to_float/1
-  in function  t:loop/1 (build/dev/erlang/t/build/t.erl, line 13)
-```
+This is not very user friendly especially for a language that is predicated on it's ease of use.
 
-Gleam has no input function, so you'll need to add support for running erlang code.
+> "Gleam is a friendly language for building type-safe, scalable systems! ✨"
+
+Gleam is also missing a few things in it's standard library such as: 
+
+- Reading the users input
+- Sleeping a thread
+
+However these can be added by using `gleam_erlang`
 
 ```toml
 # gleam.toml
@@ -1211,7 +1214,9 @@ gleam_stdlib = "~> 0.21"
 gleam_erlang = "~> 0.9"
 ```
 
-Gleam is also missing string formatting, so there is no zero-padding. Using the pipe operator makes things a little easier.
+Gleam is also missing string formatting, so there is no zero-padding. 
+
+Using the pipe operator makes things a little easier but still quite difficult.
 
 ```rust
  io.print(
@@ -1239,18 +1244,18 @@ Gleam is also missing string formatting, so there is no zero-padding. Using the 
 
 ### Code
 
-TODO: IO.write can probably be simpler
-
 ```elixir
 defmodule Timer do
   def run(t) do
     mins = Integer.floor_div(t, 60)
-    secs = rem(t, 60)
+    |> Integer.to_string
+    |> String.pad_leading(2, "0")
 
-    IO.write(mins)
-    IO.write(":")
-    IO.write(secs)
-    IO.write(' \r')
+    secs = rem(t, 60) 
+    |> Integer.to_string
+    |> String.pad_leading(2, "0")
+
+    IO.write("#{mins}:#{secs}\r")
 
     Process.sleep(1000)
 
@@ -1265,9 +1270,13 @@ Timer.run(t)
 
 ### Overview
 
-TODO: rewrite
+Elixir is the only functional langauge which worked seamlessly.
 
-Check out these errors I got:
+The installer just works, the documentation *exists* and the code wasn't too difficult to write.
+
+I don't know why languages use `do` and `end` keywords over brackets. I've always found it to be harder to write and to read. 
+
+Error messages are difficult to read. They include some seemingly useless information.
 
 ```log
 ** (ArgumentError) cannot invoke def/2 outside module
@@ -1275,14 +1284,12 @@ Check out these errors I got:
     (elixir 1.13.3) lib/kernel.ex:4839: Kernel.define/4
     (elixir 1.13.3) expanding macro: Kernel.def/2
     timer.exs:4: (file)
-```
-```log
+
 ** (Protocol.UndefinedError) protocol String.Chars not implemented for {10, ""} of type Tuple
     (elixir 1.13.3) lib/string/chars.ex:3: String.Chars.impl_for!/1
     (elixir 1.13.3) lib/string/chars.ex:22: String.Chars.to_string/1
     (elixir 1.13.3) lib/io.ex:724: IO.puts/2
 ```
 
-Oof. I'm still impressed with some of the things I've seen. I don't think *Elixir* is it yet.
-
-Elixir is like Lua...
+Despite all of my problems with Elixir, this is probably my favourite functional language.
+Although the bar is exceptionally low.

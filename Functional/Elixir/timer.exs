@@ -1,12 +1,14 @@
 defmodule Timer do
   def run(t) do
     mins = Integer.floor_div(t, 60)
-    secs = rem(t, 60)
+    |> Integer.to_string
+    |> String.pad_leading(2, "0")
 
-    IO.write(mins)
-    IO.write(":")
-    IO.write(secs)
-    IO.write(' \r')
+    secs = rem(t, 60) 
+    |> Integer.to_string
+    |> String.pad_leading(2, "0")
+
+    IO.write("#{mins}:#{secs}\r")
 
     Process.sleep(1000)
 
