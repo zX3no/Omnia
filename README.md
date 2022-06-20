@@ -11,7 +11,10 @@ The scope of this project got a little out. It was only meant as a brief overvie
 I've heard good and bad things about many languages before, people often pick favorites and get very defensive about them.
 Sometimes it feels like the *quality* of a language is determined by how old it is, rather than how good it is.
 
-To get to the bottom of this, I've decided to remake the same project in 17 languages.
+I'd like to get an overview of the install process, documentation, tooling and syntax of different languages.
+
+To do this, I've decided to remake the same project in 17 languages.
+
 
 The project I've chosen is a countdown timer. It's a good choice because it requires:
 
@@ -33,6 +36,8 @@ while time != 0
     sleep(1 second)
     time -= 1
 ```
+
+And remeber, I'm comparing the **design** of each langauges not their **features**, **performance** or **stability**.
 
 ## Table of contents
 
@@ -62,119 +67,68 @@ while time != 0
 
 There are some important things to note when looking for a new language.
 The best language is one that is easiest to learn.
-Many new `simple` languages lack documentation and are not a good choice for beginners.
+Many new *"simple"* languages lack documentation and are not a good choice for beginners.
 
-Tooling is also very important, having a nice build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make programming easier.
+Tooling is also very important, having a build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make programming easier.
 
 Libraries are very important as well, most of us don't have time to reinvent the wheel.
 Sometimes a language is worth using for a single package.
 Many people use Python just for TensorFlow or PyTorch.
 
-It's also important to keep in mind I only used these languages for simple projects so I won't pretend to whole picture.
+It's also important to keep in mind I only used these languages for simple projects so I won't pretend to have the whole picture.
 
 I generally don't like dynamic, bytecode or functional languages because of performance issues or cognitive overhead. 
-I'll try to argue for this, throughout the document. 
 
-### The best & worst languages
+Although I'll try to be as charitable as possilbe.
 
-- Best languages for beginner programmers
-  - Choose whatever you want it doesn't matter
+### Top picks
 
-- Best languages for experienced programmers
-  - V
+- For beginner programmers
+  - Choose whatever you look the look of!
+
+- For advanced programmers
   - Rust
   - Nim
+  - V
 
-  V is a language I hope to move into the beginner category. 
-  It's simple, preformat and modern. 
-  It's lacking a few features, documentation and you'll often get compiler panics.
+  Rust has great tooling, documentation, and is easy write. 
 
-  Hopefully some of these issues will be resolved by version 1.0.
+  V is quite a controversial language however, I think it has some very respectable goals. 
+  It has a simple syntax, good tooling, good documentation and is fast to compile.
 
-  Rust has great tooling, documentation, a [borrow checker](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html) and is easy write. 
+  Nim is very young but looks very promising. 
+  It tries to make low level programming as simple as python. 
+  It's tooling and documentation are decent and it's pretty easy to write. 
 
-  Nim is very young but looks very promising. It tries to make low level programming as simple as python. It's tooling and documentation are decent and it's pretty easy to write. 
+### Worst picks
 
-- Best bytecode languages
-  - C#
-  - Kotlin
-
-  I don't like bytecode languages but if you can't help yourself, C# and Kotlin are decent choices.
-
-- Best functional languages
-  - Elixir
-  - Gleam
-
-  These were the ones that I managed to get working, I think that speaks to their usability. 
-
-- Languages you should never use
-  - Java
+  - Java 
   - Lua
   - Zig
 
-  These languages all have better alternatives.
-  - Kotlin is better than Java
+  Recommended alternatives:
+  - Kotlin instead of Java
+  - Odin instead of Zig
   - Anything is better than Lua
-  - Odin is better than Zig
 
 | Language   | Simplicity | Documentation | Build Tools | Compile Times (ms) | Error Messages |
 |------------|------------|---------------|-------------|--------------------|----------------|
 | Python     | Good       | Okay          | Okay        | -                  | Okay           |
-| JavaScript | Bad        | Okay          | Good        | -                  | Okay           |
-| TypeScript | Bad        | Okay          | Good        | -                  | Okay           |
+| JavaScript | Okay       | Okay          | Good        | -                  | Okay           |
+| TypeScript | Okay       | Okay          | Good        | -                  | Okay           |
 | C          | Okay       | Okay          | Bad         | 800                | Bad            |
 | C++        | Bad        | Okay          | Bad         | 1359               | Bad            |
 | Go         | Bad        | Bad           | Good        | 436                | Okay           |
-| Rust       | Okay       | Great         | Great       | 1114               | Great          |
-| V          | Great      | Good          | Good        | 430                | Good           |
+| Rust       | Okay       | Good          | Good        | 1114               | Good           |
+| V          | Good       | Good          | Good        | 430                | Good           |
 | Nim        | Good       | Good          | Good        | 965                | Okay           |
-| Zig        | 0____0     | Bad           | Okay        | 5297               | Bad            |
+| Zig        | Bad        | Bad           | Okay        | 5297               | Bad            |
 | Odin       | Bad        | Okay          | Good        | 821                | Okay           |
 | Java       | Bad        | Bad           | Bad         | -                  | Okay           |
 | Kotlin     | Okay       | Okay          | Bad         | -                  | Bad            |
-| Lua        |            | Bad           | Bad         | -                  | Okay           |
-| Elixir     | Bad        | Good          |             | -                  |                |
-| Haskell    | 0____0     | Bad           | Bad         | 3738               | Bad            |
-| Gleam      | Okay       | Bad           | Great       | 1891               | Great          |
-
-#### Something I like about each language:
-
-Python: Very clean input function. Only language that has a `divmod` function. Standard library seems very strong and comprehensive.
-
-JavaScript: Despite being built for the web. It's was still very easy to setup dependencies and find documentation.
-
-TypeScript: It's JavaScript with compile time type checking, what's not to love?
-
-C: Standard library is very simple to use. Doesn't require any crazy steps to setup and use.
-
-C++: It has scoped variables(RAII) and pretty much every feature you could ask for in a modern programming language (and more). 
-
-Go: I really like the tooling, imports are managed automatically which saves me a lot of time.
-
-Rust: Cargo is the best build tool I've ever used.
-The language also has excellent documentation.
-
-V: It's simple to write, fast to compile.
-
-Nim: Very simple to write, feels like a cross between rust and python.
-
-Zig: This language is awful
-
-Odin: This language is also awful
-
-Java: This language is also awful
-
-Kotlin: Simple to write and a great choice to write android apps with.
-
-Lua: This language made me angry.
-
-C#: It's better than Java.
-
-Elixir: One of the few functional languages that worked for me.
-Opened my mind to different ways of problem solving.
-
-Gleam: Great error messages and tooling.
-I won't pretend to understand functional languages however this felt the most beginner friendly. 
+| Lua        | Okay       | Bad           | Bad         | -                  | Okay           |
+| Elixir     | Bad        | Good          |             | -                  | Bad            |
+| Gleam      | Okay       | Bad           | Good        | 1891               | Good           |
 
 ## Notes
 
@@ -184,7 +138,6 @@ There were a few languages that I attempted to use but gave up on.
   - Confusing to install
   - Bad documentation
   - Error are difficult to understand
-  - Compiler is around 1 GB
   - 3742ms to compile hello world 🤨
 - OCaml
   - No windows support
@@ -223,12 +176,14 @@ while t:
 
 ### Overview
 
-Python was probably the language to write. Since there are so many users finding help is trivial. I think this is part of the reason why it's recommended to begginers. 
+Python was probably the simplest language to write. 
+Since there are so many users finding help is trivial. 
+I think this is part of the reason why it's recommended to begginers. 
 
-Many people do not like the indentation system, myself included. It can be fine for small amounts of code like I have but it can be super annoying with large funcitons.
+Many people do not like the indentation system, myself included. 
+Since this project is less than 10 lines, obviously I didn't run into any issues, but I have before and it's very annoying!
 
-I find it difficult to recommend interpreted languages to beginners since they are painfully slow. 
-You'll probably end up writing C libaries to use with Python.
+Performance is important to me so I don't use Python. However I can definitely see it's influence in newer compiled languages, which is a testiment to it's desin. 
 
 ## JavaScript
 
@@ -239,8 +194,6 @@ Keep in mind that I'm talking about JavaScript + Node.js.
   https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
   https://nodejs.org/docs/latest-v15.x/api/
-
-  https://nodejs.dev/learn/introduction-to-nodejs
 
 - Install Guide:
 
@@ -270,15 +223,16 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 ### Overview
 
-TODO: rewrite
+Getting javascript running outside of the browser is a little tricky.
+JavaScript requires a runtime like NodeJs or Deno to be used like other langauges. 
 
-It may be hard for people to understand that JavaScript requires a runtime like NodeJs or Deno. It's hard to recommend to new programmers given how complicated the tech stack is.
+I could not figure out how to use Node's `read-line` class and instead used the `prompt-sync` library.
+This required some async code which made the project more complicated than I hoped.
+It is clear when using JavaScript that it was built for the web.
 
-Node's `read-line` class is not easy to use, I used the library `prompt-sync` instead. 
-
-I'm not a fan of the async code required, it's clear that JavaScript was built for the web.
-
-Please use it for the web, not for desktop applications.
+- Lot's of documentation for JavaScript and NodeJS. 
+- Good IDE and build tools.
+- Easy to install once you know what you need.
 
 ## TypeScript
 
