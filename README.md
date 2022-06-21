@@ -8,13 +8,12 @@ The scope of this project got a little out. It was only meant as a brief overvie
 
 ## Goals
 
-I've heard good and bad things about many languages before, people often pick favorites and get very defensive about them.
+I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
 Sometimes it feels like the *quality* of a language is determined by how old it is, rather than how good it is.
 
 I'd like to get an overview of the install process, documentation, tooling and syntax of different languages.
 
-To do this, I've decided to remake the same project in 17 languages.
-
+To do this, I've decided to remake the same project in as many languages as I can.
 
 The project I've chosen is a countdown timer. It's a good choice because it requires:
 
@@ -37,7 +36,7 @@ while time != 0
     time -= 1
 ```
 
-And remeber, I'm comparing the **design** of each langauges not their **features**, **performance** or **stability**.
+And remember, I'm comparing the **design** of each languages not their **features**, **performance** or **stability**.
 
 ## Table of contents
 
@@ -46,19 +45,19 @@ And remeber, I'm comparing the **design** of each langauges not their **features
   - [Javascript](#javascript)
   - [Typescript](#typescript)
 - Compiled
-  - [C   ](#c)
-  - [C++ ](#cpp)
-  - [V   ](#v)
+  - [C](#c)
+  - [C++](#cpp)
+  - [V](#v)
   - [Rust](#rust)
-  - [Zig ](#zig)
-  - [Go  ](#go)
-  - [Nim ](#nim)
+  - [Zig](#zig)
+  - [Go](#go)
+  - [Nim](#nim)
   - [Odin](#odin)
 - Bytecode
-  - [Java    ](#java)
-  - [Kotlin  ](#kotlin)
-  - [C#      ](#c-sharp)
-  - [Lua     ](#lua)
+  - [Java](#java)
+  - [Kotlin](#kotlin)
+  - [C#](#c-sharp)
+  - [Lua](#lua)
 - Functional
   - [Gleam](#gleam)
   - [Elixir](#elixir)
@@ -79,7 +78,7 @@ It's also important to keep in mind I only used these languages for simple proje
 
 I generally don't like dynamic, bytecode or functional languages because of performance issues or cognitive overhead. 
 
-Although I'll try to be as charitable as possilbe.
+Although I'll try to be as charitable as possible.
 
 ### Top picks
 
@@ -178,12 +177,19 @@ while t:
 
 Python was probably the simplest language to write. 
 Since there are so many users finding help is trivial. 
-I think this is part of the reason why it's recommended to begginers. 
+I think this is part of the reason why it's recommended to beginners. 
 
 Many people do not like the indentation system, myself included. 
 Since this project is less than 10 lines, obviously I didn't run into any issues, but I have before and it's very annoying!
 
-Performance is important to me so I don't use Python. However I can definitely see it's influence in newer compiled languages, which is a testiment to it's desin. 
+I found the documentation to be decent. 
+It has a search and modules are group together by category. 
+I'd like to see some more examples and maybe a front-end facelift, but definitely usable unlike some other languages.
+
+- Simple syntax
+- Easy installation
+- Decent documentation
+- Large amount of learning resources 
 
 ## JavaScript
 
@@ -223,16 +229,21 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 ### Overview
 
-Getting javascript running outside of the browser is a little tricky.
-JavaScript requires a runtime like NodeJs or Deno to be used like other langauges. 
+Getting JavaScript running outside of the browser is a little tricky.
+JavaScript requires a runtime like Node.js or Deno to be used like other languages. 
 
 I could not figure out how to use Node's `read-line` class and instead used the `prompt-sync` library.
 This required some async code which made the project more complicated than I hoped.
 It is clear when using JavaScript that it was built for the web.
 
-- Lot's of documentation for JavaScript and NodeJS. 
-- Good IDE and build tools.
-- Easy to install once you know what you need.
+The documentation feels quite messy. 
+There is no separation between tutorials and the api, which makes it hard to find things without google.
+The Node.js documentation is missing a search which is painful to use.
+
+- Lot's of resources
+- Good tooling
+- Good support in most IDE's
+- Easy to installation
 
 ## TypeScript
 
@@ -269,14 +280,13 @@ const prompt = promptSync();
 
 ### Overview
 
-TypeScript requires quite a significant amount of effort to setup. 
-It is difficult to find information about how it's used with Node.js.
-I watched [Using TypeScript in Node.js](https://www.youtube.com/watch?v=1UcLoOD1lRM) and that cleared up most of my confusing.
+TypeScript requires a significant amount of effort to setup. 
+I watched [Using TypeScript in Node.js](https://www.youtube.com/watch?v=1UcLoOD1lRM) and that cleared up most of my confusion.
 
 TypeScript requires you to import TypeScript definitions for JavaScript libraries.
 Node.js does not work without importing `@types/node`.
 
-I needed to add `ts-node` to my project and setup a build script. 
+I also needed to add `ts-node` to my project and setup a build script. 
 Then I can run my project with `yarn dev`.
 
 ```json
@@ -285,8 +295,12 @@ Then I can run my project with `yarn dev`.
   },
 ```
 
-I've always preferred statically typed languages. 
-If your a web developer you'll probably like this more than JavaScript.
+This didn't change the code much when compared to the JavaScript version. 
+For a small project, setting up TypeScript doesn't make much sense however, for a large project strong typing is a must have.
+
+The documentation has some of the same problems as JavaScript but is definitely easier to read.
+
+- JavaScript but better
 
 # Compiled
 
@@ -308,6 +322,7 @@ If your a web developer you'll probably like this more than JavaScript.
 
 ```c
   #include <stdio.h>
+
   #include <math.h>
   #include <windows.h>
 
@@ -332,22 +347,17 @@ If your a web developer you'll probably like this more than JavaScript.
 
 ### Overview
 
+TODO:
+
 Fairly simple to write. 
-At first I didn't like `scanf`, but it turned out to be better than 90% of languages I tried.
-Unfortunately C lacks an easy cross-platform sleep function.
-Sometimes C would compile even though my IDE was telling me there should be an error.
-It feels very difficult to find bugs in C code.
 
-An annoying habit seems to start here with C. 
-I would like to build and run my program in one command, for example: `gcc timer.c --run`.
-Instead I will build and run with the following: `gcc timer.c -o timer.exe;timer.exe`.
-See the issue? If my program fails to compile I will still run the program. 
+No cross-platform sleep function.
 
-I have looked for a solution but with no success.
+C would compile even though my IDE was telling me there should be an error.
 
-My project is so simple that it does not highlight any of C's issues. It feels unfair to talk about them without examples. 
-All I'll say is, C has not changed for a long time, there are *new* and *different* approaches to solving programming problems.
-Give them a go and you might be surprised.
+No easy way to build and run like `cargo run`.
+
+Where is the documentation?
 
 ## <a name="cpp">C++</a>
 
@@ -423,7 +433,7 @@ The best part is that Clang compiles 28% slower!
 
 `hyperfine -w 5 'g++ timer.cpp -o timer.exe' 'clang timer_clang.cpp -std=c++2b -o timer_clang.exe'`
 
-```
+```log
 Benchmark 1: g++ timer.cpp -o timer.exe
   Time (mean ± σ):      1.639 s ±  0.011 s    [User: 0.001 s, System: 0.005 s]
   Range (min … max):    1.629 s …  1.659 s    10 runs
@@ -438,9 +448,6 @@ Summary
 ```
 
 How is it possible that `printf` is better than `std::cout`. It's been over 20 years and it still sucks, why even write it?
-
-In fairness, C++ has some great features that C doesn't have: RAII, vectors, smart pointers, better multi-threading and error handling.
-You can even keep using `printf` and all your favourite C libraries in C++... or you could just learn Rust.
 
 ## V 
 
