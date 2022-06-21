@@ -1,1 +1,1 @@
-rustc src/main.rs -o timer.exe
+rustc main.rs -o timer.exe

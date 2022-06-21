@@ -3,7 +3,7 @@ hyperfine --prepare 'cargo clean' 'cargo build' -w 10 -m 50
 cd ../../
 
 cd Compiled/Rust
-hyperfine --prepare 'del timer.exe timer.pdb' 'rustc src/main.rs -o timer.exe' -w 10 -m 50
+hyperfine --prepare 'del timer.exe timer.pdb' 'rustc main.rs -o timer.exe' -w 10 -m 50
 cd ../../
 
 cd Compiled/v

@@ -110,6 +110,8 @@ Although I'll try to be as charitable as possible.
   - Odin instead of Zig
   - Anything is better than Lua
 
+TODO: Update compile times with hyperfine
+
 | Language   | Simplicity | Documentation | Build Tools | Compile Times (ms) | Error Messages |
 |------------|------------|---------------|-------------|--------------------|----------------|
 | Python     | Good       | Okay          | Okay        | -                  | Okay           |
@@ -421,8 +423,7 @@ You might be wondering why I didn't use `std::format`.
   std::cout << std::format("{:02}:{:02}\r", mins, secs);
 ```
 
-Firstly it's only available with C++20. 
-Which would be fine if formatting wasn't missing from `GCC`.
+Firstly it's only available with C++20, which would be fine if formatting wasn't missing from `GCC`.
 According to the [compiler support page](https://en.cppreference.com/w/cpp/compiler_support) only `Clang` and `MSVC` support it.
 
 This turns out to be incorrect since using the `-std=c++20` flag with clang still gives an error: `no member named 'format' in namespace 'std'`.
@@ -496,10 +497,8 @@ V is quite a new language and has some rough edges.
 - Still under heavy development
 
 Despite this I really like writing code with V. 
-The code is simple, the compiler is fast and has great messages. 
+The code is simple, the compiler is fast and has great error messages (aside from compiler bugs). 
 Standard library documentation is very easy to navigate.
-
-I have high hopes for this language.
 
 ```v
 .\timer.v:11:13: error: string types only have the following operators defined: `==`, `!=`, `<`, `>`, `<=`, `>=`, and `+`
@@ -509,6 +508,7 @@ I have high hopes for this language.
       |                   ^
    12 |         print('${mins:02}:${secs:02}\r')
    13 |         time.sleep(1 * time.second)
+
 .\timer.v:14:3: error: operator `-=` not defined on left operand type `string`
    12 |         print('${mins:02}:${secs:02}\r')
    13 |         time.sleep(1 * time.second)
@@ -528,7 +528,7 @@ I have high hopes for this language.
 
 - Build Command:
 
-  `cargo run`
+  `rustc main.rs -o timer.exe`
 
 - Install Guide:
 
@@ -570,33 +570,37 @@ Here is the hard way of getting the users input:
 
 ```rust
 //get the users input
-let mut s = String::new();
+let mut buf = String::new();
 print!("Please enter the time in seconds: ");
-stdin().read_line(&mut s).unwrap();
+stdin().read_line(&mut buf).unwrap();
 
 //remove /r/n and turn the string into an i32
-let mut t: i32 = s.trim().parse().unwrap();
-println!("You entered the number: {}", t);
+let mut num: i32 = s.trim().parse().unwrap();
+println!("You entered the number: {}", num);
 ```
 
-Not great. However there is some discussion about this issue. Unfortunately nothing very substantial.
+Not good. 
+There is some discussion on the issue but nothing substantial.
 
-https://github.com/rust-lang/rfcs/pull/3196
-https://github.com/rust-lang/rust/pull/75435
+- https://github.com/rust-lang/rfcs/pull/3196
+- https://github.com/rust-lang/rust/pull/75435
 
-It doesn't seem like there is much agreement about this topic and it's disappointing that it's been left out.
+As a demonstration I thought I'd fix the issue myself.
+So I created my own crate [read_io](https://crates.io/crates/read_io).
 
-To fix this, I created my own crate called [read_io](https://crates.io/crates/read_io).
-
-Here is the new input code:
+Here's the new input code:
 
 ```rust
 let mut t: i32 = read!("Enter the time in seconds: ").unwrap();
 ```
 
-Hopefully something like this can be added to the standard library one day.
+If your interested in the source code you can find it [here](https://github.com/zX3no/read_io/blob/master/src/lib.rs).
 
-Keep in mind I didn't use this crate for the code example because it would impact compile times.
+Hopefully, something like this can be added to the standard library.
+
+TODO: Talk about cargo and rustc and figure out why rustc is so much faster.
+
+TODO: Talk about the documentation.
 
 ## Zig
 
@@ -654,7 +658,7 @@ TODO: rewrite overview and code
 Compile times are bad, error messages are bad, documentation is bad. 
 This language feels like it was written by someone who wanted to make C even harder to use.
 
-```c
+```zig
 C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
         @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
         ^
