@@ -494,11 +494,14 @@ V is quite a new language and has some rough edges.
 - Documentation is lacking
 - Language server is in alpha 
 - Lack of resources/learning material
+- Compiler panics
 - Still under heavy development
 
-Despite this I really like writing code with V. 
-The code is simple, the compiler is fast and has great error messages (aside from compiler bugs). 
-Standard library documentation is very easy to navigate.
+Despite this, I really like using V. 
+
+The code is simple and the standard library documentation is very easy to navigate.
+
+Also, the compiler is fast and has simple error messages.
 
 ```v
 .\timer.v:11:13: error: string types only have the following operators defined: `==`, `!=`, `<`, `>`, `<=`, `>=`, and `+`
@@ -942,10 +945,13 @@ fun main() {
 
 ### Overview
 
-Kotlin is meant to be used with IntelliJ IDEA, but I don't like IDE's so I followed the command line tutorial instead.
-I measured `5.01` seconds to compile and run hello world. I don't think it should be that slow so I'll just leave it up to my own incompetence.
+Kotlin is meant to be used with IntelliJ IDEA. I don't like IDEA so I followed the command line tutorial instead.
 
-I kept running into these overload ambiguity errors. I was quite frustrating.
+I measured `5.01` seconds to compile and run hello world. 
+I think this has something to do with using `kotlinc` instead of a proper build tool (IDEA, Gradle, Maven). 
+
+
+I kept encountering overload ambiguity errors, which don't clarify anything. 
 
 ```log
   timer.kt:9:22: error: overload resolution ambiguity: 
@@ -959,9 +965,6 @@ I kept running into these overload ambiguity errors. I was quite frustrating.
   public final operator fun rem(other: Short): Int defined in kotlin.Int
   var secs = t.rem(60);
 ```
-
-Kotlin is easier than Java. It's a very mediocre language in all aspects. 
-However since android requires you to use either Java or Kotlin I'd go with Kotlin.
 
 ## <a name="c-sharp">C#</a>
 
@@ -1024,7 +1027,11 @@ Unhandled exception. System.FormatException: Format specifier was invalid.
 ```
 
 The documentation and build tools are okay.
-I like C# more than Kotlin and Java, however it's still pretty mediocre. There are faster and simpler languages.
+
+Clean syntax.
+
+Options are difficult to use.
+
 
 ## Lua
 
