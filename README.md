@@ -80,35 +80,31 @@ I generally don't like dynamic, bytecode or functional languages because of perf
 
 Although I'll try to be as charitable as possible.
 
-### Top picks
+#### Most Promising Languages
 
-- For beginner programmers
-  - Choose whatever you look the look of!
-
-- For advanced programmers
   - Rust
+
+    Rust has great tooling, documentation, and is easy write. 
   - Nim
+
+    Nim is very young but looks very promising. 
+    It tries to make low level programming as simple as python. 
+    It's tooling and documentation are good and it's easy to write. 
   - V
 
-  Rust has great tooling, documentation, and is easy write. 
+    Also a very new language, but with some very respectable goals.
+    It has a simple syntax, good tooling, good documentation and is fast to compile.
 
-  V is quite a controversial language however, I think it has some very respectable goals. 
-  It has a simple syntax, good tooling, good documentation and is fast to compile.
-
-  Nim is very young but looks very promising. 
-  It tries to make low level programming as simple as python. 
-  It's tooling and documentation are decent and it's pretty easy to write. 
-
-### Worst picks
+#### Most Painful Languages
 
   - Java 
   - Lua
   - Zig
 
   Recommended alternatives:
-  - Kotlin instead of Java
+  - C# or Kotlin instead of Java
   - Odin instead of Zig
-  - Anything is better than Lua
+  - Anything instead of Lua
 
 TODO: Update compile times with hyperfine
 
