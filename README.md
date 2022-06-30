@@ -49,9 +49,9 @@ And remember, I'm comparing the **design** of each languages not their **feature
   - [C++](#cpp)
   - [V](#v)
   - [Rust](#rust)
-  - [Zig](#zig)
   - [Go](#go)
   - [Nim](#nim)
+  - [Zig](#zig)
   - [Odin](#odin)
 - Bytecode
   - [Java](#java)
@@ -601,74 +601,6 @@ TODO: Talk about cargo and rustc and figure out why rustc is so much faster.
 
 TODO: Talk about the documentation.
 
-## Zig
-
-- Documentation: 
-
-  https://ziglang.org/documentation/master/
-  https://ziglang.org/documentation/master/std/
-
-- Build Command:
-
-  `zig build run`
-
-- Install Guide:
-
-  https://ziglang.org/learn/getting-started/
-
-### Code
-
-```zig
-const std = @import("std");
-const print = std.debug.print;
-const fmt = std.fmt;
-const math = std.math;
-const os = std.os;
-const time = std.time;
-
-pub fn main() !void {
-    const stdin = std.io.getStdIn().reader();
-    var buf: [20]u8 = undefined;
-
-    print("Enter a time in seconds: ", .{});
-
-    const amt = try stdin.read(&buf);
-    const line = std.mem.trimRight(u8, buf[0..amt], "\r\n");
-    var t = fmt.parseUnsigned(u8, line, 10) catch {
-        print("Invalid number.\n", .{});
-        return;
-    };
-
-    while (t != 0) {
-        var f = @intToFloat(f32, t);
-        const mins = @floatToInt(i32, math.floor(f / 60.0));
-        const secs = t % 60;
-        os.windows.kernel32.Sleep(1000);
-        print("{any}:{any} \r", .{ mins, secs });
-        t -= 1;
-    }
-}
-```
-
-### Overview
-
-TODO: rewrite overview and code
-
-Compile times are bad, error messages are bad, documentation is bad. 
-This language feels like it was written by someone who wanted to make C even harder to use.
-
-```zig
-C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
-        @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
-        ^
-.\timer.zig:4:29: note: called from here
-pub fn main() anyerror!void {
-                            ^
-C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set' cannot cast into error set 'std.os.WriteError'
-            return std.fmt.format(self, format, args);
-                                 ^
-```
-
 ## Go
 
 - Documentation: 
@@ -777,6 +709,82 @@ Installing is simple.
 Documentation is decent and the language is quite simple.
 It's like a complied version of python. 
 Compile times are quite slow which is unfortunate since it might be a good choice otherwise.
+
+## Zig
+
+- Documentation: 
+
+  https://ziglang.org/documentation/master/
+
+  https://ziglang.org/documentation/master/std/
+
+- Build Command:
+
+  `zig build run`
+
+- Install Guide:
+
+  https://ziglang.org/learn/getting-started/
+
+### Code
+
+```zig
+const std = @import("std");
+const print = std.debug.print;
+const fmt = std.fmt;
+const math = std.math;
+const os = std.os;
+const time = std.time;
+
+pub fn main() !void {
+    const stdin = std.io.getStdIn().reader();
+    var buf: [20]u8 = undefined;
+
+    print("Enter a time in seconds: ", .{});
+
+    const amt = try stdin.read(&buf);
+    const line = std.mem.trimRight(u8, buf[0..amt], "\r\n");
+    var t = fmt.parseUnsigned(u8, line, 10) catch {
+        print("Invalid number.\n", .{});
+        return;
+    };
+
+    while (t != 0) {
+        var f = @intToFloat(f32, t);
+        const mins = @floatToInt(i32, math.floor(f / 60.0));
+        const secs = t % 60;
+        os.windows.kernel32.Sleep(1000);
+        print("{any}:{any} \r", .{ mins, secs });
+        t -= 1;
+    }
+}
+```
+
+### Overview
+
+TODO: rewrite overview and code
+
+Compile times are bad, error messages are bad, documentation is bad. 
+This language feels like it was written by someone who wanted to make C even harder to use.
+
+Build is in releaes mod by default. 
+
+Test build times in debug, even though it was unclear it would still be unfair to compare that way.
+
+Maybe you can change the build options so that it's just `zig build` instead of `zig build run`
+
+```zig
+C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
+        @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
+        ^
+.\timer.zig:4:29: note: called from here
+pub fn main() anyerror!void {
+                            ^
+C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set' cannot cast into error set 'std.os.WriteError'
+            return std.fmt.format(self, format, args);
+                                 ^
+```
+
 
 ## Odin
 
