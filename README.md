@@ -4,7 +4,7 @@
 
 The code is finished however the writing mostly covers tooling and installation rather than the language itself.
 
-The scope of this project got a little out. It was only meant as a brief overview rather than a comparative analysis of every programming language. 
+The scope of this project got a little out of hand. It was only meant as a brief overview rather than a comparative analysis of every programming language. 
 
 ## Goals
 
@@ -13,9 +13,7 @@ Sometimes it feels like the *quality* of a language is determined by how old it 
 
 I'd like to get an overview of the install process, documentation, tooling and syntax of different languages.
 
-To do this, I've decided to remake the same project in as many languages as I can.
-
-The project I've chosen is a countdown timer. It's a good choice because it requires:
+I've chosen to build a countdown timer in each language. It's a good choice because it requires:
 
 - Getting input from the user
 - Accessing the OS's sleep function
@@ -33,10 +31,10 @@ while time != 0
 
     print(mins, secs)
     sleep(1 second)
-    time -= 1
+    time = time - 1
 ```
 
-And remember, I'm comparing the **design** of each languages not their **features**, **performance** or **stability**.
+And remember, I'm comparing the design of each languages not their features, performance or stability.
 
 ## Table of contents
 
@@ -65,8 +63,7 @@ And remember, I'm comparing the **design** of each languages not their **feature
 ## Rankings
 
 There are some important things to note when looking for a new language.
-The best language is one that is easiest to learn.
-Many new *"simple"* languages lack documentation and are not a good choice for beginners.
+Many new simple langauges lack documentation, tooling and stability, making them good in theory but not in practice.
 
 Tooling is also very important, having a build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make programming easier.
 
@@ -113,13 +110,13 @@ TODO: Update compile times with hyperfine
 | Python     | Good       | Okay          | Okay        | -                  | Okay           |
 | JavaScript | Okay       | Okay          | Good        | -                  | Okay           |
 | TypeScript | Okay       | Okay          | Good        | -                  | Okay           |
-| C          | Okay       | Okay          | Bad         | 800                | Bad            |
+| C          | Okay       | Okay          | Bad         | 800 gcc, 24 tcc    | Bad            |
 | C++        | Bad        | Okay          | Bad         | 1359               | Bad            |
 | Go         | Bad        | Bad           | Good        | 436                | Okay           |
 | Rust       | Okay       | Good          | Good        | 1114               | Good           |
 | V          | Good       | Good          | Good        | 430                | Good           |
 | Nim        | Good       | Good          | Good        | 965                | Okay           |
-| Zig        | Bad        | Bad           | Okay        | 5297               | Bad            |
+| Zig        | Bad        | Bad           | Okay        | 1113               | Bad            |
 | Odin       | Bad        | Okay          | Good        | 821                | Okay           |
 | Java       | Bad        | Bad           | Bad         | -                  | Okay           |
 | Kotlin     | Okay       | Okay          | Bad         | -                  | Bad            |
