@@ -65,17 +65,13 @@ And remember, I'm comparing the design of each languages not their features, per
 There are some important things to note when looking for a new language.
 Many new simple langauges lack documentation, tooling and stability, making them good in theory but not in practice.
 
-Tooling is also very important, having a build tool like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make programming easier.
+Build tools like [npm](https://www.npmjs.com/) or [cargo](https://doc.rust-lang.org/cargo/) can make your life much easier. Those of us with experience with Make/CMake/Meson can vouch for this.
 
 Libraries are very important as well, most of us don't have time to reinvent the wheel.
 Sometimes a language is worth using for a single package.
 Many people use Python just for TensorFlow or PyTorch.
 
-It's also important to keep in mind I only used these languages for simple projects so I won't pretend to have the whole picture.
-
-I generally don't like dynamic, bytecode or functional languages because of performance issues or cognitive overhead. 
-
-Although I'll try to be as charitable as possible.
+It's also important to keep in mind I only used these languages for a simple project, so I won't pretend to have the whole picture.
 
 #### Most Promising Languages
 
@@ -103,7 +99,7 @@ Although I'll try to be as charitable as possible.
   - Odin instead of Zig
   - Anything instead of Lua
 
-TODO: Update compile times with hyperfine
+TODO: Retime using hyperfine
 
 | Language   | Simplicity | Documentation | Build Tools | Compile Times (ms) | Error Messages |
 |------------|------------|---------------|-------------|--------------------|----------------|
@@ -317,7 +313,6 @@ The documentation has some of the same problems as JavaScript but is definitely 
 
 ```c
   #include <stdio.h>
-
   #include <math.h>
   #include <windows.h>
 
@@ -342,23 +337,35 @@ The documentation has some of the same problems as JavaScript but is definitely 
 
 ### Overview
 
-TODO:
+C was easy to write. 
 
-Fairly simple to write. 
+The only thing the standard library was missing was a cross-platform sleep function. 
+I had to include `windows.h` and call `Sleep()` instead.
 
-No cross-platform sleep function.
+I was a little supprised to find that C has no offical documentation or language reference. 
 
-C would compile even though my IDE was telling me there should be an error.
+There is a C section on [cpprefrence.com](https://en.cppreference.com/w/c/language) which is better than nothing.
 
-No easy way to build and run like `cargo run`.
+I've always found the explanations on `cppreference` to be a little obtuse and the examples quite lacklustre.
 
-Where is the documentation?
+There is no way to build and run like with other tools. 
+However there are some ways to work around this, for example:
+
+```bash
+gcc timer.c -o timer.exe
+
+if $env.LAST_EXIT_CODE > 0 {
+    ./timer.exe
+} else {
+  # Failed to compile, do nothing
+}
+```
 
 ## <a name="cpp">C++</a>
 
 - Documentation: 
 
-  https://en.cppreference.com/w/
+  There is no official documentation
 
 - Build Command:
 
