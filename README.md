@@ -773,14 +773,10 @@ pub fn main() !void {
 
 TODO: rewrite overview and code
 
-Compile times are bad, error messages are bad, documentation is bad. 
+Error messages are bad, documentation is bad. 
 This language feels like it was written by someone who wanted to make C even harder to use.
 
-Build is in releaes mod by default. 
-
-Test build times in debug, even though it was unclear it would still be unfair to compare that way.
-
-Maybe you can change the build options so that it's just `zig build` instead of `zig build run`
+Builds in release mode by default and I have no idea how to change it. 
 
 ```zig
 C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
@@ -793,7 +789,6 @@ C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
             return std.fmt.format(self, format, args);
                                  ^
 ```
-
 
 ## Odin
 
