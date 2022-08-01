@@ -1,21 +1,15 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"math"
-	"os"
-	"strconv"
-	"strings"
 	"time"
 )
 
 func main() {
-	s := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter time in seconds: ")
-	text, _ := s.ReadString('\r')
-	text = strings.Trim(text, "\n\r")
-	t, _ := strconv.Atoi(text)
+	var t int
+	fmt.Print("Enter a time in seconds: ")
+	fmt.Scanf("%d", &t)
 
 	for t != 0 {
 		mins := math.Floor(float64(t) / 60.0)

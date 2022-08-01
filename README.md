@@ -625,21 +625,15 @@ TODO: Talk about the documentation.
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"math"
-	"os"
-	"strconv"
-	"strings"
 	"time"
 )
 
 func main() {
-	s := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter time in seconds: ")
-	text, _ := s.ReadString('\r')
-	text = strings.Trim(text, "\n\r")
-	t, _ := strconv.Atoi(text)
+	var t int
+	fmt.Print("Enter a time in seconds: ")
+	fmt.Scanf("%d", &t)
 
 	for t != 0 {
 		mins := math.Floor(float64(t) / 60.0)
@@ -653,14 +647,25 @@ func main() {
 
 ### Overview
 
-TODO: rewrite this.
+Go was quite the mixed bag.
+Firstly the toolling had some really nice features. 
+Imports of done automatically, I did not type any of those by hand they just appear when I wanted to use a function from a module.
+I supprised more languages don't have this because it's one of my favourite features I've found from any language. 
 
-This language is somehow more complicated than rust.
-The functions are super weird, `ReadString` reads up to a certain character and includes it. So your always going to have `\r\n` in your input.
-Worse than that, there's no pop function. Not epic.
-I can't believe how bad the documentation is and how shit the API is.
-I see why V exists now, yikes...
-I do like the way it auto imports modules I would like that for rust since it's such an import heavy language.
+I also liked the syntax for tuples/multiple return values. `foo, bar` is easier to type than Rust's `(foo, bar)`.
+
+Despite some of these nice feautures I can't understand why the would chose such abhorrent function names. `strconv.Atoi()`, how am I supposed to know what that means? How about `string.ToInt()`.
+
+There are multiple print functions that do basically the same thing.
+`Printf` and `Print` didn't need to be different.
+Maybe it's because Go didn't have generics?
+
+I don't understand what should be capitalized in Go.
+`float64()` is a lowercase function but functions inside of modules start with a captial `time.sleep()`?
+
+Go's documentation is lacking a proper search so it can be very difficult to find functinos if you don't know what module they should be in.
+
+The error messages were okay at least (maybe a little noisy):
 
 ```go
 # timer
