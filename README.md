@@ -660,10 +660,10 @@ There are multiple print functions that do basically the same thing.
 `Printf` and `Print` didn't need to be different.
 Maybe it's because Go didn't have generics?
 
-I don't understand what should be capitalized in Go.
-`float64()` is a lowercase function but functions inside of modules start with a captial `time.sleep()`?
+Capitalization feels all over the place,
+`float64()` is all lowercase but when a function is inside a package it always starts with a captial? `time.Sleep()`
 
-Go's documentation is lacking a proper search so it can be very difficult to find functinos if you don't know what module they should be in.
+Go's documentation is lacking a proper search so it can be very difficult to find functions if you don't know what package it should be in.
 
 The error messages were okay at least (maybe a little noisy):
 
