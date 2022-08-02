@@ -716,12 +716,9 @@ Installation was fairly simple, although the install instructions make it seem m
 
 Documentation is decent and I didn't have much difficulty finding what I needed.
 
-There was a little confusion around some of the syntax. 
-Nim has an extreme amount of operators and keywords.
+Nim has many different ways of doing things, to me this was pretty overwelming.
 
-Keep in mind not all are used, some are just reserved.
-
-```
+```nim
 Keywords: 
 addr and as asm
 bind block break
@@ -754,21 +751,20 @@ Tokens:
 `   (    )     {    }     [    ]    ,  ;   [.    .]  {.   .}  (.  .)  [:
 
 Experimental Unicode Operators:
-∙ ∘ × ★ ⊗ ⊘ ⊙ ⊛ ⊠ ⊡ ∩ ∧ ⊓   # same priority as * (multiplication)
-± ⊕ ⊖ ⊞ ⊟ ∪ ∨ ⊔             # same priority as + (addition)
-
+∙ ∘ × ★ ⊗ ⊘ ⊙ ⊛ ⊠ ⊡ ∩ ∧ ⊓
+± ⊕ ⊖ ⊞ ⊟ ∪ ∨ ⊔
 ```
 
-To me, this feels needlessly complex.
-I think this was well described by the develop of `V`.
+Keep in mind not all are used, some are just reserved.
+
+From creator of V:
 
 > V and Nim are very different. One of V's main philosophies is "there must be only one way of doing things". 
 >
 > Nim gives a lot of options and freedom to developers. For example, in V you would write foo.bar_baz(), but in Nim all of these are valid: foo.barBaz(), foo.bar_baz(), bar_baz(foo), barBaz(foo), barbaz(foo) etc.
 
 The tooling was surprisingly seemless given how new the language is.
-I found the vscode extension to work well out of box.
-This wasn't true for other languages like V, Odin and Zig.
+The vscode extension worked well out of box, which isn't true for other languages like V, Odin and Zig.
 
 ## Zig
 
