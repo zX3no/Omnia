@@ -111,7 +111,7 @@ TODO: Retime using hyperfine
 | Go         | Bad        | Bad           | Good        | 436                | Okay           |
 | Rust       | Okay       | Good          | Good        | 1114               | Good           |
 | V          | Good       | Good          | Good        | 430                | Good           |
-| Nim        | Good       | Good          | Good        | 965                | Okay           |
+| Nim        | Good       | Good          | Good        | 898                | Okay           |
 | Zig        | Bad        | Bad           | Okay        | 1113               | Bad            |
 | Odin       | Bad        | Okay          | Good        | 821                | Okay           |
 | Java       | Bad        | Bad           | Bad         | -                  | Okay           |
@@ -712,12 +712,63 @@ while t != 0:
 
 ### Overview
 
-TODO: rewrite
+Installation was fairly simple, although the install instructions make it seem more complicated. 
 
-Installing is simple. 
-Documentation is decent and the language is quite simple.
-It's like a complied version of python. 
-Compile times are quite slow which is unfortunate since it might be a good choice otherwise.
+Documentation is decent and I didn't have much difficulty finding what I needed.
+
+There was a little confusion around some of the syntax. 
+Nim has an extreme amount of operators and keywords.
+
+Keep in mind not all are used, some are just reserved.
+
+```
+Keywords: 
+addr and as asm
+bind block break
+case cast concept const continue converter
+defer discard distinct div do
+elif else end enum except export
+finally for from func
+if import in include interface is isnot iterator
+let
+macro method mixin mod
+nil not notin
+object of or out
+proc ptr
+raise ref return
+shl shr static
+template try tuple type
+using
+var
+when while
+xor
+yield
+
+Operators:
+=     +     -     *     /     <     >
+@     $     ~     &     %     |
+!     ?     ^     .     :     \
+and or not xor shl shr div mod in notin is isnot of as from
+
+Tokens:
+`   (    )     {    }     [    ]    ,  ;   [.    .]  {.   .}  (.  .)  [:
+
+Experimental Unicode Operators:
+∙ ∘ × ★ ⊗ ⊘ ⊙ ⊛ ⊠ ⊡ ∩ ∧ ⊓   # same priority as * (multiplication)
+± ⊕ ⊖ ⊞ ⊟ ∪ ∨ ⊔             # same priority as + (addition)
+
+```
+
+To me, this feels needlessly complex.
+I think this was well described by the develop of `V`.
+
+> V and Nim are very different. One of V's main philosophies is "there must be only one way of doing things". 
+>
+> Nim gives a lot of options and freedom to developers. For example, in V you would write foo.bar_baz(), but in Nim all of these are valid: foo.barBaz(), foo.bar_baz(), bar_baz(foo), barBaz(foo), barbaz(foo) etc.
+
+The tooling was surprisingly seemless given how new the language is.
+I found the vscode extension to work well out of box.
+This wasn't true for other languages like V, Odin and Zig.
 
 ## Zig
 

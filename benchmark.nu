@@ -22,3 +22,7 @@ cd ../../
 cd Compiled/Zig
 hyperfine --prepare 'del timer.exe timer.pdb' 'zig build-exe timer.zig' -w 10 -m 50
 cd ../../
+
+cd Compiled/Nim
+hyperfine --prepare 'del timer.exe' 'nim c timer.nim' -w 10 -m 50
+cd ../../
