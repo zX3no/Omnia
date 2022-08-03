@@ -99,6 +99,8 @@ It's also important to keep in mind I only used these languages for a simple pro
   - Odin instead of Zig
   - Anything instead of Lua
 
+## Overview
+
 TODO: Retime using hyperfine
 
 | Language   | Simplicity | Documentation | Build Tools | Compile Times (ms) | Error Messages |
@@ -794,23 +796,23 @@ const time = std.time;
 
 pub fn main() !void {
     const stdin = std.io.getStdIn().reader();
-    var buf: [20]u8 = undefined;
+    var buf: [8]u8 = undefined;
 
     print("Enter a time in seconds: ", .{});
 
     const amt = try stdin.read(&buf);
     const line = std.mem.trimRight(u8, buf[0..amt], "\r\n");
-    var t = fmt.parseUnsigned(u8, line, 10) catch {
-        print("Invalid number.\n", .{});
-        return;
+
+    var t = fmt.parseUnsigned(u64, line, 10) catch {
+        return print("Invalid number.\n", .{});
     };
 
     while (t != 0) {
         var f = @intToFloat(f32, t);
-        const mins = @floatToInt(i32, math.floor(f / 60.0));
+        const mins = @floatToInt(u32, math.floor(f / 60.0));
         const secs = t % 60;
+        print("{any:0>2}:{any:0>2}\r", .{ mins, secs });
         os.windows.kernel32.Sleep(1000);
-        print("{any}:{any} \r", .{ mins, secs });
         t -= 1;
     }
 }
@@ -818,7 +820,15 @@ pub fn main() !void {
 
 ### Overview
 
-TODO: rewrite overview and code
+Hello world in Zig:
+
+```zig
+const std = @import("std");
+
+pub fn main() !void {
+    try std.io.getStdOut().writer().print("Hello, world!\n", .{});
+}
+```
 
 Error messages are bad, documentation is bad. 
 This language feels like it was written by someone who wanted to make C even harder to use.
@@ -833,6 +843,39 @@ C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, foun
 pub fn main() anyerror!void {
                             ^
 C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set' cannot cast into error set 'std.os.WriteError'
+            return std.fmt.format(self, format, args);
+                                 ^
+```
+
+```
+C:\Path\zig\lib\std\fmt.zig:84:9: error: Expected tuple or struct argument, found []const u8
+        @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
+        ^
+C:\Path\zig\lib\std\io\writer.zig:28:34: note: called from here
+            return std.fmt.format(self, format, args);
+                                 ^
+C:\Path\zig\lib\std\debug.zig:93:27: note: called from here
+    nosuspend stderr.print(fmt, args) catch return;
+                          ^
+.\timer.zig:17:10: note: called from here
+    print("{}", line);
+         ^
+.\timer.zig:8:21: note: called from here
+pub fn main() !void {
+                    ^
+C:\Path\zig\lib\std\io\writer.zig:28:34: error: expected type 'std.os.WriteError!void', found '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set!void'
+            return std.fmt.format(self, format, args);
+                                 ^
+C:\Path\zig\lib\std\debug.zig:93:27: note: called from here
+    nosuspend stderr.print(fmt, args) catch return;
+                          ^
+.\timer.zig:17:10: note: called from here
+    print("{}", line);
+         ^
+.\timer.zig:8:21: note: called from here
+pub fn main() !void {
+                    ^
+C:\Path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set' cannot cast into error set 'std.os.WriteError'     
             return std.fmt.format(self, format, args);
                                  ^
 ```
