@@ -564,8 +564,6 @@ fn main() {
         t -= 1;
     }
 }
-
-
 ```
 
 ### Overview
@@ -606,6 +604,8 @@ Hopefully, something like this can be added to the standard library.
 TODO: Talk about cargo and rustc and figure out why rustc is so much faster.
 
 TODO: Talk about the documentation.
+
+TODO: Talk about eprint and stdout().flush()
 
 ## Go
 
@@ -820,7 +820,7 @@ pub fn main() !void {
 
 ### Overview
 
-Hello world in Zig:
+I'll start with hello world:
 
 ```zig
 const std = @import("std");
@@ -830,22 +830,12 @@ pub fn main() !void {
 }
 ```
 
-Error messages are bad, documentation is bad. 
-This language feels like it was written by someone who wanted to make C even harder to use.
+Okay...
 
-Builds in release mode by default and I have no idea how to change it. 
+There *could* be a reason to remove all abstraction from a langauge. 
+Maybe they are focusing on making low level code easy to write.
 
-```zig
-C:\path\zig\lib\std\fmt.zig:82:9: error: Expected tuple or struct argument, found std.fmt.ParseIntError!i64
-        @compileError("Expected tuple or struct argument, found " ++ @typeName(ArgsType));
-        ^
-.\timer.zig:4:29: note: called from here
-pub fn main() anyerror!void {
-                            ^
-C:\path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@TypeOf(std.fmt.format)).Fn.return_type.?).ErrorUnion.error_set' cannot cast into error set 'std.os.WriteError'
-            return std.fmt.format(self, format, args);
-                                 ^
-```
+Perhaps with great error messages? 
 
 ```
 C:\Path\zig\lib\std\fmt.zig:84:9: error: Expected tuple or struct argument, found []const u8
@@ -879,6 +869,13 @@ C:\Path\zig\lib\std\io\writer.zig:28:34: note: error set '@typeInfo(@typeInfo(@T
             return std.fmt.format(self, format, args);
                                  ^
 ```
+
+I found the build.zig file to super complicated and the poor documentation did not help. 
+The default configuration generated with `zig build-exe` builds in release mode and I couldn't figure out how to change it to debug mode.
+
+Zig has a one page language reference which is difficult to naviagate.
+I had to look through the source to find basic things such as string formatting.
+There is beta documentation with a search but it's lacking some detail.
 
 ## Odin
 
