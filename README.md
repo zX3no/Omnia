@@ -4,8 +4,6 @@
 
 The code is finished however the writing mostly covers tooling and installation rather than the language itself.
 
-The scope of this project got a little out of hand. It was only meant as a brief overview rather than a comparative analysis of every programming language. 
-
 ## Goals
 
 I've heard good and bad things about many languages before, people often pick favourites and get very defensive about them.
