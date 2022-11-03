@@ -2,7 +2,7 @@
 
 ## ⚠️ Work in progress
 
-The code is finished however the writing mostly covers tooling and installation rather than the language itself.
+The code is finished, however the writing mostly covers tooling and installation rather than the language itself.
 
 ## Goals
 
