@@ -1,6 +1,27 @@
 ## ⚠️ Work in progress
+## Table of contents
 
-The code is finished, however the writing mostly covers tooling and installation rather than the language itself.
+- Interpreted
+  - [Python](#python)
+  - [Javascript](#javascript)
+  - [Typescript](#typescript)
+- Compiled
+  - [C](#c)
+  - [C++](#cpp)
+  - [V](#v)
+  - [Rust](#rust)
+  - [Go](#go)
+  - [Nim](#nim)
+  - [Zig](#zig)
+  - [Odin](#odin)
+- Bytecode
+  - [Java](#java)
+  - [Kotlin](#kotlin)
+  - [C#](#c-sharp)
+  - [Lua](#lua)
+- Functional
+  - [Gleam](#gleam)
+  - [Elixir](#elixir)
 
 ## Goals
 
@@ -29,30 +50,6 @@ while time > 0
     sleep(1 second)
     time = time - 1
 ```
-
-## Table of contents
-
-- Interpreted
-  - [Python](#python)
-  - [Javascript](#javascript)
-  - [Typescript](#typescript)
-- Compiled
-  - [C](#c)
-  - [C++](#cpp)
-  - [V](#v)
-  - [Rust](#rust)
-  - [Go](#go)
-  - [Nim](#nim)
-  - [Zig](#zig)
-  - [Odin](#odin)
-- Bytecode
-  - [Java](#java)
-  - [Kotlin](#kotlin)
-  - [C#](#c-sharp)
-  - [Lua](#lua)
-- Functional
-  - [Gleam](#gleam)
-  - [Elixir](#elixir)
 
 ## Rankings
 
@@ -94,8 +91,6 @@ It's also important to keep in mind I only used these languages for a simple pro
   - Anything instead of Lua
 
 ## Overview
-
-TODO: Retime using hyperfine
 
 | Language   | Simplicity | Documentation | Build Tools | Compile Times (ms) | Error Messages |
 |------------|------------|---------------|-------------|--------------------|----------------|
