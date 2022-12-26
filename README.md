@@ -21,7 +21,7 @@ Here's some pseudo code of the timer:
 ```python
 time = 120
 
-while time != 0 
+while time > 0 
     mins = ⌊time / 60⌋
     secs = time % 60
 
@@ -29,8 +29,6 @@ while time != 0
     sleep(1 second)
     time = time - 1
 ```
-
-And remember, I'm comparing the design of each languages not their features, performance or stability.
 
 ## Table of contents
 
