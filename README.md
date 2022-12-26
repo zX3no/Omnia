@@ -1,5 +1,3 @@
-<h1 align="center">Omnia</h1>
-
 ## ⚠️ Work in progress
 
 The code is finished, however the writing mostly covers tooling and installation rather than the language itself.
